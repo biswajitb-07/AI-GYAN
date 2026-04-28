@@ -2,11 +2,14 @@ import { env } from "../config/env.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { createAdminSessionToken, getAdminCookieName } from "../utils/adminAuth.js";
 
+const isProduction = env.nodeEnv === "production";
+
 const cookieOptions = {
   httpOnly: true,
-  sameSite: "lax",
-  secure: false,
+  sameSite: isProduction ? "none" : "lax",
+  secure: isProduction,
   path: "/",
+  maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
 const buildAdminPayload = () => ({

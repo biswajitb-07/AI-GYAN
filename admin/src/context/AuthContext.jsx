@@ -28,7 +28,8 @@ export const AuthProvider = ({ children }) => {
       loading,
       isAuthenticated: Boolean(admin),
       login: async (payload) => {
-        const session = await loginAdminRequest(payload);
+        await loginAdminRequest(payload);
+        const session = await fetchAdminSession();
         setAdmin(session);
         return session;
       },
