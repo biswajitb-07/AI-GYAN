@@ -33,6 +33,33 @@ const stopWords = new Set([
   "want",
 ]);
 
+const greetingTokens = new Set([
+  "hello",
+  "hey",
+  "hi",
+  "hii",
+  "hiii",
+  "hiiii",
+  "yo",
+  "sup",
+  "hola",
+  "namaste",
+  "hy",
+]);
+
+const vagueQueryTokens = new Set([
+  "ai",
+  "tool",
+  "tools",
+  "help",
+  "idea",
+  "ideas",
+  "recommend",
+  "recommendation",
+  "suggest",
+  "suggestion",
+]);
+
 const categoryIntentMap = {
   "Video Editing": ["video", "videos", "yt", "youtube", "edit", "editing", "short", "shorts", "reel", "clips", "subtitle"],
   "Avatar / Video Avatar": ["avatar", "presenter", "talking", "dub", "dubbing", "face", "spokesperson"],
@@ -95,6 +122,34 @@ const getIntentCategories = (tokens) =>
     .filter(([, keywords]) => keywords.some((keyword) => tokens.includes(keyword)))
     .map(([category]) => category);
 
+const isGreetingOnly = (message, tokens) => {
+  const normalized = normalizeText(message);
+
+  if (!normalized) {
+    return false;
+  }
+
+  const compact = normalized.replace(/\s+/g, "");
+
+  if (greetingTokens.has(compact)) {
+    return true;
+  }
+
+  return tokens.length > 0 && tokens.every((token) => greetingTokens.has(token));
+};
+
+const isTooVagueToRecommend = (tokens, intentCategories) => {
+  if (intentCategories.length > 0) {
+    return false;
+  }
+
+  if (!tokens.length) {
+    return true;
+  }
+
+  return tokens.every((token) => vagueQueryTokens.has(token) || greetingTokens.has(token));
+};
+
 const buildToolSearchScore = (tool, tokens, normalizedQuery, intentCategories) => {
   const fields = {
     name: normalizeText(tool.name),
@@ -106,35 +161,35 @@ const buildToolSearchScore = (tool, tokens, normalizedQuery, intentCategories) =
   };
 
   let score = 0;
+  let relevanceMatched = false;
 
   if (fields.name === normalizedQuery) {
     score += 160;
+    relevanceMatched = true;
   }
 
   if (fields.name.includes(normalizedQuery) && normalizedQuery.length > 2) {
     score += 50;
+    relevanceMatched = true;
   }
 
   if (intentCategories.includes(tool.category)) {
     score += 42;
+    relevanceMatched = true;
   }
-
-  if (tool.featured) {
-    score += 4;
-  }
-
-  score += Math.min(Number(tool.viewCount || 0) / 250, 10);
-  score += Math.min(Number(tool.rating || 0), 5);
 
   for (const token of tokens) {
     if (fields.name.split(" ").includes(token)) {
       score += 18;
+      relevanceMatched = true;
     } else if (fields.name.includes(token)) {
       score += 12;
+      relevanceMatched = true;
     }
 
     if (fields.category.includes(token)) {
       score += 14;
+      relevanceMatched = true;
     }
 
     if (fields.pricing === token) {
@@ -143,18 +198,33 @@ const buildToolSearchScore = (tool, tokens, normalizedQuery, intentCategories) =
 
     if (fields.tags.some((tag) => tag === token)) {
       score += 14;
+      relevanceMatched = true;
     } else if (fields.tags.some((tag) => tag.includes(token))) {
       score += 9;
+      relevanceMatched = true;
     }
 
     if (fields.description.includes(token)) {
       score += 5;
+      relevanceMatched = true;
     }
 
     if (fields.longDescription.includes(token)) {
       score += 3;
+      relevanceMatched = true;
     }
   }
+
+  if (!relevanceMatched) {
+    return 0;
+  }
+
+  if (tool.featured) {
+    score += 4;
+  }
+
+  score += Math.min(Number(tool.viewCount || 0) / 250, 10);
+  score += Math.min(Number(tool.rating || 0), 5);
 
   return score;
 };
@@ -181,6 +251,12 @@ const buildFallbackReply = (message, tools, intentCategories) => {
 
   return `${intro} ${lines.join(" ")}`;
 };
+
+const buildGreetingReply = () =>
+  "Hi! Tell me what you want to do, and I will suggest the right AI tools. For example: YouTube video editing, coding assistant, logo design, voice cloning, or research.";
+
+const buildClarifyingReply = (message) =>
+  `I can help with that. Tell me your goal a bit more clearly, like "${message} for YouTube editing", "${message} for coding", or "${message} for image generation".`;
 
 const buildAiPrompt = (message, tools, intentCategories) => {
   const toolCatalog = tools
@@ -288,6 +364,30 @@ export const chatWithAi = asyncHandler(async (req, res) => {
   const tokens = tokenize(message);
   const intentCategories = getIntentCategories(tokens);
 
+  if (isGreetingOnly(message, tokens)) {
+    res.json({
+      data: {
+        reply: buildGreetingReply(),
+        model: "conversation-guard",
+        suggestions: [],
+        intentCategories: [],
+      },
+    });
+    return;
+  }
+
+  if (isTooVagueToRecommend(tokens, intentCategories)) {
+    res.json({
+      data: {
+        reply: buildClarifyingReply(message),
+        model: "conversation-guard",
+        suggestions: [],
+        intentCategories,
+      },
+    });
+    return;
+  }
+
   const tools = await Tool.find()
     .select("name slug category pricing description longDescription tags featured viewCount rating image")
     .lean();
@@ -300,6 +400,18 @@ export const chatWithAi = asyncHandler(async (req, res) => {
     .filter((tool) => tool.score > 0)
     .sort((left, right) => right.score - left.score)
     .slice(0, 8);
+
+  if (!rankedTools.length || (rankedTools[0]?.score || 0) < 18) {
+    res.json({
+      data: {
+        reply: buildClarifyingReply(message),
+        model: "conversation-guard",
+        suggestions: [],
+        intentCategories,
+      },
+    });
+    return;
+  }
 
   const suggestions = rankedTools.slice(0, 4).map(compactTool);
   const { reply, model } = await generateGroundedReply(message, rankedTools, intentCategories);
