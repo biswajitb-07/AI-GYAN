@@ -99,4 +99,9 @@ const toolSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+toolSchema.index({ category: 1, featured: -1, createdAt: -1 });
+toolSchema.index({ featured: -1, viewCount: -1, createdAt: -1 });
+toolSchema.index({ name: 1 });
+toolSchema.index({ tags: 1 });
+
 export const Tool = mongoose.model("Tool", toolSchema);

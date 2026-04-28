@@ -24,4 +24,7 @@ const searchQuerySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+searchQuerySchema.index({ count: -1, lastSearchedAt: -1 });
+searchQuerySchema.index({ noResultCount: -1, lastSearchedAt: -1 });
+
 export const SearchQuery = mongoose.model("SearchQuery", searchQuerySchema);

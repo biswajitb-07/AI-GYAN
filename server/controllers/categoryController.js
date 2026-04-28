@@ -3,20 +3,23 @@ import { Tool } from "../models/Tool.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { createSlug } from "../utils/createSlug.js";
 import { getPagination } from "../utils/apiFeatures.js";
+import { clampString, toSafeRegex } from "../utils/requestSafety.js";
 
 export const getCategories = asyncHandler(async (req, res) => {
   const filters = {};
   const { page, limit, skip } = getPagination(req.query);
 
-  if (req.query.search) {
+  const search = clampString(req.query.search, 80);
+
+  if (search) {
     filters.$or = [
-      { name: { $regex: req.query.search, $options: "i" } },
-      { description: { $regex: req.query.search, $options: "i" } },
+      { name: { $regex: toSafeRegex(search) } },
+      { description: { $regex: toSafeRegex(search) } },
     ];
   }
 
   const [categories, total] = await Promise.all([
-    Category.find(filters).sort({ toolCount: -1, name: 1 }).skip(skip).limit(limit),
+    Category.find(filters).sort({ toolCount: -1, name: 1 }).skip(skip).limit(limit).lean(),
     Category.countDocuments(filters),
   ]);
 
@@ -33,18 +36,18 @@ export const getCategories = asyncHandler(async (req, res) => {
 
 export const createCategory = asyncHandler(async (req, res) => {
   const category = await Category.create({
-    name: req.body.name,
+    name: clampString(req.body.name, 80),
     slug: createSlug(req.body.name),
-    description: req.body.description,
-    icon: req.body.icon || "Sparkles",
-    color: req.body.color || "from-sky-500 to-cyan-400",
+    description: clampString(req.body.description, 400),
+    icon: clampString(req.body.icon || "Sparkles", 40),
+    color: clampString(req.body.color || "from-sky-500 to-cyan-400", 80),
   });
 
   res.status(201).json({ data: category });
 });
 
 export const getCategoryBySlug = asyncHandler(async (req, res) => {
-  const category = await Category.findOne({ slug: req.params.slug });
+  const category = await Category.findOne({ slug: req.params.slug }).lean();
 
   if (!category) {
     res.status(404);
@@ -53,7 +56,7 @@ export const getCategoryBySlug = asyncHandler(async (req, res) => {
 
   const { page, limit, skip } = getPagination(req.query);
   const [tools, total] = await Promise.all([
-    Tool.find({ category: category.name }).sort({ featured: -1, viewCount: -1, createdAt: -1 }).skip(skip).limit(limit),
+    Tool.find({ category: category.name }).sort({ featured: -1, viewCount: -1, createdAt: -1 }).skip(skip).limit(limit).lean(),
     Tool.countDocuments({ category: category.name }),
   ]);
 
@@ -85,6 +88,10 @@ export const updateCategory = asyncHandler(async (req, res) => {
     req.params.id,
     {
       ...req.body,
+      name: clampString(nextName, 80),
+      description: clampString(req.body.description ?? current.description, 400),
+      icon: clampString(req.body.icon ?? current.icon, 40),
+      color: clampString(req.body.color ?? current.color, 80),
       slug: createSlug(nextName),
     },
     { new: true, runValidators: true }

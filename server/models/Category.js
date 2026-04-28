@@ -35,4 +35,6 @@ const categorySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+categorySchema.index({ toolCount: -1, name: 1 });
+
 export const Category = mongoose.model("Category", categorySchema);

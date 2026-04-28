@@ -5,6 +5,7 @@ dotenv.config();
 export const env = {
   port: process.env.PORT || 5000,
   nodeEnv: process.env.NODE_ENV || "development",
+  isProduction: process.env.NODE_ENV === "production",
   mongoUri: process.env.MONGODB_URI,
   clientUrl: process.env.CLIENT_URL || "http://localhost:5173",
   adminUrl: process.env.ADMIN_URL || "http://localhost:5174",

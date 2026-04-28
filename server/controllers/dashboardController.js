@@ -17,9 +17,9 @@ export const getDashboardStats = asyncHandler(async (req, res) => {
         { $sort: { count: -1 } },
         { $limit: 8 },
       ]),
-      Tool.find().sort({ createdAt: -1 }).limit(6).select("name category pricing featured createdAt viewCount"),
-      SearchQuery.find().sort({ count: -1, lastSearchedAt: -1 }).limit(8).select("term count lastSearchedAt"),
-      SearchQuery.find({ noResultCount: { $gt: 0 } }).sort({ noResultCount: -1, lastSearchedAt: -1 }).limit(8).select("term noResultCount lastSearchedAt"),
+      Tool.find().sort({ createdAt: -1 }).limit(6).select("name category pricing featured createdAt viewCount").lean(),
+      SearchQuery.find().sort({ count: -1, lastSearchedAt: -1 }).limit(8).select("term count lastSearchedAt").lean(),
+      SearchQuery.find({ noResultCount: { $gt: 0 } }).sort({ noResultCount: -1, lastSearchedAt: -1 }).limit(8).select("term noResultCount lastSearchedAt").lean(),
     ]);
 
   res.json({

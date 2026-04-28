@@ -19,9 +19,12 @@
   },
   "dependencies": {
     "cloudinary": "latest",
+    "compression": "^1.8.1",
     "cors": "latest",
     "dotenv": "latest",
     "express": "latest",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
     "mongoose": "latest",
     "multer": "latest",
     "slugify": "latest"

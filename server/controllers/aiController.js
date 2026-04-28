@@ -1,6 +1,7 @@
 import { env } from "../config/env.js";
 import { Tool } from "../models/Tool.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
+import { clampString } from "../utils/requestSafety.js";
 
 const shouldRetryWithAnotherModel = (errorMessage) =>
   /no endpoints found|no provider available|not available|temporarily unavailable/i.test(errorMessage);
@@ -276,7 +277,7 @@ const generateGroundedReply = async (message, tools, intentCategories) => {
 };
 
 export const chatWithAi = asyncHandler(async (req, res) => {
-  const message = String(req.body.message || "").trim();
+  const message = clampString(req.body.message, 400);
 
   if (!message) {
     res.status(400);

@@ -6,6 +6,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { buildToolFilters, getPagination } from "../utils/apiFeatures.js";
 import { createSlug } from "../utils/createSlug.js";
 import { uploadToCloudinary } from "../utils/uploadToCloudinary.js";
+import { clampString, isValidHttpUrl } from "../utils/requestSafety.js";
 
 const normalizeToolPayload = async (body, file) => {
   let image = body.imageUrl
@@ -23,25 +24,35 @@ const normalizeToolPayload = async (body, file) => {
 
   const name = body.name?.trim();
   const category = body.category?.trim();
+  const websiteUrl = clampString(body.websiteUrl, 300);
+
+  if (!name || !category) {
+    throw new Error("Tool name and category are required");
+  }
+
+  if (!isValidHttpUrl(websiteUrl)) {
+    throw new Error("A valid website URL is required");
+  }
 
   return {
     name,
     slug: body.slug?.trim() || createSlug(name),
-    description: body.description?.trim(),
-    longDescription: body.longDescription?.trim() || body.description?.trim(),
+    description: clampString(body.description, 300),
+    longDescription: clampString(body.longDescription || body.description, 2000),
     category,
     pricing: body.pricing,
     featured: body.featured === "true" || body.featured === true,
-    websiteUrl: body.websiteUrl?.trim(),
+    websiteUrl,
     image,
     tags: Array.isArray(body.tags)
       ? body.tags
       : String(body.tags || "")
           .split(",")
           .map((tag) => tag.trim())
-          .filter(Boolean),
+          .filter(Boolean)
+          .slice(0, 12),
     rating: Number(body.rating) || 4.7,
-    monthlyVisits: body.monthlyVisits || "10K+",
+    monthlyVisits: clampString(body.monthlyVisits || "10K+", 30),
   };
 };
 
@@ -69,7 +80,7 @@ export const getTools = asyncHandler(async (req, res) => {
   const sort = sortOptions[req.query.sort] || { featured: -1, createdAt: -1 };
 
   const [tools, total] = await Promise.all([
-    Tool.find(filters).sort(sort).skip(skip).limit(limit),
+    Tool.find(filters).sort(sort).skip(skip).limit(limit).lean(),
     Tool.countDocuments(filters),
   ]);
 
@@ -85,12 +96,12 @@ export const getTools = asyncHandler(async (req, res) => {
 });
 
 export const getFeaturedTools = asyncHandler(async (req, res) => {
-  const tools = await Tool.find({ featured: true }).sort({ createdAt: -1 }).limit(8);
+  const tools = await Tool.find({ featured: true }).sort({ createdAt: -1 }).limit(8).lean();
   res.json({ data: tools });
 });
 
 export const getToolBySlug = asyncHandler(async (req, res) => {
-  const tool = await Tool.findOne({ slug: req.params.slug });
+  const tool = await Tool.findOne({ slug: req.params.slug }).lean();
 
   if (!tool) {
     res.status(404);
@@ -101,7 +112,7 @@ export const getToolBySlug = asyncHandler(async (req, res) => {
 });
 
 export const getRelatedTools = asyncHandler(async (req, res) => {
-  const currentTool = await Tool.findOne({ slug: req.params.slug });
+  const currentTool = await Tool.findOne({ slug: req.params.slug }).lean();
 
   if (!currentTool) {
     res.status(404);
@@ -116,7 +127,8 @@ export const getRelatedTools = asyncHandler(async (req, res) => {
     ],
   })
     .sort({ featured: -1, viewCount: -1, createdAt: -1 })
-    .limit(6);
+    .limit(6)
+    .lean();
 
   res.json({ data: tools });
 });
@@ -133,7 +145,7 @@ export const getCompareTools = asyncHandler(async (req, res) => {
     throw new Error("At least one tool slug is required");
   }
 
-  const tools = await Tool.find({ slug: { $in: slugs } });
+  const tools = await Tool.find({ slug: { $in: slugs } }).lean();
   const orderMap = new Map(slugs.map((slug, index) => [slug, index]));
 
   tools.sort((left, right) => (orderMap.get(left.slug) ?? 0) - (orderMap.get(right.slug) ?? 0));

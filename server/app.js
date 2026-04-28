@@ -1,6 +1,8 @@
+import compression from "compression";
 import cors from "cors";
 import express from "express";
 import fs from "fs";
+import helmet from "helmet";
 import analyticsRoutes from "./routes/analyticsRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
 import adminAuthRoutes from "./routes/adminAuthRoutes.js";
@@ -12,30 +14,49 @@ import dashboardRoutes from "./routes/dashboardRoutes.js";
 import toolRoutes from "./routes/toolRoutes.js";
 import { env } from "./config/env.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
+import { aiLimiter, analyticsLimiter, authLimiter } from "./middleware/rateLimiters.js";
 
 fs.mkdirSync("tmp", { recursive: true });
 
 const app = express();
+const allowedOrigins = new Set([env.clientUrl, env.adminUrl].filter(Boolean));
+
+app.disable("x-powered-by");
+app.set("trust proxy", 1);
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  })
+);
+app.use(compression());
 
 app.use(
   cors({
-    origin: [env.clientUrl, env.adminUrl],
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.has(origin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("CORS origin not allowed"));
+    },
     credentials: true,
   })
 );
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "200kb" }));
+app.use(express.urlencoded({ extended: true, limit: "200kb" }));
 
 app.get("/api/health", (req, res) => {
+  res.set("Cache-Control", "no-store");
   res.json({ status: "ok" });
 });
 
 app.use("/api/tools", toolRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/dashboard", dashboardRoutes);
-app.use("/api/analytics", analyticsRoutes);
-app.use("/api/ai", aiRoutes);
-app.use("/api/admin-auth", adminAuthRoutes);
+app.use("/api/analytics", analyticsLimiter, analyticsRoutes);
+app.use("/api/ai", aiLimiter, aiRoutes);
+app.use("/api/admin-auth", authLimiter, adminAuthRoutes);
 app.use("/api/admin/tools", adminToolRoutes);
 app.use("/api/admin/categories", adminCategoryRoutes);
 app.use("/api/admin/dashboard", adminDashboardRoutes);

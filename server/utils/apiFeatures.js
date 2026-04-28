@@ -1,11 +1,15 @@
+import { clampString, toSafeRegex } from "./requestSafety.js";
+
 export const buildToolFilters = (query) => {
   const filters = {};
+  const search = clampString(query.search, 80);
+  const tag = clampString(query.tag, 40);
 
-  if (query.search) {
+  if (search) {
     filters.$or = [
-      { name: { $regex: query.search, $options: "i" } },
-      { description: { $regex: query.search, $options: "i" } },
-      { tags: { $in: [new RegExp(query.search, "i")] } },
+      { name: { $regex: toSafeRegex(search) } },
+      { description: { $regex: toSafeRegex(search) } },
+      { tags: { $in: [toSafeRegex(search)] } },
     ];
   }
 
@@ -21,8 +25,8 @@ export const buildToolFilters = (query) => {
     filters.featured = true;
   }
 
-  if (query.tag) {
-    filters.tags = { $in: [new RegExp(query.tag, "i")] };
+  if (tag) {
+    filters.tags = { $in: [toSafeRegex(tag)] };
   }
 
   return filters;

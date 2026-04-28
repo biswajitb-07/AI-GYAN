@@ -21,4 +21,7 @@ const pageViewSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+pageViewSchema.index({ path: 1, sessionId: 1 });
+pageViewSchema.index({ toolSlug: 1, createdAt: -1 });
+
 export const PageView = mongoose.model("PageView", pageViewSchema);
