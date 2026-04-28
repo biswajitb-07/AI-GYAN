@@ -63,14 +63,17 @@ const AiChatWidget = () => {
       const response = await chatWithAi({
         message,
         history: nextMessages.slice(-6),
-      });
+      }).unwrap();
+
+      const reply = String(response?.reply || "").trim();
+      const suggestions = Array.isArray(response?.suggestions) ? response.suggestions : [];
 
       setMessages((current) => [
         ...current,
         {
           role: "assistant",
-          content: response.reply,
-          suggestions: Array.isArray(response.suggestions) ? response.suggestions : [],
+          content: reply || "I could not find a strong answer for that yet. Try describing your use case in a bit more detail.",
+          suggestions,
         },
       ]);
     } catch {
