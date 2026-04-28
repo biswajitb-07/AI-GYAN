@@ -16,7 +16,7 @@ export const adminApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["Auth", "Dashboard", "Tools", "Categories"],
+  tagTypes: ["Auth", "Dashboard", "Tools", "Categories", "News"],
   endpoints: (builder) => ({
     loginAdmin: builder.mutation({
       query: (payload) => ({
@@ -42,6 +42,13 @@ export const adminApi = createApi({
       query: () => "/admin/dashboard/stats",
       transformResponse: (response) => response.data,
       providesTags: ["Dashboard", "Tools", "Categories"],
+    }),
+    syncLatestNews: builder.mutation({
+      query: () => ({
+        url: "/admin/news/sync",
+        method: "POST",
+      }),
+      invalidatesTags: ["News"],
     }),
     getTools: builder.query({
       query: (params) => ({
@@ -111,6 +118,7 @@ export const {
   useLogoutAdminMutation,
   useGetAdminSessionQuery,
   useGetDashboardStatsQuery,
+  useSyncLatestNewsMutation,
   useGetToolsQuery,
   useGetAdminCategoriesQuery,
   useCreateCategoryMutation,

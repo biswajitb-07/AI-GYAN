@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 const links = [
   { to: "/", label: "Home" },
   { to: "/tools", label: "Tools" },
+  { to: "/blog", label: "Blog" },
   { to: "/pricing", label: "Pricing" },
 ];
 
@@ -56,7 +57,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden w-full flex-col gap-3 xl:flex xl:w-auto xl:min-w-0 xl:flex-1 xl:flex-row xl:items-center xl:justify-end xl:gap-4">
-          <nav className="grid w-full grid-cols-1 gap-2 rounded-[1.5rem] border border-white/10 bg-white/5 p-1.5 sm:grid-cols-3 sm:max-w-xl xl:w-auto xl:min-w-[340px] xl:flex-none">
+          <nav className="grid w-full grid-cols-2 gap-2 rounded-[1.5rem] border border-white/10 bg-white/5 p-1.5 sm:grid-cols-4 sm:max-w-2xl xl:w-auto xl:min-w-[420px] xl:flex-none">
             {links.map((link) => (
               <NavLink
                 key={link.label}

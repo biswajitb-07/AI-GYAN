@@ -15,6 +15,8 @@ export const env = {
   cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME,
   cloudinaryApiKey: process.env.CLOUDINARY_API_KEY,
   cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET,
+  aiNewsFeedUrls: process.env.AI_NEWS_FEED_URLS || "",
+  newsSyncTimezone: process.env.NEWS_SYNC_TIMEZONE || "Asia/Kolkata",
   aiApiUrl: process.env.AI_API_URL || "",
   aiApiKey: process.env.AI_API_KEY || "",
   aiChatModel: process.env.AI_CHAT_MODEL || "",

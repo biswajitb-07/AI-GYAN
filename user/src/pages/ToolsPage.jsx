@@ -118,19 +118,6 @@ const ToolsPage = () => {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            {[
-              { label: "Live tools", value: toolPagination?.total || 0 },
-              { label: "Categories", value: categories.length || 0 },
-              { label: "Current page", value: page },
-            ].map((item) => (
-              <div key={item.label} className="rounded-[1.4rem] border border-white/10 bg-white/[0.05] px-4 py-4">
-                <p className="text-xs uppercase tracking-[0.22em] text-slate-400">{item.label}</p>
-                <p className="mt-3 text-2xl font-semibold text-white">{item.value}</p>
-              </div>
-            ))}
-          </div>
-
           <div className="mt-6 rounded-[1.7rem] border border-white/10 bg-slate-950/55 p-4 sm:p-5">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>

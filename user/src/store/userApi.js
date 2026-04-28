@@ -5,7 +5,7 @@ export const userApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_BASE_URL,
   }),
-  tagTypes: ["Tools", "Categories", "Dashboard", "Tool"],
+  tagTypes: ["Tools", "Categories", "Dashboard", "Tool", "News"],
   endpoints: (builder) => ({
     getFeaturedTools: builder.query({
       query: () => "/tools/featured/list",
@@ -27,6 +27,11 @@ export const userApi = createApi({
       query: () => "/dashboard/stats",
       transformResponse: (response) => response.data,
       providesTags: ["Dashboard"],
+    }),
+    getLatestNews: builder.query({
+      query: () => "/news",
+      transformResponse: (response) => response.data,
+      providesTags: ["News"],
     }),
     trackPageView: builder.mutation({
       query: (payload) => ({
@@ -108,6 +113,7 @@ export const {
   useGetFeaturedToolsQuery,
   useGetTrendingToolsQuery,
   useGetDashboardStatsQuery,
+  useGetLatestNewsQuery,
   useTrackPageViewMutation,
   useTrackSearchQueryMutation,
   useGetToolsQuery,

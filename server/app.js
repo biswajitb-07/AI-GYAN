@@ -8,9 +8,11 @@ import aiRoutes from "./routes/aiRoutes.js";
 import adminAuthRoutes from "./routes/adminAuthRoutes.js";
 import adminCategoryRoutes from "./routes/adminCategoryRoutes.js";
 import adminDashboardRoutes from "./routes/adminDashboardRoutes.js";
+import adminNewsRoutes from "./routes/adminNewsRoutes.js";
 import adminToolRoutes from "./routes/adminToolRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import newsRoutes from "./routes/newsRoutes.js";
 import toolRoutes from "./routes/toolRoutes.js";
 import { env } from "./config/env.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
@@ -54,12 +56,14 @@ app.get("/api/health", (req, res) => {
 app.use("/api/tools", toolRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/news", newsRoutes);
 app.use("/api/analytics", analyticsLimiter, analyticsRoutes);
 app.use("/api/ai", aiLimiter, aiRoutes);
 app.use("/api/admin-auth", authLimiter, adminAuthRoutes);
 app.use("/api/admin/tools", adminToolRoutes);
 app.use("/api/admin/categories", adminCategoryRoutes);
 app.use("/api/admin/dashboard", adminDashboardRoutes);
+app.use("/api/admin/news", adminNewsRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

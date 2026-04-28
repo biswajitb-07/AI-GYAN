@@ -28,8 +28,8 @@ const HomePage = ({ stats }) => {
         <div className="mb-8 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <SectionTitle
             eyebrow="Trending now"
-            title="Market me abhi jo AI tools trend kar rahe hain"
-            description="Most viewed aur high-interest AI tools ko yahan highlight kiya gaya hai, taaki users quickly dekh saken ki abhi market me kya chal raha hai."
+            title="AI tools that are trending right now"
+            description="This section highlights the most viewed and high-interest AI tools so users can quickly see what is gaining momentum right now."
           />
           <Link
             to="/tools?sort=popular"

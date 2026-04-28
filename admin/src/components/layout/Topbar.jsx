@@ -1,5 +1,6 @@
+import { LoaderCircle, RefreshCw } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { useLogoutAdminMutation } from "../../store/adminApi";
+import { useLogoutAdminMutation, useSyncLatestNewsMutation } from "../../store/adminApi";
 import { clearAuth, selectAdmin } from "../../store/authSlice";
 import { useAppSelector } from "../../store/hooks";
 import { useToast } from "../shared/ToastProvider";
@@ -8,6 +9,7 @@ const Topbar = () => {
   const dispatch = useDispatch();
   const admin = useAppSelector(selectAdmin);
   const [logoutAdmin] = useLogoutAdminMutation();
+  const [syncLatestNews, { isLoading: newsSyncing }] = useSyncLatestNewsMutation();
   const toast = useToast();
 
   return (
@@ -18,7 +20,27 @@ const Topbar = () => {
       </div>
       <div className="flex flex-wrap items-center gap-3">
         <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200">{admin?.email}</div>
-       
+        <button
+          type="button"
+          onClick={async () => {
+            try {
+              const response = await syncLatestNews().unwrap();
+              if (response?.changed) {
+                toast.success(response?.message || `Synced ${response?.data?.length || 5} latest AI news stories`);
+                return;
+              }
+
+              toast.info(response?.message || "Latest batch refreshed, but no newer stories were available yet");
+            } catch (error) {
+              toast.error(error?.data?.message || "Unable to sync latest AI news");
+            }
+          }}
+          disabled={newsSyncing}
+          className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-70"
+        >
+          {newsSyncing ? <LoaderCircle size={16} className="animate-spin" /> : <RefreshCw size={16} />}
+          {newsSyncing ? "Syncing news..." : "Sync AI News"}
+        </button>
         <button
           type="button"
           onClick={async () => {

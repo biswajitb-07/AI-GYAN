@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import AboutPage from "../pages/AboutPage";
+import BlogPage from "../pages/BlogPage";
 import CategoryDetailPage from "../pages/CategoryDetailPage";
 import CompareToolsPage from "../pages/CompareToolsPage";
 import ContactPage from "../pages/ContactPage";
@@ -16,6 +17,7 @@ const AppRoutes = ({ stats }) => {
     <Routes>
       <Route path="/" element={<HomePage stats={stats} />} />
       <Route path="/about" element={<AboutPage />} />
+      <Route path="/blog" element={<BlogPage />} />
       <Route path="/categories/:slug" element={<CategoryDetailPage />} />
       <Route path="/compare" element={<CompareToolsPage />} />
       <Route path="/contact" element={<ContactPage />} />

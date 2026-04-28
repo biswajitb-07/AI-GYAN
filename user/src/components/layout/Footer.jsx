@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 const footerLinks = [
   ["About", "/about"],
+  ["Blog", "/blog"],
   ["Contact", "/contact"],
   ["Privacy Policy", "/privacy-policy"],
   ["Terms", "/terms"],

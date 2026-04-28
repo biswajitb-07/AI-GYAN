@@ -177,7 +177,7 @@ const AiChatWidget = () => {
           className="inline-flex items-center gap-2 rounded-full border border-sky-400/20 bg-sky-400 px-4 py-3 text-sm font-semibold text-slate-950 shadow-lg shadow-sky-500/30 transition hover:bg-sky-300"
         >
           <Sparkles size={16} />
-          Gyan chat
+          AI Chat
         </button>
       )}
     </div>
