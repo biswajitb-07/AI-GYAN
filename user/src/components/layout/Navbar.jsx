@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Heart, Menu, Trash2, X } from "lucide-react";
-import { DISCOVERY_UPDATED_EVENT, getFavorites, removeFavoriteBySlug } from "../../utils/discoveryStorage";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
@@ -12,29 +11,11 @@ const links = [
 const Navbar = () => {
   const location = useLocation();
   const shellRef = useRef(null);
-  const [savedTools, setSavedTools] = useState([]);
-  const [savedOpen, setSavedOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const syncSaved = () => {
-      setSavedTools(getFavorites());
-    };
-
-    syncSaved();
-    window.addEventListener(DISCOVERY_UPDATED_EVENT, syncSaved);
-    window.addEventListener("focus", syncSaved);
-
-    return () => {
-      window.removeEventListener(DISCOVERY_UPDATED_EVENT, syncSaved);
-      window.removeEventListener("focus", syncSaved);
-    };
-  }, []);
 
   useEffect(() => {
     const handlePointerDown = (event) => {
       if (!shellRef.current?.contains(event.target)) {
-        setSavedOpen(false);
         setMobileMenuOpen(false);
       }
     };
@@ -47,7 +28,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setSavedOpen(false);
     setMobileMenuOpen(false);
   }, [location.pathname, location.search]);
 
@@ -67,7 +47,6 @@ const Navbar = () => {
             type="button"
             onClick={() => {
               setMobileMenuOpen((current) => !current);
-              setSavedOpen(false);
             }}
             className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10 xl:hidden"
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -92,81 +71,6 @@ const Navbar = () => {
               </NavLink>
             ))}
           </nav>
-
-          <div className="relative xl:flex-none">
-            <button
-              type="button"
-              onClick={() => setSavedOpen((current) => !current)}
-              className={`inline-flex w-full items-center justify-center gap-3 rounded-full border px-4 py-2.5 text-sm font-medium transition xl:w-auto ${
-                savedOpen ? "border-sky-400/30 bg-white/10 text-white" : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
-              }`}
-            >
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900/80">
-                <Heart size={16} className="text-rose-200" />
-              </span>
-              <span>Saved</span>
-              <span className="rounded-full bg-slate-900/80 px-2 py-0.5 text-[11px] font-semibold text-white">{savedTools.length}</span>
-            </button>
-
-            {savedOpen ? (
-              <div className="mt-3 w-full xl:absolute xl:right-0 xl:top-[calc(100%+0.8rem)] xl:mt-0 xl:w-[360px]">
-                <div className="rounded-[1.6rem] border border-white/10 bg-slate-950/95 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.45)] backdrop-blur-xl">
-                  <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-3">
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Saved tools</p>
-                      <h3 className="mt-2 text-lg font-semibold text-white">Your shortlist</h3>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setSavedOpen(false)}
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-300 transition hover:bg-white/10 hover:text-white"
-                    >
-                      <X size={15} />
-                    </button>
-                  </div>
-
-                  <div className="mt-4">
-                    {savedTools.length ? (
-                      <div className="scrollbar-hidden max-h-[312px] space-y-2 overflow-y-auto pr-1">
-                        {savedTools.map((tool) => (
-                          <div
-                            key={tool.slug}
-                            className="flex items-center gap-2 rounded-[1.1rem] border border-white/10 bg-white/5 p-2 text-sm text-slate-200 transition hover:border-sky-400/30 hover:bg-white/10"
-                          >
-                            <Link to={`/tools/${tool.slug}`} className="min-w-0 flex-1 rounded-[0.95rem] px-1.5 py-1.5">
-                              <span className="block truncate font-medium">{tool.name}</span>
-                              {tool.category ? <span className="mt-1 block truncate text-xs text-slate-400">{tool.category}</span> : null}
-                            </Link>
-                            <button
-                              type="button"
-                              onClick={() => setSavedTools(removeFavoriteBySlug(tool.slug))}
-                              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900/80 text-slate-400 transition hover:bg-rose-500/15 hover:text-rose-200"
-                              aria-label={`Remove ${tool.name}`}
-                            >
-                              <Trash2 size={15} />
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="rounded-[1.2rem] border border-dashed border-white/10 bg-white/5 px-4 py-6 text-sm leading-6 text-slate-400">
-                        Save tools from cards and they will appear here.
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mt-4">
-                    <Link
-                      to="/tools"
-                      className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
-                    >
-                      Browse tools
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-          </div>
         </div>
 
         <div className={`fixed inset-0 z-[70] bg-slate-950/70 backdrop-blur-sm transition duration-300 xl:hidden ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`} />
@@ -207,81 +111,6 @@ const Navbar = () => {
                 </NavLink>
               ))}
             </nav>
-
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setSavedOpen((current) => !current)}
-                className={`inline-flex w-full items-center justify-center gap-3 rounded-full border px-4 py-2.5 text-sm font-medium transition ${
-                  savedOpen ? "border-sky-400/30 bg-white/10 text-white" : "border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900/80">
-                  <Heart size={16} className="text-rose-200" />
-                </span>
-                <span>Saved</span>
-                <span className="rounded-full bg-slate-900/80 px-2 py-0.5 text-[11px] font-semibold text-white">{savedTools.length}</span>
-              </button>
-
-              {savedOpen ? (
-                <div className="mt-3">
-                  <div className="rounded-[1.6rem] border border-white/10 bg-slate-950/95 p-4 shadow-[0_24px_70px_rgba(15,23,42,0.45)] backdrop-blur-xl">
-                    <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-3">
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Saved tools</p>
-                        <h3 className="mt-2 text-lg font-semibold text-white">Your shortlist</h3>
-                      </div>
-                      <button
-                        type="button"
-                        onClick={() => setSavedOpen(false)}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-slate-300 transition hover:bg-white/10 hover:text-white"
-                      >
-                        <X size={15} />
-                      </button>
-                    </div>
-
-                    <div className="mt-4">
-                      {savedTools.length ? (
-                        <div className="scrollbar-hidden max-h-[312px] space-y-2 overflow-y-auto pr-1">
-                          {savedTools.map((tool) => (
-                            <div
-                              key={tool.slug}
-                              className="flex items-center gap-2 rounded-[1.1rem] border border-white/10 bg-white/5 p-2 text-sm text-slate-200 transition hover:border-sky-400/30 hover:bg-white/10"
-                            >
-                              <Link to={`/tools/${tool.slug}`} className="min-w-0 flex-1 rounded-[0.95rem] px-1.5 py-1.5">
-                                <span className="block truncate font-medium">{tool.name}</span>
-                                {tool.category ? <span className="mt-1 block truncate text-xs text-slate-400">{tool.category}</span> : null}
-                              </Link>
-                              <button
-                                type="button"
-                                onClick={() => setSavedTools(removeFavoriteBySlug(tool.slug))}
-                                className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900/80 text-slate-400 transition hover:bg-rose-500/15 hover:text-rose-200"
-                                aria-label={`Remove ${tool.name}`}
-                              >
-                                <Trash2 size={15} />
-                              </button>
-                            </div>
-                          ))}
-                        </div>
-                      ) : (
-                        <div className="rounded-[1.2rem] border border-dashed border-white/10 bg-white/5 px-4 py-6 text-sm leading-6 text-slate-400">
-                          Save tools from cards and they will appear here.
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="mt-4">
-                      <Link
-                        to="/tools"
-                        className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10"
-                      >
-                        Browse tools
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ) : null}
-            </div>
           </div>
         </div>
       </div>

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { deleteTool, fetchCategories, fetchTools } from "../api/dashboard";
 import DeleteToolDialog from "../components/dashboard/DeleteToolDialog";
 import EditToolDialog from "../components/dashboard/EditToolDialog";
 import ToolForm from "../components/dashboard/ToolForm";
 import ToolsTable from "../components/dashboard/ToolsTable";
 import Dialog from "../components/shared/Dialog";
 import Pagination from "../components/shared/Pagination";
+import { useDeleteToolMutation, useGetAdminCategoriesQuery, useGetToolsQuery } from "../store/adminApi";
 import { useToast } from "../components/shared/ToastProvider";
 
 const sanitizePage = (value) => {
@@ -16,13 +16,11 @@ const sanitizePage = (value) => {
 
 const ToolsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [tools, setTools] = useState([]);
-  const [pagination, setPagination] = useState(null);
-  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [selectedTool, setSelectedTool] = useState(null);
   const [toolToDelete, setToolToDelete] = useState(null);
-  const [deleting, setDeleting] = useState(false);
   const [addToolOpen, setAddToolOpen] = useState(false);
+  const [deleteTool, { isLoading: deleting }] = useDeleteToolMutation();
   const toast = useToast();
 
   const search = searchParams.get("search") || "";
@@ -31,6 +29,23 @@ const ToolsPage = () => {
   const sort = searchParams.get("sort") || "";
   const featured = searchParams.get("featured") || "";
   const page = sanitizePage(searchParams.get("page"));
+
+  const toolsParams = {
+    search,
+    category,
+    pricing,
+    sort,
+    featured,
+    page,
+    limit: 20,
+  };
+
+  const { data: toolsResponse, isLoading: toolsLoading, isFetching: toolsFetching } = useGetToolsQuery(toolsParams);
+  const { data: categoriesResponse } = useGetAdminCategoriesQuery({ limit: 200 });
+
+  const tools = toolsResponse?.data || [];
+  const pagination = toolsResponse?.pagination || null;
+  const categories = categoriesResponse?.data || [];
 
   const updateQueryParams = (nextValues) => {
     const nextSearchParams = new URLSearchParams(searchParams);
@@ -49,28 +64,9 @@ const ToolsPage = () => {
     setSearchParams(nextSearchParams);
   };
 
-  const loadData = async () => {
-    const [toolResponse, categoryResponse] = await Promise.all([
-      fetchTools({
-        search,
-        category,
-        pricing,
-        sort,
-        featured,
-        page,
-        limit: 20,
-      }),
-      fetchCategories({ limit: 200 }),
-    ]);
-
-    setTools(toolResponse.data);
-    setPagination(toolResponse.pagination);
-    setCategories(categoryResponse.data || []);
-  };
-
   useEffect(() => {
-    loadData();
-  }, [search, category, pricing, sort, featured, page]);
+    setLoading(toolsLoading || toolsFetching);
+  }, [toolsFetching, toolsLoading]);
 
   return (
     <div className="space-y-6">
@@ -147,6 +143,7 @@ const ToolsPage = () => {
       <ToolsTable
         tools={tools}
         totalTools={pagination?.total || tools.length}
+        loading={loading}
         onEdit={(tool) => setSelectedTool(tool)}
         onDelete={(tool) => setToolToDelete(tool)}
       />
@@ -161,12 +158,11 @@ const ToolsPage = () => {
         <ToolForm
           categories={categories}
           onCreated={() => {
-            loadData();
             setAddToolOpen(false);
           }}
         />
       </Dialog>
-      <EditToolDialog open={Boolean(selectedTool)} tool={selectedTool} categories={categories} onClose={() => setSelectedTool(null)} onUpdated={loadData} />
+      <EditToolDialog open={Boolean(selectedTool)} tool={selectedTool} categories={categories} onClose={() => setSelectedTool(null)} onUpdated={() => setSelectedTool(null)} />
       <DeleteToolDialog
         open={Boolean(toolToDelete)}
         tool={toolToDelete}
@@ -177,16 +173,12 @@ const ToolsPage = () => {
             return;
           }
 
-          setDeleting(true);
           try {
-            await deleteTool(toolToDelete._id);
+            await deleteTool(toolToDelete._id).unwrap();
             setToolToDelete(null);
-            await loadData();
             toast.success("Tool deleted successfully");
           } catch (error) {
-            toast.error(error.response?.data?.message || "Unable to delete tool");
-          } finally {
-            setDeleting(false);
+            toast.error(error?.data?.message || "Unable to delete tool");
           }
         }}
       />

@@ -1,17 +1,21 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 import Spinner from "../components/shared/Spinner";
+import { useLoginAdminMutation } from "../store/adminApi";
+import { selectIsAuthenticated, setCredentials } from "../store/authSlice";
+import { useAppSelector } from "../store/hooks";
 import { useToast } from "../components/shared/ToastProvider";
 
 const LoginPage = () => {
-  const { isAuthenticated, login } = useAuth();
+  const dispatch = useDispatch();
+  const isAuthenticated = useAppSelector(selectIsAuthenticated);
+  const [loginAdmin, { isLoading: submitting }] = useLoginAdminMutation();
   const toast = useToast();
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
 
   if (isAuthenticated) {
@@ -20,18 +24,24 @@ const LoginPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitting(true);
     setError("");
 
     try {
-      await login(form);
+      const session = await loginAdmin(form).unwrap();
+      dispatch(
+        setCredentials({
+          token: session.token,
+          admin: {
+            email: session.email,
+            role: session.role,
+          },
+        })
+      );
       toast.success("Admin login successful");
     } catch (requestError) {
-      const message = requestError.response?.data?.message || "Login failed";
+      const message = requestError?.data?.message || "Login failed";
       setError(message);
       toast.error(message);
-    } finally {
-      setSubmitting(false);
     }
   };
 

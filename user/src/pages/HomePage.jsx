@@ -1,6 +1,4 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { fetchCategories, fetchTrendingTools } from "../api/tools";
 import AdsterraDirectLinkCard from "../components/ads/AdsterraDirectLinkCard";
 import AdsterraScriptUnit from "../components/ads/AdsterraScriptUnit";
 import CategoryStrip from "../components/home/CategoryStrip";
@@ -8,13 +6,11 @@ import HeroSection from "../components/home/HeroSection";
 import SectionTitle from "../components/shared/SectionTitle";
 import ToolGrid from "../components/tools/ToolGrid";
 import { adsterraConfig } from "../config/adsterra";
-import { useAsyncData } from "../hooks/useAsyncData";
+import { useGetCategoriesQuery, useGetTrendingToolsQuery } from "../store/userApi";
 
 const HomePage = ({ stats }) => {
-  const trendingState = useAsyncData(fetchTrendingTools, []);
-  const categoriesState = useAsyncData(() => fetchCategories({ limit: 24 }), []);
-
-  const categories = useMemo(() => categoriesState.data || [], [categoriesState.data]);
+  const { data: trendingTools = [], isLoading: trendingLoading } = useGetTrendingToolsQuery();
+  const { data: categories = [] } = useGetCategoriesQuery({ limit: 24 });
 
   return (
     <div>
@@ -42,7 +38,7 @@ const HomePage = ({ stats }) => {
             See full directory
           </Link>
         </div>
-        <ToolGrid tools={trendingState.data || []} loading={trendingState.loading} />
+        <ToolGrid tools={trendingTools} loading={trendingLoading} />
       </section>
     </div>
   );

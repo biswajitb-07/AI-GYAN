@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { GitCompare, Heart } from "lucide-react";
-import { getCompareSlugs, getFavorites, toggleCompareSlug, toggleFavorite } from "../../utils/discoveryStorage";
+import { GitCompare } from "lucide-react";
+import { getCompareSlugs, toggleCompareSlug } from "../../utils/discoveryStorage";
 import { toCategorySlug } from "../../utils/slugify";
 
 const pricingStyles = {
@@ -11,15 +11,12 @@ const pricingStyles = {
 };
 
 const ToolCard = ({ tool }) => {
-  const [favoriteSlugs, setFavoriteSlugs] = useState([]);
   const [compareSlugs, setCompareSlugs] = useState([]);
 
   useEffect(() => {
-    setFavoriteSlugs(getFavorites().map((item) => item.slug));
     setCompareSlugs(getCompareSlugs());
   }, []);
 
-  const isFavorite = favoriteSlugs.includes(tool.slug);
   const isCompared = compareSlugs.includes(tool.slug);
 
   return (
@@ -87,16 +84,6 @@ const ToolCard = ({ tool }) => {
         <h3 className="mt-3 text-lg font-semibold text-white">{tool.name}</h3>
         <p className="mt-2.5 flex-1 text-sm leading-6 text-slate-300">{tool.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setFavoriteSlugs(toggleFavorite(tool).map((item) => item.slug))}
-            className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-              isFavorite ? "bg-rose-400/15 text-rose-200" : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
-            }`}
-          >
-            <Heart size={13} />
-            {isFavorite ? "Saved" : "Save"}
-          </button>
           <button
             type="button"
             onClick={() => setCompareSlugs(toggleCompareSlug(tool.slug))}

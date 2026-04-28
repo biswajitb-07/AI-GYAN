@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { deleteCategory, fetchCategories } from "../api/dashboard";
 import CategoriesTable from "../components/dashboard/CategoriesTable";
 import CategoryForm from "../components/dashboard/CategoryForm";
 import DeleteCategoryDialog from "../components/dashboard/DeleteCategoryDialog";
 import EditCategoryDialog from "../components/dashboard/EditCategoryDialog";
 import Dialog from "../components/shared/Dialog";
 import Pagination from "../components/shared/Pagination";
+import { useDeleteCategoryMutation, useGetAdminCategoriesQuery } from "../store/adminApi";
 import { useToast } from "../components/shared/ToastProvider";
 
 const sanitizePage = (value) => {
@@ -15,17 +15,23 @@ const sanitizePage = (value) => {
 };
 
 const CategoriesPage = () => {
-  const [categories, setCategories] = useState([]);
-  const [pagination, setPagination] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categoryToDelete, setCategoryToDelete] = useState(null);
-  const [deleting, setDeleting] = useState(false);
   const [addCategoryOpen, setAddCategoryOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [deleteCategory, { isLoading: deleting }] = useDeleteCategoryMutation();
   const toast = useToast();
 
   const search = searchParams.get("search") || "";
   const page = sanitizePage(searchParams.get("page"));
+  const { data: categoriesResponse, isLoading: categoriesLoading, isFetching: categoriesFetching } = useGetAdminCategoriesQuery({
+    search,
+    page,
+    limit: 20,
+  });
+  const categories = categoriesResponse?.data || [];
+  const pagination = categoriesResponse?.pagination || null;
 
   const updateQueryParams = (nextValues) => {
     const nextSearchParams = new URLSearchParams(searchParams);
@@ -44,20 +50,9 @@ const CategoriesPage = () => {
     setSearchParams(nextSearchParams);
   };
 
-  const loadCategories = async () => {
-    const response = await fetchCategories({
-      search,
-      page,
-      limit: 20,
-    });
-
-    setCategories(response.data);
-    setPagination(response.pagination);
-  };
-
   useEffect(() => {
-    loadCategories();
-  }, [search, page]);
+    setLoading(categoriesLoading || categoriesFetching);
+  }, [categoriesFetching, categoriesLoading]);
 
   return (
     <div className="space-y-6">
@@ -85,8 +80,13 @@ const CategoriesPage = () => {
           </button>
         </div>
       </div>
-
-      <CategoriesTable categories={categories} totalCategories={pagination?.total || categories.length} onEdit={(category) => setSelectedCategory(category)} onDelete={(category) => setCategoryToDelete(category)} />
+      <CategoriesTable
+        categories={categories}
+        totalCategories={pagination?.total || categories.length}
+        loading={loading}
+        onEdit={(category) => setSelectedCategory(category)}
+        onDelete={(category) => setCategoryToDelete(category)}
+      />
       <Pagination pagination={pagination} onPageChange={(nextPage) => updateQueryParams({ page: nextPage })} />
 
       <Dialog
@@ -97,13 +97,12 @@ const CategoriesPage = () => {
       >
         <CategoryForm
           onCompleted={() => {
-            loadCategories();
             setAddCategoryOpen(false);
           }}
         />
       </Dialog>
 
-      <EditCategoryDialog open={Boolean(selectedCategory)} category={selectedCategory} onClose={() => setSelectedCategory(null)} onUpdated={loadCategories} />
+      <EditCategoryDialog open={Boolean(selectedCategory)} category={selectedCategory} onClose={() => setSelectedCategory(null)} onUpdated={() => setSelectedCategory(null)} />
       <DeleteCategoryDialog
         open={Boolean(categoryToDelete)}
         category={categoryToDelete}
@@ -114,16 +113,12 @@ const CategoriesPage = () => {
             return;
           }
 
-          setDeleting(true);
           try {
-            await deleteCategory(categoryToDelete._id);
+            await deleteCategory(categoryToDelete._id).unwrap();
             setCategoryToDelete(null);
-            await loadCategories();
             toast.success("Category deleted successfully");
           } catch (error) {
-            toast.error(error.response?.data?.message || "Unable to delete category");
-          } finally {
-            setDeleting(false);
+            toast.error(error?.data?.message || "Unable to delete category");
           }
         }}
       />

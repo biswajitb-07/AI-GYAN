@@ -1,6 +1,8 @@
 import { Pencil, Trash2 } from "lucide-react";
 
-const ToolsTable = ({ tools = [], totalTools = 0, onDelete, onEdit }) => {
+const skeletonRows = Array.from({ length: 6 }, (_, index) => index);
+
+const ToolsTable = ({ tools = [], totalTools = 0, loading = false, onDelete, onEdit }) => {
   return (
     <div className="rounded-[1.8rem] border border-white/10 bg-white/5 p-5">
       <div className="mb-5 flex items-center justify-between">
@@ -22,44 +24,73 @@ const ToolsTable = ({ tools = [], totalTools = 0, onDelete, onEdit }) => {
             </tr>
           </thead>
           <tbody>
-            {tools.map((tool) => (
-              <tr key={tool._id} className="border-t border-white/10 text-slate-200">
-                <td className="py-3">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900/80 p-1">
-                      <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
-                    </div>
-                    <div>
-                      <p>{tool.name}</p>
-                      <p className="text-xs text-slate-400">{tool.monthlyVisits}</p>
-                    </div>
-                  </div>
-                </td>
-                <td className="py-3">{tool.category}</td>
-                <td className="py-3">{tool.pricing}</td>
-                <td className="py-3">{tool.featured ? "Yes" : "No"}</td>
-                <td className="py-3">
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => onEdit(tool)}
-                      className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-400/20"
-                    >
-                      <Pencil size={14} />
-                      Edit
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => onDelete(tool)}
-                      className="inline-flex items-center gap-2 rounded-full border border-rose-400/20 bg-rose-400/10 px-3 py-2 text-xs font-semibold text-rose-100 transition hover:bg-rose-400/20"
-                    >
-                      <Trash2 size={14} />
-                      Delete
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {loading
+              ? skeletonRows.map((row) => (
+                  <tr key={`tool-skeleton-${row}`} className="border-t border-white/10">
+                    <td className="py-3">
+                      <div className="flex animate-pulse items-center gap-3">
+                        <div className="h-10 w-10 rounded-xl bg-white/10" />
+                        <div className="space-y-2">
+                          <div className="h-4 w-28 rounded-full bg-white/10" />
+                          <div className="h-3 w-16 rounded-full bg-white/10" />
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-3">
+                      <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
+                    </td>
+                    <td className="py-3">
+                      <div className="h-4 w-14 animate-pulse rounded-full bg-white/10" />
+                    </td>
+                    <td className="py-3">
+                      <div className="h-4 w-10 animate-pulse rounded-full bg-white/10" />
+                    </td>
+                    <td className="py-3">
+                      <div className="flex gap-2">
+                        <div className="h-10 w-24 animate-pulse rounded-full bg-cyan-400/10" />
+                        <div className="h-10 w-28 animate-pulse rounded-full bg-rose-400/10" />
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              : tools.map((tool) => (
+                  <tr key={tool._id} className="border-t border-white/10 text-slate-200">
+                    <td className="py-3">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900/80 p-1">
+                          <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
+                        </div>
+                        <div>
+                          <p>{tool.name}</p>
+                          <p className="text-xs text-slate-400">{tool.monthlyVisits}</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="py-3">{tool.category}</td>
+                    <td className="py-3">{tool.pricing}</td>
+                    <td className="py-3">{tool.featured ? "Yes" : "No"}</td>
+                    <td className="py-3">
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => onEdit(tool)}
+                          className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-2 text-xs font-semibold text-cyan-100 transition hover:bg-cyan-400/20"
+                        >
+                          <Pencil size={14} />
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => onDelete(tool)}
+                          className="inline-flex items-center gap-2 rounded-full border border-rose-400/20 bg-rose-400/10 px-3 py-2 text-xs font-semibold text-rose-100 transition hover:bg-rose-400/20"
+                        >
+                          <Trash2 size={14} />
+                          Delete
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
           </tbody>
         </table>
       </div>

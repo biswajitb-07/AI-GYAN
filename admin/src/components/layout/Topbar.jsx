@@ -1,8 +1,13 @@
-import { useAuth } from "../../context/AuthContext";
+import { useDispatch } from "react-redux";
+import { useLogoutAdminMutation } from "../../store/adminApi";
+import { clearAuth, selectAdmin } from "../../store/authSlice";
+import { useAppSelector } from "../../store/hooks";
 import { useToast } from "../shared/ToastProvider";
 
 const Topbar = () => {
-  const { admin, logout } = useAuth();
+  const dispatch = useDispatch();
+  const admin = useAppSelector(selectAdmin);
+  const [logoutAdmin] = useLogoutAdminMutation();
   const toast = useToast();
 
   return (
@@ -17,8 +22,12 @@ const Topbar = () => {
         <button
           type="button"
           onClick={async () => {
-            await logout();
-            toast.info("Logged out successfully");
+            try {
+              await logoutAdmin().unwrap();
+            } finally {
+              dispatch(clearAuth());
+              toast.info("Logged out successfully");
+            }
           }}
           className="rounded-full border border-rose-400/20 bg-rose-400/10 px-4 py-2 text-sm font-semibold text-rose-100 transition hover:bg-rose-400/20"
         >

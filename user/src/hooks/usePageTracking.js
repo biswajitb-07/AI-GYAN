@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { trackPageView } from "../api/tools";
+import { useTrackPageViewMutation } from "../store/userApi";
 
 const SESSION_STORAGE_KEY = "ai_gyan_session_id";
 
@@ -23,6 +23,7 @@ const getToolSlugFromPath = (pathname) => {
 
 export const usePageTracking = () => {
   const location = useLocation();
+  const [trackPageView] = useTrackPageViewMutation();
 
   useEffect(() => {
     const fingerprint = `${location.pathname}${location.search}`;

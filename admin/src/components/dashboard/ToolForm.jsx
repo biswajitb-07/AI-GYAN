@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { createTool, updateTool } from "../../api/dashboard";
+import { useCreateToolMutation, useUpdateToolMutation } from "../../store/adminApi";
 import Spinner from "../shared/Spinner";
 import { useToast } from "../shared/ToastProvider";
 
@@ -17,8 +17,10 @@ const initialState = {
 const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = null, submitLabel }) => {
   const [form, setForm] = useState(initialState);
   const [file, setFile] = useState(null);
-  const [submitting, setSubmitting] = useState(false);
+  const [createTool, { isLoading: creating }] = useCreateToolMutation();
+  const [updateTool, { isLoading: updating }] = useUpdateToolMutation();
   const toast = useToast();
+  const submitting = creating || updating;
 
   const categoryNames = useMemo(() => categories.map((category) => category.name), [categories]);
 
@@ -52,7 +54,6 @@ const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = n
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitting(true);
 
     try {
       const formData = new FormData();
@@ -66,10 +67,10 @@ const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = n
       if (mode === "edit" && initialData?._id) {
         formData.append("imageUrl", initialData.image?.url || "");
         formData.append("imagePublicId", initialData.image?.publicId || "");
-        await updateTool(initialData._id, formData);
+        await updateTool({ id: initialData._id, formData }).unwrap();
         toast.success("Tool updated successfully");
       } else {
-        await createTool(formData);
+        await createTool(formData).unwrap();
         toast.success("Tool created successfully");
       }
 
@@ -77,9 +78,7 @@ const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = n
       setFile(null);
       onCreated();
     } catch (error) {
-      toast.error(error.response?.data?.message || "Unable to save tool");
-    } finally {
-      setSubmitting(false);
+      toast.error(error?.data?.message || "Unable to save tool");
     }
   };
 

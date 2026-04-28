@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { fetchCategories, fetchFeaturedTools, fetchTools, trackSearchQuery } from "../api/tools";
 import SectionTitle from "../components/shared/SectionTitle";
 import FiltersBar from "../components/tools/FiltersBar";
 import Pagination from "../components/tools/Pagination";
 import ToolGrid from "../components/tools/ToolGrid";
-import { useAsyncData } from "../hooks/useAsyncData";
+import { useGetCategoriesQuery, useGetFeaturedToolsQuery, useGetToolsQuery, useTrackSearchQueryMutation } from "../store/userApi";
 
 const sanitizePage = (value) => {
   const parsed = Number(value);
@@ -13,8 +12,6 @@ const sanitizePage = (value) => {
 };
 
 const SearchResultsPage = () => {
-  const allCategoriesState = useAsyncData(() => fetchCategories({ limit: 200 }), []);
-  const featuredToolsState = useAsyncData(fetchFeaturedTools, []);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") || "";
   const selectedCategory = searchParams.get("category") || "";
@@ -23,15 +20,26 @@ const SearchResultsPage = () => {
   const featured = searchParams.get("featured") || "";
   const page = sanitizePage(searchParams.get("page"));
   const [searchDraft, setSearchDraft] = useState(query);
-  const [toolState, setToolState] = useState({
-    data: [],
-    pagination: null,
-    loading: true,
+  const [trackSearchQuery] = useTrackSearchQueryMutation();
+  const { data: allCategories = [] } = useGetCategoriesQuery({ limit: 200 });
+  const { data: featuredTools = [] } = useGetFeaturedToolsQuery();
+  const { data: toolsResponse, isLoading: toolsLoading, isFetching: toolsFetching } = useGetToolsQuery({
+    search: query,
+    category: selectedCategory,
+    pricing,
+    sort,
+    featured,
+    page,
+    limit: 24,
   });
-  const [categoryState, setCategoryState] = useState({
-    data: [],
-    loading: true,
+  const { data: matchedCategories = [], isLoading: categoriesLoading, isFetching: categoriesFetching } = useGetCategoriesQuery({
+    search: query,
+    limit: 12,
   });
+  const toolData = toolsResponse?.data || [];
+  const toolPagination = toolsResponse?.pagination || null;
+  const toolLoading = toolsLoading || toolsFetching;
+  const categoryLoading = categoriesLoading || categoriesFetching;
 
   useEffect(() => {
     setSearchDraft(query);
@@ -55,66 +63,19 @@ const SearchResultsPage = () => {
   };
 
   useEffect(() => {
-    const controller = new AbortController();
-    const timeout = window.setTimeout(async () => {
-      setToolState((current) => ({ ...current, loading: true }));
-      setCategoryState((current) => ({ ...current, loading: true }));
+    if (!query.trim()) {
+      return;
+    }
 
-      try {
-        const [toolsResponse, categoriesResponse] = await Promise.all([
-          fetchTools({
-            search: query,
-            category: selectedCategory,
-            pricing,
-            sort,
-            featured,
-            page,
-            limit: 24,
-          }),
-          fetchCategories({
-            search: query,
-            limit: 12,
-          }),
-        ]);
-
-        if (!controller.signal.aborted) {
-          setToolState({
-            data: toolsResponse.data || [],
-            pagination: toolsResponse.pagination,
-            loading: false,
-          });
-          setCategoryState({
-            data: categoriesResponse || [],
-            loading: false,
-          });
-
-          if (query.trim()) {
-            trackSearchQuery({
-              term: query,
-              hasResults: (toolsResponse.pagination?.total || 0) > 0 || (categoriesResponse?.length || 0) > 0,
-            }).catch(() => {});
-          }
-        }
-      } catch {
-        if (!controller.signal.aborted) {
-          setToolState({
-            data: [],
-            pagination: null,
-            loading: false,
-          });
-          setCategoryState({
-            data: [],
-            loading: false,
-          });
-        }
-      }
+    const timeout = window.setTimeout(() => {
+      trackSearchQuery({
+        term: query,
+        hasResults: (toolPagination?.total || 0) > 0 || matchedCategories.length > 0,
+      }).catch(() => {});
     }, 250);
 
-    return () => {
-      controller.abort();
-      window.clearTimeout(timeout);
-    };
-  }, [query, selectedCategory, pricing, sort, featured, page]);
+    return () => window.clearTimeout(timeout);
+  }, [matchedCategories.length, query, toolPagination?.total, trackSearchQuery]);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
@@ -133,8 +94,8 @@ const SearchResultsPage = () => {
           setSelectedCategory={(value) => updateQueryParams({ category: value, page: 1 })}
           pricing={pricing}
           setPricing={(value) => updateQueryParams({ pricing: value, page: 1 })}
-          categories={allCategoriesState.data || []}
-          tools={featuredToolsState.data || []}
+          categories={allCategories}
+          tools={featuredTools}
           onReset={() => {
             setSearchDraft("");
             updateQueryParams({ query: "", category: "", pricing: "", sort: "", featured: "", page: 1 });
@@ -171,12 +132,12 @@ const SearchResultsPage = () => {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-200">Matching categories</p>
               <h2 className="mt-2 text-2xl font-semibold text-white">
-                {categoryState.loading ? "Searching categories..." : `${categoryState.data.length} categories found`}
+                {categoryLoading ? "Searching categories..." : `${matchedCategories.length} categories found`}
               </h2>
             </div>
           </div>
 
-          {categoryState.loading ? (
+          {categoryLoading ? (
             <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
               {Array.from({ length: 6 }).map((_, index) => (
                 <div key={index} className="animate-pulse rounded-[1.4rem] border border-white/10 bg-white/5 p-5">
@@ -186,9 +147,9 @@ const SearchResultsPage = () => {
                 </div>
               ))}
             </div>
-          ) : categoryState.data.length ? (
+          ) : matchedCategories.length ? (
             <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {categoryState.data.map((category) => (
+              {matchedCategories.map((category) => (
                 <button
                   key={category.slug}
                   type="button"
@@ -213,12 +174,12 @@ const SearchResultsPage = () => {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-200">Matching tools</p>
               <h2 className="mt-2 text-2xl font-semibold text-white">
-                {toolState.pagination?.total || 0} tools found
+                {toolPagination?.total || 0} tools found
               </h2>
             </div>
           </div>
-          <ToolGrid tools={toolState.data} loading={toolState.loading} />
-          <Pagination pagination={toolState.pagination} onPageChange={(nextPage) => updateQueryParams({ page: nextPage })} />
+          <ToolGrid tools={toolData} loading={toolLoading} />
+          <Pagination pagination={toolPagination} onPageChange={(nextPage) => updateQueryParams({ page: nextPage })} />
         </div>
       </div>
     </section>

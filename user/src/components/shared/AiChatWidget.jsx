@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Bot, Send, Sparkles, X } from "lucide-react";
-import { chatWithAi } from "../../api/tools";
+import { useChatWithAiMutation } from "../../store/userApi";
 
 const TypingDots = () => (
   <div className="inline-flex items-center gap-1.5">
@@ -27,6 +27,7 @@ const AiChatWidget = () => {
   const [loading, setLoading] = useState(false);
   const messagesContainerRef = useRef(null);
   const messagesEndRef = useRef(null);
+  const [chatWithAi] = useChatWithAiMutation();
 
   useEffect(() => {
     if (!open) {

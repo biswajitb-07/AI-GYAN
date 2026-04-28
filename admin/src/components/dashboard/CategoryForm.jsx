@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createCategory, updateCategory } from "../../api/dashboard";
+import { useCreateCategoryMutation, useUpdateCategoryMutation } from "../../store/adminApi";
 import Spinner from "../shared/Spinner";
 import { useToast } from "../shared/ToastProvider";
 
@@ -12,8 +12,10 @@ const emptyForm = {
 
 const CategoryForm = ({ mode = "create", initialData = null, onCompleted, submitLabel }) => {
   const [form, setForm] = useState(emptyForm);
-  const [submitting, setSubmitting] = useState(false);
+  const [createCategory, { isLoading: creating }] = useCreateCategoryMutation();
+  const [updateCategory, { isLoading: updating }] = useUpdateCategoryMutation();
   const toast = useToast();
+  const submitting = creating || updating;
 
   useEffect(() => {
     if (!initialData) {
@@ -31,23 +33,20 @@ const CategoryForm = ({ mode = "create", initialData = null, onCompleted, submit
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setSubmitting(true);
 
     try {
       if (mode === "edit" && initialData?._id) {
-        await updateCategory(initialData._id, form);
+        await updateCategory({ id: initialData._id, payload: form }).unwrap();
         toast.success("Category updated successfully");
       } else {
-        await createCategory(form);
+        await createCategory(form).unwrap();
         toast.success("Category created successfully");
       }
 
       setForm(emptyForm);
       onCompleted();
     } catch (error) {
-      toast.error(error.response?.data?.message || "Unable to save category");
-    } finally {
-      setSubmitting(false);
+      toast.error(error?.data?.message || "Unable to save category");
     }
   };
 

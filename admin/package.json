@@ -9,11 +9,12 @@
     "preview": "vite preview --port 4174"
   },
   "dependencies": {
-    "axios": "latest",
+    "@reduxjs/toolkit": "^2.9.1",
     "lucide-react": "latest",
     "nprogress": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-redux": "^9.2.0",
     "react-router-dom": "latest",
     "recharts": "latest"
   },

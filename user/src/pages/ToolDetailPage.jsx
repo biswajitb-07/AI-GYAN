@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { GitCompare, Heart, Share2, Star } from "lucide-react";
-import { createToolReview, fetchRelatedTools, fetchToolBySlug } from "../api/tools";
+import { GitCompare, Share2, Star } from "lucide-react";
 import AdsterraDirectLinkCard from "../components/ads/AdsterraDirectLinkCard";
 import AdsterraScriptUnit from "../components/ads/AdsterraScriptUnit";
 import Loader from "../components/shared/Loader";
 import ToolGrid from "../components/tools/ToolGrid";
 import { adsterraConfig } from "../config/adsterra";
-import { useAsyncData } from "../hooks/useAsyncData";
-import { getCompareSlugs, getFavorites, pushRecentViewed, toggleCompareSlug, toggleFavorite } from "../utils/discoveryStorage";
+import { useCreateToolReviewMutation, useGetRelatedToolsQuery, useGetToolBySlugQuery } from "../store/userApi";
+import { getCompareSlugs, pushRecentViewed, toggleCompareSlug } from "../utils/discoveryStorage";
 import { toCategorySlug } from "../utils/slugify";
 
 const ToolDetailPage = () => {
   const { slug } = useParams();
-  const { data: tool, loading, error } = useAsyncData(() => fetchToolBySlug(slug), [slug]);
-  const [relatedTools, setRelatedTools] = useState([]);
-  const [favorites, setFavorites] = useState([]);
+  const { data: tool, isLoading: loading, isError: error } = useGetToolBySlugQuery(slug);
+  const { data: relatedTools = [] } = useGetRelatedToolsQuery(slug, { skip: !slug });
+  const [createToolReview] = useCreateToolReviewMutation();
   const [compareSlugs, setCompareSlugs] = useState([]);
   const [reviewForm, setReviewForm] = useState({ name: "", rating: 5, comment: "" });
   const [reviewState, setReviewState] = useState({ submitting: false, reviews: [] });
   const [isReviewDialogOpen, setIsReviewDialogOpen] = useState(false);
 
   useEffect(() => {
-    setFavorites(getFavorites().map((item) => item.slug));
     setCompareSlugs(getCompareSlugs());
   }, []);
 
@@ -36,17 +34,6 @@ const ToolDetailPage = () => {
       ...current,
       reviews: tool.reviews || [],
     }));
-
-    const loadRelated = async () => {
-      try {
-        const nextTools = await fetchRelatedTools(tool.slug);
-        setRelatedTools(nextTools);
-      } catch {
-        setRelatedTools([]);
-      }
-    };
-
-    loadRelated();
   }, [tool]);
 
   useEffect(() => {
@@ -77,7 +64,6 @@ const ToolDetailPage = () => {
     );
   }
 
-  const isFavorite = favorites.includes(tool.slug);
   const isCompared = compareSlugs.includes(tool.slug);
 
   return (
@@ -98,14 +84,6 @@ const ToolDetailPage = () => {
               <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">{tool.name}</h1>
               <p className="max-w-3xl text-base leading-8 text-slate-300">{tool.longDescription}</p>
               <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => setFavorites(toggleFavorite(tool).map((item) => item.slug))}
-                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold transition ${isFavorite ? "bg-rose-400/15 text-rose-200" : "border border-white/10 bg-white/5 text-white hover:bg-white/10"}`}
-                >
-                  <Heart size={16} />
-                  {isFavorite ? "Saved" : "Save tool"}
-                </button>
                 <button
                   type="button"
                   onClick={() => setCompareSlugs(toggleCompareSlug(tool.slug))}
@@ -257,7 +235,7 @@ const ToolDetailPage = () => {
                 setReviewState((current) => ({ ...current, submitting: true }));
 
                 try {
-                  const response = await createToolReview(tool.slug, reviewForm);
+                  const response = await createToolReview({ slug: tool.slug, payload: reviewForm }).unwrap();
                   setReviewState((current) => ({
                     submitting: false,
                     reviews: [response.data, ...current.reviews],

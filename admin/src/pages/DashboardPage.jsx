@@ -1,29 +1,19 @@
-import { useEffect, useState } from "react";
-import { fetchDashboardStats } from "../api/dashboard";
 import CategoryBarChart from "../components/charts/CategoryBarChart";
 import PricingPieChart from "../components/charts/PricingPieChart";
 import RecentToolsTable from "../components/dashboard/RecentToolsTable";
 import SearchInsightsPanel from "../components/dashboard/SearchInsightsPanel";
 import StatCard from "../components/dashboard/StatCard";
 import Loader from "../components/shared/Loader";
+import { useGetDashboardStatsQuery } from "../store/adminApi";
 
 const DashboardPage = () => {
-  const [state, setState] = useState({ data: null, loading: true });
+  const { data, isLoading } = useGetDashboardStatsQuery();
 
-  useEffect(() => {
-    const loadData = async () => {
-      const data = await fetchDashboardStats();
-      setState({ data, loading: false });
-    };
-
-    loadData();
-  }, []);
-
-  if (state.loading) {
+  if (isLoading || !data) {
     return <Loader />;
   }
 
-  const { overview, pricingBreakdown, categoryBreakdown, recentTools, topSearches, noResultSearches } = state.data;
+  const { overview, pricingBreakdown, categoryBreakdown, recentTools, topSearches, noResultSearches } = data;
 
   return (
     <div className="space-y-6">

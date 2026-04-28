@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import NProgress from "nprogress";
-import { AuthProvider } from "./context/AuthContext";
 import { ToastProvider } from "./components/shared/ToastProvider";
 import AppRoutes from "./routes/AppRoutes";
 
@@ -19,11 +18,9 @@ const App = () => {
   }, [location.pathname, location.search]);
 
   return (
-    <AuthProvider>
-      <ToastProvider>
-        <AppRoutes />
-      </ToastProvider>
-    </AuthProvider>
+    <ToastProvider>
+      <AppRoutes />
+    </ToastProvider>
   );
 };
 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { fetchCategories, fetchFeaturedTools, fetchTools, trackSearchQuery } from "../api/tools";
 import AdsterraDirectLinkCard from "../components/ads/AdsterraDirectLinkCard";
 import AdsterraScriptUnit from "../components/ads/AdsterraScriptUnit";
 import SectionTitle from "../components/shared/SectionTitle";
@@ -8,7 +7,7 @@ import FiltersBar from "../components/tools/FiltersBar";
 import Pagination from "../components/tools/Pagination";
 import ToolGrid from "../components/tools/ToolGrid";
 import { adsterraConfig } from "../config/adsterra";
-import { useAsyncData } from "../hooks/useAsyncData";
+import { useGetCategoriesQuery, useGetFeaturedToolsQuery, useGetToolsQuery, useTrackSearchQueryMutation } from "../store/userApi";
 
 const useCaseChips = [
   { label: "YouTube video", search: "youtube video" },
@@ -25,8 +24,6 @@ const sanitizePage = (value) => {
 };
 
 const ToolsPage = () => {
-  const categoriesState = useAsyncData(() => fetchCategories({ limit: 200 }), []);
-  const featuredToolsState = useAsyncData(fetchFeaturedTools, []);
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("search") || "";
   const selectedCategory = searchParams.get("category") || "";
@@ -35,11 +32,21 @@ const ToolsPage = () => {
   const featured = searchParams.get("featured") || "";
   const page = sanitizePage(searchParams.get("page"));
   const [searchDraft, setSearchDraft] = useState(search);
-  const [toolState, setToolState] = useState({
-    data: [],
-    pagination: null,
-    loading: true,
+  const [trackSearchQuery] = useTrackSearchQueryMutation();
+  const { data: categories = [] } = useGetCategoriesQuery({ limit: 200 });
+  const { data: featuredTools = [] } = useGetFeaturedToolsQuery();
+  const { data: toolsResponse, isLoading, isFetching } = useGetToolsQuery({
+    search,
+    category: selectedCategory,
+    pricing,
+    sort,
+    featured,
+    page,
+    limit: 24,
   });
+  const toolData = toolsResponse?.data || [];
+  const toolPagination = toolsResponse?.pagination || null;
+  const toolLoading = isLoading || isFetching;
 
   useEffect(() => {
     setSearchDraft(search);
@@ -63,51 +70,19 @@ const ToolsPage = () => {
   };
 
   useEffect(() => {
-    const controller = new AbortController();
-    const timeout = window.setTimeout(async () => {
-      setToolState((current) => ({ ...current, loading: true }));
+    if (!search.trim() || !toolsResponse) {
+      return;
+    }
 
-      try {
-        const response = await fetchTools({
-          search,
-          category: selectedCategory,
-          pricing,
-          sort,
-          featured,
-          page,
-          limit: 24,
-        });
-
-        if (!controller.signal.aborted) {
-          setToolState({
-            data: response.data,
-            pagination: response.pagination,
-            loading: false,
-          });
-
-          if (search.trim()) {
-            trackSearchQuery({
-              term: search,
-              hasResults: (response.pagination?.total || 0) > 0,
-            }).catch(() => {});
-          }
-        }
-      } catch (error) {
-        if (!controller.signal.aborted) {
-          setToolState({
-            data: [],
-            pagination: null,
-            loading: false,
-          });
-        }
-      }
+    const timeout = window.setTimeout(() => {
+      trackSearchQuery({
+        term: search,
+        hasResults: (toolsResponse.pagination?.total || 0) > 0,
+      }).catch(() => {});
     }, 250);
 
-    return () => {
-      controller.abort();
-      window.clearTimeout(timeout);
-    };
-  }, [search, selectedCategory, pricing, sort, featured, page]);
+    return () => window.clearTimeout(timeout);
+  }, [search, toolsResponse, trackSearchQuery]);
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
@@ -118,22 +93,22 @@ const ToolsPage = () => {
           <div className="hidden sm:block">
             <SectionTitle
               eyebrow="AI directory"
-              title={`Search ${toolState.pagination?.total || 0} curated AI tools with category and pricing filters`}
+              title={`Search ${toolPagination?.total || 0} curated AI tools with category and pricing filters`}
               description="Find the right tool for writing, design, automation, research, support, education, and more through a clean, scalable discovery layer."
             />
           </div>
 
           <div className="space-y-3 sm:hidden">
             <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-sky-200">AI directory</p>
-            <h1 className="text-3xl font-semibold leading-tight text-white">Search {toolState.pagination?.total || 0} curated AI tools</h1>
+            <h1 className="text-3xl font-semibold leading-tight text-white">Search {toolPagination?.total || 0} curated AI tools</h1>
             <p className="text-sm leading-7 text-slate-300">Use smart search, category filters, and quick discovery shortcuts to find the right tool faster.</p>
             <div className="grid grid-cols-3 gap-2 text-center text-xs text-slate-400">
               <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
-                <span className="block text-base font-semibold text-white">{toolState.pagination?.total || 0}</span>
+                <span className="block text-base font-semibold text-white">{toolPagination?.total || 0}</span>
                 Tools
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
-                <span className="block text-base font-semibold text-white">{categoriesState.data?.length || 0}</span>
+                <span className="block text-base font-semibold text-white">{categories.length || 0}</span>
                 Categories
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2">
@@ -145,8 +120,8 @@ const ToolsPage = () => {
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             {[
-              { label: "Live tools", value: toolState.pagination?.total || 0 },
-              { label: "Categories", value: categoriesState.data?.length || 0 },
+              { label: "Live tools", value: toolPagination?.total || 0 },
+              { label: "Categories", value: categories.length || 0 },
               { label: "Current page", value: page },
             ].map((item) => (
               <div key={item.label} className="rounded-[1.4rem] border border-white/10 bg-white/[0.05] px-4 py-4">
@@ -192,8 +167,8 @@ const ToolsPage = () => {
           setSelectedCategory={(value) => updateQueryParams({ category: value, page: 1 })}
           pricing={pricing}
           setPricing={(value) => updateQueryParams({ pricing: value, page: 1 })}
-          categories={categoriesState.data || []}
-          tools={featuredToolsState.data || []}
+          categories={categories}
+          tools={featuredTools}
           onReset={() => {
             setSearchDraft("");
             updateQueryParams({ search: "", category: "", pricing: "", sort: "", featured: "", page: 1 });
@@ -229,8 +204,8 @@ const ToolsPage = () => {
           <AdsterraScriptUnit scriptSrc={adsterraConfig.toolsScriptSrc} title="Sponsored results" minHeight={96} />
           <AdsterraDirectLinkCard />
         </div>
-        <ToolGrid tools={toolState.data} loading={toolState.loading} />
-        <Pagination pagination={toolState.pagination} onPageChange={(nextPage) => updateQueryParams({ page: nextPage })} />
+        <ToolGrid tools={toolData} loading={toolLoading} />
+        <Pagination pagination={toolPagination} onPageChange={(nextPage) => updateQueryParams({ page: nextPage })} />
       </div>
     </section>
   );

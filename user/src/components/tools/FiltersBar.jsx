@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchCategories, fetchTools } from "../../api/tools";
-import { ArrowRight, ChevronDown, Clock3, Flame, Search, SlidersHorizontal, Sparkles, X } from "lucide-react";
+import { ArrowRight, ChevronDown, Flame, Search, SlidersHorizontal, Sparkles, X } from "lucide-react";
+import { useLazyGetCategoriesQuery, useLazyGetToolsQuery } from "../../store/userApi";
 
 const pricingOptions = ["All", "Free", "Free Trial", "Paid"];
-const RECENT_SEARCHES_KEY = "ai-gyan-recent-searches";
 
 const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
@@ -36,9 +35,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
   const [isOpen, setIsOpen] = useState(false);
   const [categoriesOpen, setCategoriesOpen] = useState(false);
   const [toolsOpen, setToolsOpen] = useState(false);
-  const [recentOpen, setRecentOpen] = useState(true);
   const [trendingOpen, setTrendingOpen] = useState(true);
-  const [recentSearches, setRecentSearches] = useState([]);
   const [activeIndex, setActiveIndex] = useState(-1);
   const [suggestionState, setSuggestionState] = useState({
     categories: [],
@@ -48,15 +45,8 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
   const shellRef = useRef(null);
   const searchInputRef = useRef(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(RECENT_SEARCHES_KEY);
-      setRecentSearches(stored ? JSON.parse(stored) : []);
-    } catch {
-      setRecentSearches([]);
-    }
-  }, []);
+  const [triggerCategories] = useLazyGetCategoriesQuery();
+  const [triggerTools] = useLazyGetToolsQuery();
 
   useEffect(() => {
     const handlePointerDown = (event) => {
@@ -97,8 +87,8 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
     const timeout = window.setTimeout(async () => {
       try {
         const [categoriesResponse, toolsResponse] = await Promise.all([
-          fetchCategories({ search, limit: 8 }),
-          fetchTools({ search, limit: 8 }),
+          triggerCategories({ search, limit: 8 }).unwrap(),
+          triggerTools({ search, limit: 8 }).unwrap(),
         ]);
 
         if (!isCancelled) {
@@ -144,26 +134,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
   const matchingCategories = hasQuery ? suggestionState.categories : [];
   const matchingTools = hasQuery ? suggestionState.tools : [];
 
-  const saveRecentSearch = (value) => {
-    const trimmedValue = value.trim();
-
-    if (!trimmedValue) {
-      return;
-    }
-
-    const nextSearches = [trimmedValue, ...recentSearches.filter((item) => item.toLowerCase() !== trimmedValue.toLowerCase())].slice(0, 5);
-
-    setRecentSearches(nextSearches);
-
-    try {
-      window.localStorage.setItem(RECENT_SEARCHES_KEY, JSON.stringify(nextSearches));
-    } catch {
-      // Ignore storage failures.
-    }
-  };
-
   const submitSearch = (value = search) => {
-    saveRecentSearch(value);
     onSearchSubmit(value);
     setIsOpen(false);
     setActiveIndex(-1);
@@ -172,7 +143,6 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
 
   const applyCategory = (categoryName) => {
     setSelectedCategory(categoryName);
-    saveRecentSearch(categoryName);
     setIsOpen(false);
     setActiveIndex(-1);
     searchInputRef.current?.blur();
@@ -243,13 +213,6 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
       }))
     : [];
 
-  const recentItems = !hasQuery && recentOpen
-    ? recentSearches.map((term) => ({
-        key: `recent-${term}`,
-        onSelect: () => submitSearch(term),
-      }))
-    : [];
-
   const trendingCategoryItems = !hasQuery && trendingOpen
     ? trendingCategories.map((category) => ({
         key: `trending-category-${category.slug}`,
@@ -266,7 +229,6 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
 
   const navigableItems = [
     ...(topAction ? [topAction] : []),
-    ...recentItems,
     ...trendingCategoryItems,
     ...trendingToolItems,
     ...categoryItems,
@@ -410,45 +372,6 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
                   <div className="border-t border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 sm:px-6">
                     <button
                       type="button"
-                      onClick={() => setRecentOpen((current) => !current)}
-                      className="flex w-full items-center justify-between gap-4 text-left"
-                    >
-                      <span className="inline-flex items-center gap-2">
-                        <Clock3 size={16} className="text-sky-300" />
-                        Recent Searches ({recentSearches.length})
-                      </span>
-                      <ChevronDown size={18} className={`shrink-0 text-slate-400 transition ${recentOpen ? "rotate-180" : ""}`} />
-                    </button>
-                  </div>
-
-                  {recentOpen ? (
-                    <div className="scrollbar-hidden max-h-[148px] overflow-y-auto py-1.5 sm:max-h-[180px] sm:py-2">
-                      {recentSearches.length ? (
-                        recentSearches.map((term, index) => {
-                          const navOffset = topAction ? 1 : 0;
-                          const itemIndex = navOffset + index;
-
-                          return (
-                            <button
-                              key={term}
-                              type="button"
-                              onClick={() => submitSearch(term)}
-                              className={`flex w-full items-center justify-between gap-4 px-4 py-3.5 text-left transition sm:px-6 sm:py-4 ${activeIndex === itemIndex ? "bg-white/8" : "hover:bg-white/5"}`}
-                            >
-                              <span className="truncate text-white">{term}</span>
-                              <Clock3 size={16} className="shrink-0 text-slate-500" />
-                            </button>
-                          );
-                        })
-                      ) : (
-                        <div className="px-5 py-6 text-sm text-slate-400 sm:px-6">Recent searches yahan dikhengi.</div>
-                      )}
-                    </div>
-                  ) : null}
-
-                  <div className="border-t border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-300 sm:px-6">
-                    <button
-                      type="button"
                       onClick={() => setTrendingOpen((current) => !current)}
                       className="flex w-full items-center justify-between gap-4 text-left"
                     >
@@ -466,7 +389,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Popular Categories</p>
                         <div className="mt-3 flex flex-wrap gap-2">
                           {trendingCategories.map((category, index) => {
-                            const itemIndex = recentItems.length + index;
+                            const itemIndex = index;
 
                             return (
                               <button
@@ -484,9 +407,9 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
 
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-400">Trending Tools</p>
-                            <div className="mt-3 space-y-2">
-                              {fallbackTrendingTools.map((tool, index) => {
-                            const itemIndex = recentItems.length + trendingCategoryItems.length + index;
+                        <div className="mt-3 space-y-2">
+                          {fallbackTrendingTools.map((tool, index) => {
+                            const itemIndex = trendingCategoryItems.length + index;
 
                             return (
                               <button
@@ -636,7 +559,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
             <div className="border-t border-white/10 bg-slate-950/90 px-4 py-4 sm:px-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-sm text-slate-400">
-                  {hasQuery ? "View all results for this search or keep refining the query." : "Use recent, trending, or type a fresh query."}
+                  {hasQuery ? "View all results for this search or keep refining the query." : "Use trending picks or type a fresh query."}
                 </p>
                 <button
                   type="button"

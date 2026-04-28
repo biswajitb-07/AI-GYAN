@@ -1,34 +1,30 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { GitCompare, Heart, History, LoaderCircle, Trash2 } from "lucide-react";
-import { fetchCompareTools } from "../../api/tools";
+import { GitCompare, History, LoaderCircle, Trash2 } from "lucide-react";
+import { useLazyGetCompareToolsQuery } from "../../store/userApi";
 import {
   DISCOVERY_UPDATED_EVENT,
   getCompareSlugs,
-  getFavorites,
   getRecentViewed,
   removeCompareSlug,
-  removeFavoriteBySlug,
   removeRecentViewedBySlug,
 } from "../../utils/discoveryStorage";
 
 const tabs = [
-  { key: "saved", label: "Saved", icon: Heart, tone: "text-rose-200" },
   { key: "recent", label: "Recent", icon: History, tone: "text-sky-200" },
   { key: "compare", label: "Compare", icon: GitCompare, tone: "text-cyan-200" },
 ];
 
 const DiscoveryDock = () => {
-  const [activeTab, setActiveTab] = useState("saved");
-  const [savedTools, setSavedTools] = useState([]);
+  const [activeTab, setActiveTab] = useState("recent");
   const [recentlyViewed, setRecentlyViewed] = useState([]);
   const [compareSlugs, setCompareSlugs] = useState([]);
   const [compareTools, setCompareTools] = useState([]);
   const [compareLoading, setCompareLoading] = useState(false);
+  const [triggerCompareTools] = useLazyGetCompareToolsQuery();
 
   useEffect(() => {
     const syncDiscovery = () => {
-      setSavedTools(getFavorites());
       setRecentlyViewed(getRecentViewed());
       setCompareSlugs(getCompareSlugs());
     };
@@ -57,7 +53,8 @@ const DiscoveryDock = () => {
     let isCancelled = false;
     setCompareLoading(true);
 
-    fetchCompareTools(compareSlugs)
+    triggerCompareTools(compareSlugs)
+      .unwrap()
       .then((tools) => {
         if (!isCancelled) {
           setCompareTools(tools || []);
@@ -77,13 +74,6 @@ const DiscoveryDock = () => {
   }, [activeTab, compareSlugs]);
 
   const panelMap = {
-    saved: {
-      title: "Saved shortlist",
-      description: "Keep promising tools here while you explore the directory.",
-      data: savedTools,
-      empty: "Save tools from cards and they will appear here.",
-      tone: "text-rose-200",
-    },
     recent: {
       title: "Recently viewed",
       description: "Jump back into tools you opened a few moments ago.",
@@ -102,17 +92,11 @@ const DiscoveryDock = () => {
 
   const currentPanel = panelMap[activeTab];
   const counts = {
-    saved: savedTools.length,
     recent: recentlyViewed.length,
     compare: compareSlugs.length,
   };
 
   const handleRemove = (slug) => {
-    if (activeTab === "saved") {
-      setSavedTools(removeFavoriteBySlug(slug));
-      return;
-    }
-
     if (activeTab === "recent") {
       setRecentlyViewed(removeRecentViewedBySlug(slug));
       return;
@@ -130,7 +114,7 @@ const DiscoveryDock = () => {
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-sky-200">Workspace</p>
           <h2 className="mt-3 text-xl font-semibold text-white">Your tool stack</h2>
-          <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">Save, revisit, and compare tools without leaving the directory flow.</p>
+          <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">Revisit recently opened tools and build a compare queue without leaving the directory flow.</p>
         </div>
         <NavLink
           to="/compare"
