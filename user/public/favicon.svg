@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ai Gyan favicon">
+  <defs>
+    <linearGradient id="aigyan-favicon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22b8ff" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#081120" />
+  <path
+    d="M13 48 26.5 15.5c1-2.4 4.4-2.4 5.4 0L45 48h-8.4l-2.3-6.1H23.6L21.1 48Zm13.8-13h4.4L29 29.3Z"
+    fill="url(#aigyan-favicon-gradient)"
+  />
+  <circle cx="47.5" cy="20" r="5.2" fill="url(#aigyan-favicon-gradient)" />
+  <rect x="42.4" y="28" width="10.2" height="20" rx="4.8" fill="#e2e8f0" />
+</svg>
