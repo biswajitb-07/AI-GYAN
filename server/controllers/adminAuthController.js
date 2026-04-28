@@ -35,6 +35,7 @@ export const loginAdmin = asyncHandler(async (req, res) => {
     data: {
       email: payload.email,
       role: payload.role,
+      token,
     },
   });
 });

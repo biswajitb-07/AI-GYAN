@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { fetchAdminSession, loginAdmin as loginAdminRequest, logoutAdmin as logoutAdminRequest } from "../api/auth";
+import { clearAdminToken, setAdminToken } from "../api/adminSession";
 
 const AuthContext = createContext(null);
 
@@ -13,6 +14,7 @@ export const AuthProvider = ({ children }) => {
         const session = await fetchAdminSession();
         setAdmin(session);
       } catch {
+        clearAdminToken();
         setAdmin(null);
       } finally {
         setLoading(false);
@@ -28,13 +30,15 @@ export const AuthProvider = ({ children }) => {
       loading,
       isAuthenticated: Boolean(admin),
       login: async (payload) => {
-        await loginAdminRequest(payload);
+        const loginData = await loginAdminRequest(payload);
+        setAdminToken(loginData.token);
         const session = await fetchAdminSession();
         setAdmin(session);
         return session;
       },
       logout: async () => {
         await logoutAdminRequest();
+        clearAdminToken();
         setAdmin(null);
       },
     }),

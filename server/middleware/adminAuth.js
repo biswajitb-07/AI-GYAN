@@ -14,7 +14,9 @@ const parseCookies = (cookieHeader = "") =>
 
 export const requireAdminAuth = (req, res, next) => {
   const cookies = parseCookies(req.headers.cookie);
-  const token = cookies[getAdminCookieName()];
+  const authHeader = req.headers.authorization || "";
+  const bearerToken = authHeader.startsWith("Bearer ") ? authHeader.slice(7).trim() : "";
+  const token = bearerToken || cookies[getAdminCookieName()];
   const payload = verifyAdminSessionToken(token);
 
   if (!payload) {
