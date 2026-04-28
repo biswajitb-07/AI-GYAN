@@ -19,7 +19,7 @@ const HomePage = ({ stats }) => {
 
       <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
         <div className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-          <AdsterraScriptUnit scriptSrc={adsterraConfig.homeScriptSrc} title="Sponsored" minHeight={96} />
+          <AdsterraScriptUnit desktopUnit={adsterraConfig.homeDesktopUnit} mobileUnit={adsterraConfig.homeMobileUnit} title="Sponsored" minHeight={96} />
           <AdsterraDirectLinkCard />
         </div>
       </section>

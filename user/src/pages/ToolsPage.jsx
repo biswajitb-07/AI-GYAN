@@ -188,7 +188,7 @@ const ToolsPage = () => {
           </div>
         </div>
         <div className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
-          <AdsterraScriptUnit scriptSrc={adsterraConfig.toolsScriptSrc} title="Sponsored results" minHeight={96} />
+          <AdsterraScriptUnit desktopUnit={adsterraConfig.toolsDesktopUnit} mobileUnit={adsterraConfig.toolsMobileUnit} title="Sponsored results" minHeight={96} />
           <AdsterraDirectLinkCard />
         </div>
         <ToolGrid tools={toolData} loading={toolLoading} />

@@ -135,11 +135,11 @@ const ToolDetailPage = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="flex h-[320px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30">
-              <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
-            </div>
-            <AdsterraScriptUnit scriptSrc={adsterraConfig.detailScriptSrc} title="Sponsored" minHeight={90} />
-            <AdsterraDirectLinkCard />
+          <div className="flex h-[320px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30">
+            <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
+          </div>
+          <AdsterraScriptUnit desktopUnit={adsterraConfig.detailDesktopUnit} mobileUnit={adsterraConfig.detailMobileUnit} title="Sponsored" minHeight={90} />
+          <AdsterraDirectLinkCard />
             <a
               href={tool.websiteUrl}
               target="_blank"
