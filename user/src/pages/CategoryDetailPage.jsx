@@ -1,5 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import SectionTitle from "../components/shared/SectionTitle";
+import SeoMeta from "../components/shared/SeoMeta";
 import Pagination from "../components/tools/Pagination";
 import ToolGrid from "../components/tools/ToolGrid";
 import { useGetCategoryBySlugQuery } from "../store/userApi";
@@ -23,6 +24,11 @@ const CategoryDetailPage = () => {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+      <SeoMeta
+        title={category ? `${category.name} AI Tools | Ai Gyan` : "Category | Ai Gyan"}
+        description={category?.description || "Browse curated AI tools by category on Ai Gyan."}
+        canonicalPath={`/categories/${slug}`}
+      />
       <div className="space-y-6 sm:space-y-8">
         <SectionTitle
           eyebrow="Category focus"

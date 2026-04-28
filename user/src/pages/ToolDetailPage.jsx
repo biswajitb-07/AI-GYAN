@@ -4,6 +4,7 @@ import { GitCompare, Share2, Star } from "lucide-react";
 import AdsterraDirectLinkCard from "../components/ads/AdsterraDirectLinkCard";
 import AdsterraScriptUnit from "../components/ads/AdsterraScriptUnit";
 import Loader from "../components/shared/Loader";
+import SeoMeta from "../components/shared/SeoMeta";
 import ToolGrid from "../components/tools/ToolGrid";
 import { adsterraConfig } from "../config/adsterra";
 import { useCreateToolReviewMutation, useGetRelatedToolsQuery, useGetToolBySlugQuery } from "../store/userApi";
@@ -68,6 +69,13 @@ const ToolDetailPage = () => {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
+      <SeoMeta
+        title={`${tool.name} Review, Pricing, Features and Alternatives | Ai Gyan`}
+        description={tool.description || tool.longDescription?.slice(0, 155) || `Explore ${tool.name} on Ai Gyan with pricing, features, reviews, and related AI tools.`}
+        canonicalPath={`/tools/${tool.slug}`}
+        image={tool.image?.url || "/logo.png"}
+        type="article"
+      />
       <div className="space-y-8">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr]">
           <div className="lg:hidden">

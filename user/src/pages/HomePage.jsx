@@ -3,6 +3,7 @@ import AdsterraDirectLinkCard from "../components/ads/AdsterraDirectLinkCard";
 import AdsterraScriptUnit from "../components/ads/AdsterraScriptUnit";
 import CategoryStrip from "../components/home/CategoryStrip";
 import HeroSection from "../components/home/HeroSection";
+import SeoMeta from "../components/shared/SeoMeta";
 import SectionTitle from "../components/shared/SectionTitle";
 import ToolGrid from "../components/tools/ToolGrid";
 import { adsterraConfig } from "../config/adsterra";
@@ -14,6 +15,11 @@ const HomePage = ({ stats }) => {
 
   return (
     <div>
+      <SeoMeta
+        title="Ai Gyan | Discover AI Tools"
+        description="Discover curated AI tools for writing, coding, design, productivity, research, and more on Ai Gyan."
+        canonicalPath="/"
+      />
       <HeroSection stats={stats} />
       <CategoryStrip categories={categories.slice(0, 10)} />
 
