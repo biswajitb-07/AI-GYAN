@@ -1,0 +1,32 @@
+{
+  "name": "ai-gyan-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "seed": "node scripts/seedDatabase.js",
+    "sync:seed": "node scripts/syncSeedDatabase.js",
+    "import:popular": "node scripts/importPopularAiTools.js",
+    "cleanup:duplicates": "node scripts/removeDuplicateTools.js",
+    "cleanup:same-website": "node scripts/removeSameWebsiteDuplicates.js",
+    "curate:market": "node scripts/curateMarketTools.js",
+    "repair:tiny-logos": "node scripts/repairTinyLogos.js",
+    "normalize:categories": "node scripts/normalizeCategories.js",
+    "upload:seed-images": "node scripts/uploadSeedImages.js",
+    "build": "node -e \"console.log('server build not required')\""
+  },
+  "dependencies": {
+    "cloudinary": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "mongoose": "latest",
+    "multer": "latest",
+    "slugify": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  }
+}

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "nprogress/nprogress.css";
+
+@theme {
+  --color-primary-50: #eff9ff;
+  --color-primary-400: #32a8ff;
+  --color-primary-500: #1488ec;
+  --color-primary-700: #0f4fb8;
+  --color-surface-900: #050b18;
+  --font-sans: "Sora", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(20, 136, 236, 0.22), transparent 30%),
+    radial-gradient(circle at top right, rgba(35, 197, 94, 0.12), transparent 24%),
+    linear-gradient(180deg, #020817 0%, #050b18 45%, #08111f 100%);
+  color: #e2e8f0;
+}
+
+#nprogress .bar {
+  background: linear-gradient(90deg, #38bdf8, #3b82f6);
+  height: 3px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #38bdf8, 0 0 5px #3b82f6;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.category-marquee-wrapper {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, white 6%, white 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 6%, white 94%, transparent);
+}
+
+.category-marquee-track {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: category-marquee 60s linear infinite;
+}
+
+.category-marquee-wrapper:hover .category-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes category-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.625rem));
+  }
+}

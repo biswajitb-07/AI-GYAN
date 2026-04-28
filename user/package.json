@@ -1,0 +1,26 @@
+{
+  "name": "ai-gyan-user",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "dependencies": {
+    "axios": "latest",
+    "lucide-react": "latest",
+    "nprogress": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.4",
+    "vite": "^4.5.14"
+  }
+}

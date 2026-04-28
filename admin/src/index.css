@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@import "nprogress/nprogress.css";
+
+@theme {
+  --font-sans: "Sora", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.16), transparent 30%),
+    linear-gradient(180deg, #020617 0%, #07101f 100%);
+  color: #e2e8f0;
+}
+
+#nprogress .bar {
+  background: linear-gradient(90deg, #22d3ee, #38bdf8);
+  height: 3px;
+}
+
+button,
+a {
+  cursor: pointer;
+}
