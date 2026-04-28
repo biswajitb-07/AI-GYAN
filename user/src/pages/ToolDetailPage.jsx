@@ -70,6 +70,12 @@ const ToolDetailPage = () => {
     <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
       <div className="space-y-8">
         <div className="grid gap-10 lg:grid-cols-[1fr_0.8fr]">
+          <div className="lg:hidden">
+            <div className="flex h-[280px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-2xl shadow-slate-950/30">
+              <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
+            </div>
+          </div>
+
           <div className="space-y-8">
             <div className="space-y-5">
               <div className="flex flex-wrap items-center gap-3">
@@ -132,28 +138,50 @@ const ToolDetailPage = () => {
                 ))}
               </div>
             </div>
+
+            <div className="space-y-4 lg:hidden">
+              <a
+                href={tool.websiteUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-full bg-sky-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
+              >
+                Visit Official Website
+              </a>
+              <Link
+                to={`/compare?slugs=${[...new Set([...compareSlugs, tool.slug])].join(",")}`}
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Open Compare View
+              </Link>
+              <AdsterraScriptUnit desktopUnit={adsterraConfig.detailDesktopUnit} mobileUnit={adsterraConfig.detailMobileUnit} title="Sponsored" minHeight={90} />
+              <AdsterraDirectLinkCard />
+            </div>
+
+            <div className="hidden space-y-4 lg:block">
+              <a
+                href={tool.websiteUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex w-full items-center justify-center rounded-full bg-sky-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
+              >
+                Visit Official Website
+              </a>
+              <Link
+                to={`/compare?slugs=${[...new Set([...compareSlugs, tool.slug])].join(",")}`}
+                className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Open Compare View
+              </Link>
+            </div>
           </div>
 
-          <div className="space-y-6">
-          <div className="flex h-[320px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30">
-            <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
-          </div>
-          <AdsterraScriptUnit desktopUnit={adsterraConfig.detailDesktopUnit} mobileUnit={adsterraConfig.detailMobileUnit} title="Sponsored" minHeight={90} />
-          <AdsterraDirectLinkCard />
-            <a
-              href={tool.websiteUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-full bg-sky-400 px-6 py-3.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
-            >
-              Visit Official Website
-            </a>
-            <Link
-              to={`/compare?slugs=${[...new Set([...compareSlugs, tool.slug])].join(",")}`}
-              className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Open Compare View
-            </Link>
+          <div className="hidden space-y-6 lg:flex lg:flex-col">
+            <div className="flex h-[320px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/30">
+              <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" />
+            </div>
+            <AdsterraScriptUnit desktopUnit={adsterraConfig.detailDesktopUnit} mobileUnit={adsterraConfig.detailMobileUnit} title="Sponsored" minHeight={90} />
+            <AdsterraDirectLinkCard />
           </div>
         </div>
 
