@@ -3,9 +3,9 @@ import SeoMeta from "../components/shared/SeoMeta";
 import { useSubmitFeedbackMutation } from "../store/userApi";
 
 const contactMethods = [
-  ["General support", "support@aigyan.com"],
-  ["Business inquiries", "business@aigyan.com"],
-  ["Policy/privacy requests", "privacy@aigyan.com"],
+  ["General support", "bussinessgamerpulse077@gmail.com"],
+  ["Business inquiries", "bussinessgamerpulse077@gmail.com"],
+  ["Policy/privacy requests", "bussinessgamerpulse077@gmail.com"],
 ];
 
 const ContactPage = () => {
