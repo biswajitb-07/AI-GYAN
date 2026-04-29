@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import AboutPage from "../pages/AboutPage";
 import BlogPage from "../pages/BlogPage";
 import CategoryDetailPage from "../pages/CategoryDetailPage";
-import CompareToolsPage from "../pages/CompareToolsPage";
 import ContactPage from "../pages/ContactPage";
 import HomePage from "../pages/HomePage";
 import PricingPage from "../pages/PricingPage";
@@ -19,7 +18,6 @@ const AppRoutes = ({ stats }) => {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/blog" element={<BlogPage />} />
       <Route path="/categories/:slug" element={<CategoryDetailPage />} />
-      <Route path="/compare" element={<CompareToolsPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       <Route path="/search" element={<SearchResultsPage />} />

@@ -196,7 +196,7 @@ const HeroSection = ({ stats }) => {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-100 tracking-tight">Ai Gyan</p>
-                  <p className="text-xs text-slate-500 mt-0.5">Search. Compare. Launch.</p>
+                  <p className="text-xs text-slate-500 mt-0.5">Search. Discover. Launch.</p>
                 </div>
               </div>
 

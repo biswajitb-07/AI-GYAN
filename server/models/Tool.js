@@ -68,6 +68,29 @@ const toolSchema = new mongoose.Schema(
       type: String,
       default: "10K+",
     },
+    verificationStatus: {
+      type: String,
+      enum: ["unchecked", "verified", "review", "broken"],
+      default: "unchecked",
+    },
+    lastCheckedAt: {
+      type: Date,
+      default: null,
+    },
+    lastCheckStatusCode: {
+      type: Number,
+      default: null,
+    },
+    lastCheckFinalUrl: {
+      type: String,
+      default: "",
+      trim: true,
+    },
+    lastCheckIssue: {
+      type: String,
+      default: "",
+      trim: true,
+    },
     reviews: {
       type: [
         {
@@ -103,5 +126,6 @@ toolSchema.index({ category: 1, featured: -1, createdAt: -1 });
 toolSchema.index({ featured: -1, viewCount: -1, createdAt: -1 });
 toolSchema.index({ name: 1 });
 toolSchema.index({ tags: 1 });
+toolSchema.index({ verificationStatus: 1, lastCheckedAt: -1 });
 
 export const Tool = mongoose.model("Tool", toolSchema);

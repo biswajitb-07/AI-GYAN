@@ -16,7 +16,7 @@ export const adminApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ["Auth", "Dashboard", "Tools", "Categories", "News"],
+  tagTypes: ["Auth", "Dashboard", "Tools", "Categories", "News", "Moderation", "Feedback"],
   endpoints: (builder) => ({
     loginAdmin: builder.mutation({
       query: (payload) => ({
@@ -42,6 +42,40 @@ export const adminApi = createApi({
       query: () => "/admin/dashboard/stats",
       transformResponse: (response) => response.data,
       providesTags: ["Dashboard", "Tools", "Categories"],
+    }),
+    getModerationStats: builder.query({
+      query: () => "/admin/moderation/stats",
+      transformResponse: (response) => response.data,
+      providesTags: ["Moderation", "Tools", "Feedback"],
+    }),
+    getAdminFeedback: builder.query({
+      query: (params) => ({
+        url: "/admin/moderation/feedback",
+        params,
+      }),
+      providesTags: ["Feedback", "Moderation"],
+    }),
+    updateFeedbackStatus: builder.mutation({
+      query: ({ id, status }) => ({
+        url: `/admin/moderation/feedback/${id}`,
+        method: "PUT",
+        body: { status },
+      }),
+      invalidatesTags: ["Feedback", "Moderation"],
+    }),
+    checkToolLink: builder.mutation({
+      query: (id) => ({
+        url: `/admin/moderation/tools/${id}/check-link`,
+        method: "POST",
+      }),
+      invalidatesTags: ["Tools", "Moderation", "Dashboard"],
+    }),
+    runBulkLinkScan: builder.mutation({
+      query: () => ({
+        url: "/admin/moderation/tools/check-links",
+        method: "POST",
+      }),
+      invalidatesTags: ["Tools", "Moderation", "Dashboard"],
     }),
     syncLatestNews: builder.mutation({
       query: () => ({
@@ -118,6 +152,11 @@ export const {
   useLogoutAdminMutation,
   useGetAdminSessionQuery,
   useGetDashboardStatsQuery,
+  useGetModerationStatsQuery,
+  useGetAdminFeedbackQuery,
+  useUpdateFeedbackStatusMutation,
+  useCheckToolLinkMutation,
+  useRunBulkLinkScanMutation,
   useSyncLatestNewsMutation,
   useGetToolsQuery,
   useGetAdminCategoriesQuery,

@@ -6,7 +6,7 @@ import ToolForm from "../components/dashboard/ToolForm";
 import ToolsTable from "../components/dashboard/ToolsTable";
 import Dialog from "../components/shared/Dialog";
 import Pagination from "../components/shared/Pagination";
-import { useDeleteToolMutation, useGetAdminCategoriesQuery, useGetToolsQuery } from "../store/adminApi";
+import { useCheckToolLinkMutation, useDeleteToolMutation, useGetAdminCategoriesQuery, useGetToolsQuery } from "../store/adminApi";
 import { useToast } from "../components/shared/ToastProvider";
 
 const sanitizePage = (value) => {
@@ -20,7 +20,9 @@ const ToolsPage = () => {
   const [selectedTool, setSelectedTool] = useState(null);
   const [toolToDelete, setToolToDelete] = useState(null);
   const [addToolOpen, setAddToolOpen] = useState(false);
+  const [checkingToolId, setCheckingToolId] = useState("");
   const [deleteTool, { isLoading: deleting }] = useDeleteToolMutation();
+  const [checkToolLink] = useCheckToolLinkMutation();
   const toast = useToast();
 
   const search = searchParams.get("search") || "";
@@ -28,6 +30,7 @@ const ToolsPage = () => {
   const pricing = searchParams.get("pricing") || "";
   const sort = searchParams.get("sort") || "";
   const featured = searchParams.get("featured") || "";
+  const verificationStatus = searchParams.get("verificationStatus") || "";
   const page = sanitizePage(searchParams.get("page"));
 
   const toolsParams = {
@@ -36,6 +39,7 @@ const ToolsPage = () => {
     pricing,
     sort,
     featured,
+    verificationStatus,
     page,
     limit: 20,
   };
@@ -131,6 +135,17 @@ const ToolsPage = () => {
             <option value="">All visibility</option>
             <option value="true">Featured only</option>
           </select>
+          <select
+            value={verificationStatus}
+            onChange={(event) => updateQueryParams({ verificationStatus: event.target.value, page: 1 })}
+            className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none"
+          >
+            <option value="">All health states</option>
+            <option value="verified">Verified</option>
+            <option value="review">Needs review</option>
+            <option value="broken">Broken</option>
+            <option value="unchecked">Unchecked</option>
+          </select>
           <button
             type="button"
             onClick={() => setSearchParams(new URLSearchParams())}
@@ -144,6 +159,20 @@ const ToolsPage = () => {
         tools={tools}
         totalTools={pagination?.total || tools.length}
         loading={loading}
+        checkingToolId={checkingToolId}
+        onCheckLink={async (tool) => {
+          setCheckingToolId(tool._id);
+
+          try {
+            const response = await checkToolLink(tool._id).unwrap();
+            const nextState = response?.data?.verificationStatus || "verified";
+            toast.success(`Link check complete: ${tool.name} is now marked ${nextState}`);
+          } catch (error) {
+            toast.error(error?.data?.message || "Unable to check this tool right now");
+          } finally {
+            setCheckingToolId("");
+          }
+        }}
         onEdit={(tool) => setSelectedTool(tool)}
         onDelete={(tool) => setToolToDelete(tool)}
       />

@@ -4,6 +4,7 @@ import AdminLayout from "../components/layout/AdminLayout";
 import CategoriesPage from "../pages/CategoriesPage";
 import DashboardPage from "../pages/DashboardPage";
 import LoginPage from "../pages/LoginPage";
+import ModerationPage from "../pages/ModerationPage";
 import ToolsPage from "../pages/ToolsPage";
 
 const AppRoutes = () => {
@@ -36,6 +37,16 @@ const AppRoutes = () => {
           <ProtectedRoute>
             <AdminLayout>
               <CategoriesPage />
+            </AdminLayout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/moderation"
+        element={
+          <ProtectedRoute>
+            <AdminLayout>
+              <ModerationPage />
             </AdminLayout>
           </ProtectedRoute>
         }

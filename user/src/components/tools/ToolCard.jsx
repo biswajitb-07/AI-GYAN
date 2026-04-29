@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { GitCompare } from "lucide-react";
-import { getCompareSlugs, toggleCompareSlug } from "../../utils/discoveryStorage";
 import { toCategorySlug } from "../../utils/slugify";
 
 const pricingStyles = {
@@ -10,15 +7,32 @@ const pricingStyles = {
   Paid: "bg-amber-400/15 text-amber-200 border-amber-400/20",
 };
 
+const verificationStyles = {
+  verified: "border-emerald-400/20 bg-emerald-400/10 text-emerald-100",
+  review: "border-amber-400/20 bg-amber-400/10 text-amber-100",
+  broken: "border-rose-400/20 bg-rose-400/10 text-rose-100",
+  unchecked: "border-white/10 bg-white/5 text-slate-300",
+};
+
+const verificationLabels = {
+  verified: "Verified",
+  review: "Needs review",
+  broken: "Link issue",
+  unchecked: "Not checked",
+};
+
+const formatLastChecked = (value) => {
+  if (!value) {
+    return "Awaiting check";
+  }
+
+  return `Checked ${new Date(value).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  })}`;
+};
+
 const ToolCard = ({ tool }) => {
-  const [compareSlugs, setCompareSlugs] = useState([]);
-
-  useEffect(() => {
-    setCompareSlugs(getCompareSlugs());
-  }, []);
-
-  const isCompared = compareSlugs.includes(tool.slug);
-
   return (
     <article className="group flex h-full flex-col rounded-[1.35rem] border border-white/10 bg-white/[0.045] p-3 shadow-xl shadow-slate-950/20 transition duration-300 hover:border-sky-400/30 hover:bg-white/[0.07] sm:rounded-[1.6rem] sm:p-4 sm:hover:-translate-y-1">
       <div className="flex gap-4 sm:block">
@@ -51,7 +65,11 @@ const ToolCard = ({ tool }) => {
             <span className={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${pricingStyles[tool.pricing]}`}>
               {tool.pricing}
             </span>
+            <span className={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${verificationStyles[tool.verificationStatus || "unchecked"]}`}>
+              {verificationLabels[tool.verificationStatus || "unchecked"]}
+            </span>
           </div>
+          <p className="mt-2 text-[11px] text-slate-400">{formatLastChecked(tool.lastCheckedAt)}</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {tool.tags.slice(0, 2).map((tag) => (
               <span key={tag} className="text-xs text-slate-400">
@@ -84,23 +102,19 @@ const ToolCard = ({ tool }) => {
         <h3 className="mt-3 text-lg font-semibold text-white">{tool.name}</h3>
         <p className="mt-2.5 flex-1 text-sm leading-6 text-slate-300">{tool.description}</p>
         <div className="mt-4 flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setCompareSlugs(toggleCompareSlug(tool.slug))}
-            className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-              isCompared ? "bg-sky-400/15 text-sky-100" : "bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white"
-            }`}
-          >
-            <GitCompare size={13} />
-            {isCompared ? "Added to compare" : "Compare"}
-          </button>
-        </div>
-        <div className="mt-4 flex flex-wrap gap-2">
           {tool.tags.slice(0, 3).map((tag) => (
             <span key={tag} className="rounded-full bg-slate-900/80 px-2.5 py-1 text-xs text-slate-300">
               {tag}
             </span>
           ))}
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <span className={`rounded-full border px-3 py-1 text-[11px] font-semibold ${verificationStyles[tool.verificationStatus || "unchecked"]}`}>
+            {verificationLabels[tool.verificationStatus || "unchecked"]}
+          </span>
+          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-slate-300">
+            {formatLastChecked(tool.lastCheckedAt)}
+          </span>
         </div>
         <div className="mt-5 flex items-center justify-between">
           <p className="text-xs uppercase tracking-[0.24em] text-slate-400">{tool.monthlyVisits} visits</p>

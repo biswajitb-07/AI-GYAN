@@ -1,5 +1,6 @@
 import fs from "fs";
 import { cloudinary } from "../config/cloudinary.js";
+import { Feedback } from "../models/Feedback.js";
 import { Tool } from "../models/Tool.js";
 import { Category } from "../models/Category.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
@@ -55,6 +56,8 @@ const normalizeToolPayload = async (body, file) => {
     monthlyVisits: clampString(body.monthlyVisits || "10K+", 30),
   };
 };
+
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || "").trim());
 
 const deleteCloudinaryImage = async (publicId) => {
   if (!publicId) {
@@ -238,4 +241,91 @@ export const deleteTool = asyncHandler(async (req, res) => {
   await Category.findOneAndUpdate({ slug: createSlug(tool.category) }, { $inc: { toolCount: -1 } });
 
   res.json({ message: "Tool deleted successfully" });
+});
+
+const createToolFeedbackEntry = async ({ slug, type, name, email, message, pageUrl, source }) => {
+  const tool = await Tool.findOne({ slug }).select("_id name slug").lean();
+
+  if (!tool) {
+    const error = new Error("Tool not found");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  return Feedback.create({
+    name: clampString(name, 80),
+    email: clampString(email, 140),
+    message: clampString(message, 1200),
+    pageUrl: clampString(pageUrl, 300),
+    type,
+    status: "open",
+    toolId: tool._id,
+    toolName: tool.name,
+    toolSlug: tool.slug,
+    source: source || "tool-detail",
+  });
+};
+
+export const submitToolReport = asyncHandler(async (req, res) => {
+  if (!clampString(req.body.message, 1200)) {
+    res.status(400);
+    throw new Error("Please describe the issue with this tool");
+  }
+
+  if (req.body.email && !isValidEmail(req.body.email)) {
+    res.status(400);
+    throw new Error("Please enter a valid contact email");
+  }
+
+  if (req.body.pageUrl && !isValidHttpUrl(req.body.pageUrl)) {
+    res.status(400);
+    throw new Error("Please enter a valid page URL");
+  }
+
+  const feedback = await createToolFeedbackEntry({
+    slug: req.params.slug,
+    type: "tool-report",
+    name: req.body.name,
+    email: req.body.email,
+    message: req.body.message,
+    pageUrl: req.body.pageUrl,
+    source: "tool-report",
+  });
+
+  res.status(201).json({
+    message: "Thanks. We will review this tool report.",
+    data: { id: feedback._id },
+  });
+});
+
+export const submitToolClaim = asyncHandler(async (req, res) => {
+  if (!clampString(req.body.message, 1200)) {
+    res.status(400);
+    throw new Error("Please share what should be updated about this listing");
+  }
+
+  if (req.body.email && !isValidEmail(req.body.email)) {
+    res.status(400);
+    throw new Error("Please enter a valid contact email");
+  }
+
+  if (req.body.pageUrl && !isValidHttpUrl(req.body.pageUrl)) {
+    res.status(400);
+    throw new Error("Please enter a valid page URL");
+  }
+
+  const feedback = await createToolFeedbackEntry({
+    slug: req.params.slug,
+    type: "tool-claim",
+    name: req.body.name,
+    email: req.body.email,
+    message: req.body.message,
+    pageUrl: req.body.pageUrl,
+    source: "tool-claim",
+  });
+
+  res.status(201).json({
+    message: "Thanks. Your listing claim or update request is now in review.",
+    data: { id: feedback._id },
+  });
 });

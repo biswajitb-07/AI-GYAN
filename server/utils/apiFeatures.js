@@ -25,6 +25,19 @@ export const buildToolFilters = (query) => {
     filters.featured = true;
   }
 
+  if (query.verificationStatus) {
+    const statuses = String(query.verificationStatus)
+      .split(",")
+      .map((status) => status.trim())
+      .filter(Boolean);
+
+    if (statuses.length === 1) {
+      filters.verificationStatus = statuses[0];
+    } else if (statuses.length > 1) {
+      filters.verificationStatus = { $in: statuses };
+    }
+  }
+
   if (tag) {
     filters.tags = { $in: [toSafeRegex(tag)] };
   }

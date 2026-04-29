@@ -1,4 +1,3 @@
-const COMPARE_KEY = "ai-gyan-compare";
 const RECENT_VIEWED_KEY = "ai-gyan-recent-viewed";
 export const DISCOVERY_UPDATED_EVENT = "ai-gyan-discovery-updated";
 
@@ -20,21 +19,7 @@ const writeList = (key, value) => {
   }
 };
 
-export const getCompareSlugs = () => readList(COMPARE_KEY);
 export const getRecentViewed = () => readList(RECENT_VIEWED_KEY);
-
-export const toggleCompareSlug = (slug) => {
-  const compare = getCompareSlugs();
-  const next = compare.includes(slug) ? compare.filter((item) => item !== slug) : [...compare, slug].slice(0, 4);
-  writeList(COMPARE_KEY, next);
-  return next;
-};
-
-export const removeCompareSlug = (slug) => {
-  const next = getCompareSlugs().filter((item) => item !== slug);
-  writeList(COMPARE_KEY, next);
-  return next;
-};
 
 export const pushRecentViewed = (tool) => {
   const recent = getRecentViewed();

@@ -1,5 +1,5 @@
 const pricingCards = [
-  ["Free Explorer", "Discover trending tools and compare categories at no cost.", "Free"],
+  ["Free Explorer", "Discover trending tools and browse categories at no cost.", "Free"],
   ["Free Trial Stack", "Test launch-ready products with trial plans before you commit.", "Free Trial"],
   ["Paid Powerhouse", "Find premium AI platforms built for teams and scaling workflows.", "Paid"],
 ];
@@ -13,7 +13,7 @@ const PricingPage = () => {
         </span>
         <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">Filter by budget before you commit to a stack</h1>
         <p className="mx-auto max-w-3xl text-base leading-8 text-slate-300">
-          Ai Gyan highlights which tools are free, free trial, or paid so teams can compare options quickly and make sharper decisions.
+          Ai Gyan highlights which tools are free, free trial, or paid so teams can evaluate options quickly and make sharper decisions.
         </p>
       </div>
       <div className="mt-12 grid gap-6 md:grid-cols-3">

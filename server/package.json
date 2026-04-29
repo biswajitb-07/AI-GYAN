@@ -11,6 +11,7 @@
     "import:popular": "node scripts/importPopularAiTools.js",
     "cleanup:duplicates": "node scripts/removeDuplicateTools.js",
     "cleanup:same-website": "node scripts/removeSameWebsiteDuplicates.js",
+    "audit:tools": "node scripts/auditAndRemoveInvalidTools.js",
     "curate:market": "node scripts/curateMarketTools.js",
     "repair:tiny-logos": "node scripts/repairTinyLogos.js",
     "normalize:categories": "node scripts/normalizeCategories.js",

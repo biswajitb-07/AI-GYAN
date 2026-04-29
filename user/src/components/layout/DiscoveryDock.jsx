@@ -1,32 +1,23 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { GitCompare, History, LoaderCircle, Trash2 } from "lucide-react";
-import { useLazyGetCompareToolsQuery } from "../../store/userApi";
+import { Link } from "react-router-dom";
+import { History, Trash2 } from "lucide-react";
 import {
   DISCOVERY_UPDATED_EVENT,
-  getCompareSlugs,
   getRecentViewed,
-  removeCompareSlug,
   removeRecentViewedBySlug,
 } from "../../utils/discoveryStorage";
 
 const tabs = [
   { key: "recent", label: "Recent", icon: History, tone: "text-sky-200" },
-  { key: "compare", label: "Compare", icon: GitCompare, tone: "text-cyan-200" },
 ];
 
 const DiscoveryDock = () => {
   const [activeTab, setActiveTab] = useState("recent");
   const [recentlyViewed, setRecentlyViewed] = useState([]);
-  const [compareSlugs, setCompareSlugs] = useState([]);
-  const [compareTools, setCompareTools] = useState([]);
-  const [compareLoading, setCompareLoading] = useState(false);
-  const [triggerCompareTools] = useLazyGetCompareToolsQuery();
 
   useEffect(() => {
     const syncDiscovery = () => {
       setRecentlyViewed(getRecentViewed());
-      setCompareSlugs(getCompareSlugs());
     };
 
     syncDiscovery();
@@ -39,40 +30,6 @@ const DiscoveryDock = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (activeTab !== "compare") {
-      return;
-    }
-
-    if (!compareSlugs.length) {
-      setCompareTools([]);
-      setCompareLoading(false);
-      return;
-    }
-
-    let isCancelled = false;
-    setCompareLoading(true);
-
-    triggerCompareTools(compareSlugs)
-      .unwrap()
-      .then((tools) => {
-        if (!isCancelled) {
-          setCompareTools(tools || []);
-          setCompareLoading(false);
-        }
-      })
-      .catch(() => {
-        if (!isCancelled) {
-          setCompareTools([]);
-          setCompareLoading(false);
-        }
-      });
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [activeTab, compareSlugs]);
-
   const panelMap = {
     recent: {
       title: "Recently viewed",
@@ -81,29 +38,15 @@ const DiscoveryDock = () => {
       empty: "Open a few tools and your recent history will show here.",
       tone: "text-sky-200",
     },
-    compare: {
-      title: "Compare queue",
-      description: "Build a stack, then open compare when you are ready.",
-      data: compareTools,
-      empty: "Add tools to compare from cards or detail pages.",
-      tone: "text-cyan-200",
-    },
   };
 
   const currentPanel = panelMap[activeTab];
   const counts = {
     recent: recentlyViewed.length,
-    compare: compareSlugs.length,
   };
 
   const handleRemove = (slug) => {
-    if (activeTab === "recent") {
-      setRecentlyViewed(removeRecentViewedBySlug(slug));
-      return;
-    }
-
-    setCompareSlugs(removeCompareSlug(slug));
-    setCompareTools((current) => current.filter((tool) => tool.slug !== slug));
+    setRecentlyViewed(removeRecentViewedBySlug(slug));
   };
 
   return (
@@ -114,17 +57,14 @@ const DiscoveryDock = () => {
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.34em] text-sky-200">Workspace</p>
           <h2 className="mt-3 text-xl font-semibold text-white">Your tool stack</h2>
-          <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">Revisit recently opened tools and build a compare queue without leaving the directory flow.</p>
+          <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">Revisit recently opened tools without leaving the directory flow.</p>
         </div>
-        <NavLink
-          to="/compare"
-          className="inline-flex shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10"
-        >
-          Open compare
-        </NavLink>
+        <Link to="/tools" className="inline-flex shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/10">
+          Browse tools
+        </Link>
       </div>
 
-      <div className="mt-5 grid grid-cols-3 gap-2">
+      <div className="mt-5 grid grid-cols-1 gap-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
 
@@ -163,14 +103,7 @@ const DiscoveryDock = () => {
         </div>
 
         <div className="mt-4">
-          {activeTab === "compare" && compareLoading ? (
-            <div className="flex min-h-[220px] items-center justify-center rounded-[1.2rem] border border-white/10 bg-white/5 px-4 py-5 text-sm text-slate-400">
-              <span className="inline-flex items-center gap-2">
-                <LoaderCircle size={16} className="animate-spin text-sky-200" />
-                Loading compare tools...
-              </span>
-            </div>
-          ) : currentPanel.data.length ? (
+          {currentPanel.data.length ? (
             <div className="scrollbar-hidden max-h-[360px] space-y-2 overflow-y-auto pr-1">
               {currentPanel.data.map((tool) => (
                 <div
@@ -206,12 +139,12 @@ const DiscoveryDock = () => {
           >
             Browse tools
           </Link>
-          <NavLink
-            to="/compare"
+          <Link
+            to="/contact"
             className="inline-flex items-center justify-center rounded-full bg-sky-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
           >
-            Compare
-          </NavLink>
+            Send feedback
+          </Link>
         </div>
       </div>
     </aside>

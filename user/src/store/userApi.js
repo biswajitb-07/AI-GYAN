@@ -54,16 +54,6 @@ export const userApi = createApi({
       }),
       providesTags: ["Tools"],
     }),
-    getCompareTools: builder.query({
-      query: (slugs) => ({
-        url: "/tools/compare",
-        params: {
-          slugs: slugs.join(","),
-        },
-      }),
-      transformResponse: (response) => response.data,
-      providesTags: ["Tools"],
-    }),
     getToolBySlug: builder.query({
       query: (slug) => `/tools/slug/${slug}`,
       transformResponse: (response) => response.data,
@@ -81,6 +71,20 @@ export const userApi = createApi({
         body: payload,
       }),
       invalidatesTags: (result, error, { slug }) => [{ type: "Tool", id: slug }],
+    }),
+    reportTool: builder.mutation({
+      query: ({ slug, payload }) => ({
+        url: `/tools/slug/${slug}/report`,
+        method: "POST",
+        body: payload,
+      }),
+    }),
+    submitToolClaim: builder.mutation({
+      query: ({ slug, payload }) => ({
+        url: `/tools/slug/${slug}/claim`,
+        method: "POST",
+        body: payload,
+      }),
     }),
     getCategories: builder.query({
       query: (params = { limit: 200 }) => ({
@@ -106,6 +110,13 @@ export const userApi = createApi({
       }),
       transformResponse: (response) => response.data,
     }),
+    submitFeedback: builder.mutation({
+      query: (payload) => ({
+        url: "/feedback",
+        method: "POST",
+        body: payload,
+      }),
+    }),
   }),
 });
 
@@ -118,13 +129,14 @@ export const {
   useTrackSearchQueryMutation,
   useGetToolsQuery,
   useLazyGetToolsQuery,
-  useGetCompareToolsQuery,
-  useLazyGetCompareToolsQuery,
   useGetToolBySlugQuery,
   useGetRelatedToolsQuery,
   useCreateToolReviewMutation,
+  useReportToolMutation,
+  useSubmitToolClaimMutation,
   useGetCategoriesQuery,
   useLazyGetCategoriesQuery,
   useGetCategoryBySlugQuery,
   useChatWithAiMutation,
+  useSubmitFeedbackMutation,
 } = userApi;
