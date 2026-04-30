@@ -71,7 +71,7 @@ const FeatureRow = ({ icon: Icon, title, desc, iconBg, iconColor, hoverBorder, a
 
 /* ─── Main Component ─────────────────────────────────────────────────────── */
 const HeroSection = ({ stats }) => {
-  const toolCount = stats?.totalTools ?? 240;
+  const toolCount = stats?.totalTools ?? 500;
   const categoryCount = stats?.totalCategories ?? 18;
   const featuredCount = stats?.featuredTools ?? 32;
 

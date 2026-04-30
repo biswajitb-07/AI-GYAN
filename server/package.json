@@ -13,6 +13,7 @@
     "cleanup:same-website": "node scripts/removeSameWebsiteDuplicates.js",
     "audit:tools": "node scripts/auditAndRemoveInvalidTools.js",
     "curate:market": "node scripts/curateMarketTools.js",
+    "rebalance:productivity": "node scripts/rebalanceProductivityTools.js",
     "repair:tiny-logos": "node scripts/repairTinyLogos.js",
     "normalize:categories": "node scripts/normalizeCategories.js",
     "upload:seed-images": "node scripts/uploadSeedImages.js",

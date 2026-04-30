@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
   createCategory,
+  deleteCategoriesBulk,
   deleteCategory,
   getCategories,
   updateCategory,
@@ -12,6 +13,7 @@ const router = Router();
 router.use(requireAdminAuth);
 router.get("/", getCategories);
 router.post("/", createCategory);
+router.delete("/", deleteCategoriesBulk);
 router.put("/:id", updateCategory);
 router.delete("/:id", deleteCategory);
 

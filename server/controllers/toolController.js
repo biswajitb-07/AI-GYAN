@@ -243,6 +243,48 @@ export const deleteTool = asyncHandler(async (req, res) => {
   res.json({ message: "Tool deleted successfully" });
 });
 
+export const deleteToolsBulk = asyncHandler(async (req, res) => {
+  const ids = Array.isArray(req.body?.ids) ? req.body.ids : [];
+  const sanitizedIds = ids.map((id) => String(id || "").trim()).filter(Boolean);
+
+  if (!sanitizedIds.length) {
+    res.status(400);
+    throw new Error("At least one tool id is required");
+  }
+
+  const tools = await Tool.find({ _id: { $in: sanitizedIds } }).select("_id category image.publicId");
+
+  if (!tools.length) {
+    res.status(404);
+    throw new Error("No tools found for deletion");
+  }
+
+  await Promise.all(
+    tools.map((tool) => deleteCloudinaryImage(tool.image?.publicId))
+  );
+
+  await Tool.deleteMany({ _id: { $in: tools.map((tool) => tool._id) } });
+
+  const categoryCountMap = tools.reduce((accumulator, tool) => {
+    accumulator[tool.category] = (accumulator[tool.category] || 0) + 1;
+    return accumulator;
+  }, {});
+
+  await Promise.all(
+    Object.entries(categoryCountMap).map(([category, count]) =>
+      Category.findOneAndUpdate(
+        { slug: createSlug(category) },
+        { $inc: { toolCount: -count } }
+      )
+    )
+  );
+
+  res.json({
+    message: "Tools deleted successfully",
+    deletedCount: tools.length,
+  });
+});
+
 const createToolFeedbackEntry = async ({ slug, type, name, email, message, pageUrl, source }) => {
   const tool = await Tool.findOne({ slug }).select("_id name slug").lean();
 

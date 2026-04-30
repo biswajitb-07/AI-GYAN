@@ -1,5 +1,6 @@
 import Parser from "rss-parser";
 import { env } from "../config/env.js";
+import { cloudinary } from "../config/cloudinary.js";
 import { NewsArticle } from "../models/NewsArticle.js";
 import { createSlug } from "../utils/createSlug.js";
 import { uploadToCloudinary } from "../utils/uploadToCloudinary.js";
@@ -113,6 +114,25 @@ const extractMetaImage = (html = "") => {
 const getExistingNews = () => NewsArticle.find().sort({ publishedAt: -1 }).limit(NEWS_BATCH_SIZE).lean();
 const createBatchSignature = (articles = []) => articles.map((article) => article.articleUrl).join("|");
 
+const purgeExistingNewsWithImages = async () => {
+  const existingArticles = await NewsArticle.find({}).select("_id image.publicId").lean();
+  const publicIds = [...new Set(existingArticles.map((article) => article?.image?.publicId).filter(Boolean))];
+
+  await Promise.all(
+    publicIds.map(async (publicId) => {
+      try {
+        await cloudinary.uploader.destroy(publicId, {
+          resource_type: "image",
+        });
+      } catch (error) {
+        console.error("Failed to delete news image from Cloudinary", publicId, error.message);
+      }
+    })
+  );
+
+  await NewsArticle.deleteMany({});
+};
+
 const normalizeAbsoluteUrl = (value, baseUrl = "") => {
   const normalized = String(value || "").trim();
 
@@ -187,8 +207,6 @@ const enrichArticle = async (item, syncDateKey, index) => {
   if (!imageUrl) {
     return null;
   }
-
-  const uploadedImage = await uploadToCloudinary(imageUrl, "ai-gyan/news");
   const publishedAt = new Date(item.publishedAt);
 
   return {
@@ -198,7 +216,7 @@ const enrichArticle = async (item, syncDateKey, index) => {
     articleUrl: item.articleUrl,
     sourceName: clampText(item.sourceName, 80) || "AI News",
     sourceFeed: clampText(item.sourceFeed, 120),
-    image: uploadedImage,
+    imageUrl,
     publishedAt: Number.isNaN(publishedAt.getTime()) ? new Date() : publishedAt,
     syncDateKey,
   };
@@ -265,6 +283,20 @@ const selectNewsBatch = (preparedArticles, existingNews, force) => {
   };
 };
 
+const uploadSelectedBatchImages = async (articles = []) => {
+  const uploadedArticles = [];
+
+  for (const article of articles) {
+    const uploadedImage = await uploadToCloudinary(article.imageUrl, "ai-gyan/news");
+    uploadedArticles.push({
+      ...article,
+      image: uploadedImage,
+    });
+  }
+
+  return uploadedArticles;
+};
+
 export const syncLatestNewsWithMeta = async ({ force = false } = {}) => {
   if (activeSyncPromise) {
     return activeSyncPromise;
@@ -297,8 +329,11 @@ export const syncLatestNewsWithMeta = async ({ force = false } = {}) => {
       throw new Error("Unable to fetch enough AI news articles");
     }
 
-    await NewsArticle.deleteMany({});
-    await NewsArticle.insertMany(selectedBatch.articles);
+    const uploadReadyBatch = await uploadSelectedBatchImages(selectedBatch.articles);
+    await purgeExistingNewsWithImages();
+    await NewsArticle.insertMany(
+      uploadReadyBatch.map(({ imageUrl, ...article }) => article)
+    );
 
     return {
       articles: await getExistingNews(),

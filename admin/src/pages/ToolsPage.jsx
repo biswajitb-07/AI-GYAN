@@ -6,7 +6,8 @@ import ToolForm from "../components/dashboard/ToolForm";
 import ToolsTable from "../components/dashboard/ToolsTable";
 import Dialog from "../components/shared/Dialog";
 import Pagination from "../components/shared/Pagination";
-import { useCheckToolLinkMutation, useDeleteToolMutation, useGetAdminCategoriesQuery, useGetToolsQuery } from "../store/adminApi";
+import Spinner from "../components/shared/Spinner";
+import { useCheckToolLinkMutation, useDeleteToolMutation, useDeleteToolsBulkMutation, useGetAdminCategoriesQuery, useGetToolsQuery } from "../store/adminApi";
 import { useToast } from "../components/shared/ToastProvider";
 
 const sanitizePage = (value) => {
@@ -19,9 +20,12 @@ const ToolsPage = () => {
   const [loading, setLoading] = useState(true);
   const [selectedTool, setSelectedTool] = useState(null);
   const [toolToDelete, setToolToDelete] = useState(null);
+  const [selectedToolIds, setSelectedToolIds] = useState([]);
   const [addToolOpen, setAddToolOpen] = useState(false);
+  const [bulkDeleteDialogOpen, setBulkDeleteDialogOpen] = useState(false);
   const [checkingToolId, setCheckingToolId] = useState("");
   const [deleteTool, { isLoading: deleting }] = useDeleteToolMutation();
+  const [deleteToolsBulk, { isLoading: bulkDeleting }] = useDeleteToolsBulkMutation();
   const [checkToolLink] = useCheckToolLinkMutation();
   const toast = useToast();
 
@@ -44,7 +48,7 @@ const ToolsPage = () => {
     limit: 20,
   };
 
-  const { data: toolsResponse, isLoading: toolsLoading, isFetching: toolsFetching } = useGetToolsQuery(toolsParams);
+  const { data: toolsResponse, isLoading: toolsLoading } = useGetToolsQuery(toolsParams);
   const { data: categoriesResponse } = useGetAdminCategoriesQuery({ limit: 200 });
 
   const tools = toolsResponse?.data || [];
@@ -69,12 +73,22 @@ const ToolsPage = () => {
   };
 
   useEffect(() => {
-    setLoading(toolsLoading || toolsFetching);
-  }, [toolsFetching, toolsLoading]);
+    setLoading(toolsLoading);
+  }, [toolsLoading]);
 
   return (
     <div className="space-y-6">
       <div className="flex justify-end">
+        {selectedToolIds.length > 0 ? (
+          <button
+            type="button"
+            onClick={() => setBulkDeleteDialogOpen(true)}
+            disabled={bulkDeleting}
+            className="mr-3 rounded-full border border-rose-400/20 bg-rose-400/10 px-5 py-3 text-sm font-semibold text-rose-100 transition hover:bg-rose-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {bulkDeleting ? "Deleting..." : `Delete Selected (${selectedToolIds.length})`}
+          </button>
+        ) : null}
         <button
           type="button"
           onClick={() => setAddToolOpen(true)}
@@ -159,6 +173,23 @@ const ToolsPage = () => {
         tools={tools}
         totalTools={pagination?.total || tools.length}
         loading={loading}
+        skeletonRowCount={toolsParams.limit}
+        selectedIds={selectedToolIds}
+        onToggleSelectAll={() => {
+          const currentIds = tools.map((tool) => tool._id);
+          const hasUnselected = currentIds.some((id) => !selectedToolIds.includes(id));
+
+          if (hasUnselected) {
+            const merged = Array.from(new Set([...selectedToolIds, ...currentIds]));
+            setSelectedToolIds(merged);
+            return;
+          }
+
+          setSelectedToolIds(selectedToolIds.filter((id) => !currentIds.includes(id)));
+        }}
+        onToggleSelect={(toolId) => {
+          setSelectedToolIds((previous) => (previous.includes(toolId) ? previous.filter((id) => id !== toolId) : [...previous, toolId]));
+        }}
         checkingToolId={checkingToolId}
         onCheckLink={async (tool) => {
           setCheckingToolId(tool._id);
@@ -177,6 +208,50 @@ const ToolsPage = () => {
         onDelete={(tool) => setToolToDelete(tool)}
       />
       <Pagination pagination={pagination} onPageChange={(nextPage) => updateQueryParams({ page: nextPage })} />
+
+      <Dialog
+        open={bulkDeleteDialogOpen}
+        onClose={() => setBulkDeleteDialogOpen(false)}
+        title="Delete selected tools"
+        description={`You are about to delete ${selectedToolIds.length} selected tools. This also removes linked Cloudinary images.`}
+      >
+        <div className="space-y-6">
+          <p className="text-sm text-slate-300">This action cannot be undone.</p>
+          <div className="flex justify-end gap-3">
+            <button
+              type="button"
+              onClick={() => setBulkDeleteDialogOpen(false)}
+              className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={async () => {
+                try {
+                  const response = await deleteToolsBulk(selectedToolIds).unwrap();
+                  setSelectedToolIds([]);
+                  setBulkDeleteDialogOpen(false);
+                  toast.success(response?.deletedCount ? `${response.deletedCount} tools deleted successfully` : "Selected tools deleted successfully");
+                } catch (error) {
+                  toast.error(error?.data?.message || "Unable to delete selected tools");
+                }
+              }}
+              disabled={bulkDeleting}
+              className="inline-flex items-center gap-2 rounded-full bg-rose-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-rose-400 disabled:opacity-60"
+            >
+              {bulkDeleting ? (
+                <>
+                  <Spinner size="sm" />
+                  Deleting...
+                </>
+              ) : (
+                "Delete Selected"
+              )}
+            </button>
+          </div>
+        </div>
+      </Dialog>
 
       <Dialog
         open={addToolOpen}
@@ -204,6 +279,7 @@ const ToolsPage = () => {
 
           try {
             await deleteTool(toolToDelete._id).unwrap();
+            setSelectedToolIds((previous) => previous.filter((id) => id !== toolToDelete._id));
             setToolToDelete(null);
             toast.success("Tool deleted successfully");
           } catch (error) {

@@ -121,6 +121,14 @@ export const adminApi = createApi({
       }),
       invalidatesTags: ["Categories", "Dashboard"],
     }),
+    deleteCategoriesBulk: builder.mutation({
+      query: (ids) => ({
+        url: "/admin/categories",
+        method: "DELETE",
+        body: { ids },
+      }),
+      invalidatesTags: ["Categories", "Dashboard"],
+    }),
     createTool: builder.mutation({
       query: (formData) => ({
         url: "/admin/tools",
@@ -144,6 +152,14 @@ export const adminApi = createApi({
       }),
       invalidatesTags: ["Tools", "Categories", "Dashboard"],
     }),
+    deleteToolsBulk: builder.mutation({
+      query: (ids) => ({
+        url: "/admin/tools",
+        method: "DELETE",
+        body: { ids },
+      }),
+      invalidatesTags: ["Tools", "Categories", "Dashboard"],
+    }),
   }),
 });
 
@@ -163,7 +179,9 @@ export const {
   useCreateCategoryMutation,
   useUpdateCategoryMutation,
   useDeleteCategoryMutation,
+  useDeleteCategoriesBulkMutation,
   useCreateToolMutation,
   useUpdateToolMutation,
   useDeleteToolMutation,
+  useDeleteToolsBulkMutation,
 } = adminApi;

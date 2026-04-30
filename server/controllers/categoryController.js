@@ -115,3 +115,27 @@ export const deleteCategory = asyncHandler(async (req, res) => {
   await category.deleteOne();
   res.json({ message: "Category deleted successfully" });
 });
+
+export const deleteCategoriesBulk = asyncHandler(async (req, res) => {
+  const ids = Array.isArray(req.body?.ids) ? req.body.ids : [];
+  const sanitizedIds = ids.map((id) => String(id || "").trim()).filter(Boolean);
+
+  if (!sanitizedIds.length) {
+    res.status(400);
+    throw new Error("At least one category id is required");
+  }
+
+  const categories = await Category.find({ _id: { $in: sanitizedIds } }).select("_id");
+
+  if (!categories.length) {
+    res.status(404);
+    throw new Error("No categories found for deletion");
+  }
+
+  await Category.deleteMany({ _id: { $in: categories.map((category) => category._id) } });
+
+  res.json({
+    message: "Categories deleted successfully",
+    deletedCount: categories.length,
+  });
+});

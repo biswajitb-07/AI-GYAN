@@ -1,7 +1,5 @@
 import { ExternalLink, RefreshCw, Pencil, Trash2 } from "lucide-react";
 
-const skeletonRows = Array.from({ length: 6 }, (_, index) => index);
-
 const healthToneMap = {
   verified: "border-emerald-400/20 bg-emerald-400/10 text-emerald-100",
   review: "border-amber-400/20 bg-amber-400/10 text-amber-100",
@@ -16,7 +14,22 @@ const healthLabelMap = {
   unchecked: "Unchecked",
 };
 
-const ToolsTable = ({ tools = [], totalTools = 0, loading = false, checkingToolId = "", onCheckLink, onDelete, onEdit }) => {
+const ToolsTable = ({
+  tools = [],
+  totalTools = 0,
+  loading = false,
+  checkingToolId = "",
+  skeletonRowCount = 20,
+  selectedIds = [],
+  onToggleSelectAll,
+  onToggleSelect,
+  onCheckLink,
+  onDelete,
+  onEdit,
+}) => {
+  const skeletonRows = Array.from({ length: skeletonRowCount }, (_, index) => index);
+  const isAllSelected = tools.length > 0 && tools.every((tool) => selectedIds.includes(tool._id));
+
   return (
     <div className="rounded-[1.8rem] border border-white/10 bg-white/5 p-5">
       <div className="mb-5 flex items-center justify-between">
@@ -30,41 +43,47 @@ const ToolsTable = ({ tools = [], totalTools = 0, loading = false, checkingToolI
         <table className="min-w-full text-left text-sm">
           <thead className="text-slate-400">
             <tr>
+              <th className="w-12 pb-3 font-medium">
+                <input type="checkbox" checked={isAllSelected} onChange={() => onToggleSelectAll?.()} className="h-4 w-4 rounded border-white/20 bg-slate-900/70" />
+              </th>
               <th className="pb-3 font-medium">Tool</th>
               <th className="pb-3 font-medium">Category</th>
               <th className="pb-3 font-medium">Pricing</th>
               <th className="pb-3 font-medium">Health</th>
               <th className="pb-3 font-medium">Last checked</th>
-              <th className="pb-3 font-medium">Action</th>
+              <th className="pb-3 pr-2 text-right font-medium">Action</th>
             </tr>
           </thead>
           <tbody>
             {loading
               ? skeletonRows.map((row) => (
                   <tr key={`tool-skeleton-${row}`} className="border-t border-white/10">
+                    <td className="py-4">
+                      <div className="h-4 w-4 animate-pulse rounded bg-white/10" />
+                    </td>
                     <td className="py-3">
                       <div className="flex animate-pulse items-center gap-3">
-                        <div className="h-10 w-10 rounded-xl bg-white/10" />
+                        <div className="h-12 w-12 rounded-xl bg-white/10" />
                         <div className="space-y-2">
                           <div className="h-4 w-28 rounded-full bg-white/10" />
                           <div className="h-3 w-16 rounded-full bg-white/10" />
                         </div>
                       </div>
                     </td>
-                    <td className="py-3">
+                    <td className="py-4">
                       <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
                     </td>
-                    <td className="py-3">
+                    <td className="py-4">
                       <div className="h-4 w-14 animate-pulse rounded-full bg-white/10" />
                     </td>
-                    <td className="py-3">
+                    <td className="py-4">
                       <div className="h-4 w-16 animate-pulse rounded-full bg-white/10" />
                     </td>
-                    <td className="py-3">
+                    <td className="py-4">
                       <div className="h-4 w-24 animate-pulse rounded-full bg-white/10" />
                     </td>
-                    <td className="py-3">
-                      <div className="flex gap-2">
+                    <td className="py-4">
+                      <div className="flex justify-end gap-2">
                         <div className="h-10 w-24 animate-pulse rounded-full bg-white/10" />
                         <div className="h-10 w-20 animate-pulse rounded-full bg-white/10" />
                         <div className="h-10 w-24 animate-pulse rounded-full bg-cyan-400/10" />
@@ -75,6 +94,14 @@ const ToolsTable = ({ tools = [], totalTools = 0, loading = false, checkingToolI
                 ))
               : tools.map((tool) => (
                   <tr key={tool._id} className="border-t border-white/10 text-slate-200">
+                    <td className="py-3">
+                      <input
+                        type="checkbox"
+                        checked={selectedIds.includes(tool._id)}
+                        onChange={() => onToggleSelect?.(tool._id)}
+                        className="h-4 w-4 rounded border-white/20 bg-slate-900/70"
+                      />
+                    </td>
                     <td className="py-3">
                       <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900/80 p-1">
@@ -102,8 +129,8 @@ const ToolsTable = ({ tools = [], totalTools = 0, loading = false, checkingToolI
                           })
                         : "Never"}
                     </td>
-                    <td className="py-3">
-                      <div className="flex flex-wrap items-center gap-2">
+                    <td className="py-3 pr-2">
+                      <div className="flex flex-wrap items-center justify-end gap-2">
                         <button
                           type="button"
                           onClick={() => onCheckLink(tool)}
