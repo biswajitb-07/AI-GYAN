@@ -33,22 +33,20 @@ const Sidebar = ({ sidebarOpen = false, onClose }) => {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="mb-3 flex justify-end xl:hidden">
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close sidebar"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10"
-          >
-            <X size={18} />
-          </button>
-        </div>
         <div className="flex items-center gap-3 rounded-[1.5rem] border border-white/10 bg-white/5 p-4">
           <img src="/logo.png" alt="Ai Gyan" className="h-12 w-12 rounded-2xl object-cover" />
           <div>
             <p className="text-lg font-semibold text-white">Ai Gyan</p>
-            <p className="text-xs uppercase tracking-[0.3em] text-cyan-200">Admin</p>
+            <p className="text-xs uppercase tracking-[0.2em] text-cyan-200">Admin</p>
           </div>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close sidebar"
+            className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 xl:hidden"
+          >
+            <X size={18} />
+          </button>
         </div>
         <nav className="mt-8 space-y-2">
           {items.map(({ to, label, icon: Icon }) => (
