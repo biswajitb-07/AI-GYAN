@@ -96,12 +96,22 @@ const ToolsPage = () => {
         <div className="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_34%),linear-gradient(180deg,rgba(15,23,42,0.88),rgba(2,6,23,0.92))] p-5 shadow-[0_28px_90px_rgba(2,6,23,0.34)] sm:p-7">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/35 to-transparent" />
 
-          <div className="hidden sm:block">
+          <div className="hidden gap-6 lg:grid lg:grid-cols-[1fr_auto] lg:items-end">
             <SectionTitle
               eyebrow="AI directory"
               title={`Search ${toolPagination?.total || 0} curated AI tools with category and pricing filters`}
               description="Find the right tool for writing, design, automation, research, support, education, and more through a clean, scalable discovery layer."
             />
+            <div className="grid grid-cols-1 gap-2 text-right">
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-2">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-slate-400">Total tools</p>
+                <p className="mt-1 text-2xl font-semibold text-white">{toolPagination?.total || 0}</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-2">
+                <p className="text-[11px] uppercase tracking-[0.22em] text-slate-400">Categories</p>
+                <p className="mt-1 text-2xl font-semibold text-white">{categories.length || 0}</p>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-3 sm:hidden">
@@ -152,47 +162,51 @@ const ToolsPage = () => {
           </div>
         </div>
 
-        <FiltersBar
-          search={searchDraft}
-          onSearchChange={setSearchDraft}
-          onSearchSubmit={(value) => updateQueryParams({ search: value, page: 1 })}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={(value) => updateQueryParams({ category: value, page: 1 })}
-          pricing={pricing}
-          setPricing={(value) => updateQueryParams({ pricing: value, page: 1 })}
-          categories={categories}
-          tools={featuredTools}
-          onReset={() => {
-            setSearchDraft("");
-            updateQueryParams({ search: "", category: "", pricing: "", sort: "", featured: "", page: 1 });
-          }}
-        />
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-wrap gap-2">
-            <button
-              type="button"
-              onClick={() => updateQueryParams({ featured: featured === "true" ? "" : "true", page: 1 })}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition ${featured === "true" ? "bg-sky-400 text-slate-950" : "border border-white/10 bg-white/5 text-white hover:bg-white/10"}`}
-            >
-              Featured only
-            </button>
-            {[
-              ["popular", "Most viewed"],
-              ["rating", "Top rated"],
-              ["az", "A-Z"],
-              ["newest", "Newest"],
-            ].map(([value, label]) => (
+        <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.03] p-3 sm:p-4">
+          <FiltersBar
+            search={searchDraft}
+            onSearchChange={setSearchDraft}
+            onSearchSubmit={(value) => updateQueryParams({ search: value, page: 1 })}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={(value) => updateQueryParams({ category: value, page: 1 })}
+            pricing={pricing}
+            setPricing={(value) => updateQueryParams({ pricing: value, page: 1 })}
+            categories={categories}
+            tools={featuredTools}
+            onReset={() => {
+              setSearchDraft("");
+              updateQueryParams({ search: "", category: "", pricing: "", sort: "", featured: "", page: 1 });
+            }}
+          />
+
+          <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+            <div className="flex flex-wrap gap-2">
               <button
-                key={value}
                 type="button"
-                onClick={() => updateQueryParams({ sort: sort === value ? "" : value, page: 1 })}
-                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${sort === value ? "bg-sky-400 text-slate-950" : "border border-white/10 bg-white/5 text-white hover:bg-white/10"}`}
+                onClick={() => updateQueryParams({ featured: featured === "true" ? "" : "true", page: 1 })}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${featured === "true" ? "bg-sky-400 text-slate-950" : "border border-white/10 bg-white/5 text-white hover:bg-white/10"}`}
               >
-                {label}
+                Featured only
               </button>
-            ))}
+              {[
+                ["popular", "Most viewed"],
+                ["rating", "Top rated"],
+                ["az", "A-Z"],
+                ["newest", "Newest"],
+              ].map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => updateQueryParams({ sort: sort === value ? "" : value, page: 1 })}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${sort === value ? "bg-sky-400 text-slate-950" : "border border-white/10 bg-white/5 text-white hover:bg-white/10"}`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
+
         <div className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr]">
           <AdsterraScriptUnit desktopUnit={adsterraConfig.toolsDesktopUnit} mobileUnit={adsterraConfig.toolsMobileUnit} title="Sponsored results" minHeight={96} />
           <AdsterraDirectLinkCard />

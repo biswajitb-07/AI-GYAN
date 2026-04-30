@@ -2,180 +2,174 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://aigyan.online/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aigyan.online/blog</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://aigyan.online/pricing</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/about</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aigyan.online/contact</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://aigyan.online/privacy-policy</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
     <loc>https://aigyan.online/terms</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/productivity</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/categories/writing</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/writing</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/categories/productivity</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/categories/coding</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/audio-voice</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/video-editing</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/design</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/social-media</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/image-generation</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/marketing</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/seo</loc>
-    <lastmod>2026-04-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/categories/chatbots</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/categories/research</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/analytics</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://aigyan.online/categories/video-editing</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/business-crm</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://aigyan.online/categories/audio-voice</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/avatar-video-avatar</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://aigyan.online/categories/design</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/advertising</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://aigyan.online/categories/social-media</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/categories/automation</loc>
-    <lastmod>2026-04-27</lastmod>
+    <loc>https://aigyan.online/categories/image-generation</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/marketing</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/categories/education</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/seo</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/chatbots</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/analytics</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/avatar-video-avatar</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/business-crm</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/advertising</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/categories/automation</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/categories/presentation</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/categories/resume-career</loc>
-    <lastmod>2026-04-27</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/10web</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/6000-thoughts</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -187,20 +181,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ai-credit-repair</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/ai-diary</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ai-dungeon</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/ai-dictation</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -211,20 +199,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/ai-gahaku</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/ai-lawyer</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ai-music-generator</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://aigyan.online/tools/ai-logo-generator</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ai-perfect-assistant</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/ai-music-generator</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -236,13 +230,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/ai-photo-forge</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/ai-poem-generator</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -259,14 +247,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ai-wedding-toast</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/ai-and-machine-learning-roadmaps</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/ai-for-database</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -277,14 +259,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ai-flow</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/ai-or-not</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/ails</loc>
     <lastmod>2026-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/aiml-api</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -296,13 +284,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/aiapply</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/aicallerio</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -320,7 +302,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/aiseo</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -337,26 +319,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ainterviewspace</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/amply-discovery</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/abby</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/accio</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/aws-ec2</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -379,38 +343,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/adobe-firefly</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/adobe-photoshop</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/adobe-podcast</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/adon-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/adzooma</loc>
     <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/afforai</loc>
-    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -421,8 +355,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/agentgpt</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/agentready</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -451,24 +385,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/aibert</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/aicogni</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/aidaptive</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/aidbase</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -481,37 +397,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/aispect</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/aithor</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/akela-hub</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/alice</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/algorithmia-ai-model-deployment</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/alli-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/altindex</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -523,8 +415,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/amazon-bedrock</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/altern</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -547,31 +439,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/amlgo-labs</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/andrew-ngs-machine-learning-at-stanford-university</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/animaker</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/animoto</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/ankidecks-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/antispace</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -583,31 +457,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/architecture-helper</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/archive-intel</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/artbreeder</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/artflow-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/ask-layla</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -625,31 +475,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/athena</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/audify-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/atlan</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/audio-diary</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/auditzap</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/audyo</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/augurisk</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -680,7 +518,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/ayanza</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -691,26 +529,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/backlinkgpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/base64ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/based-ai</loc>
     <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/be-my-chef</loc>
-    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -733,13 +553,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/beautyplus</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/beautifulsoup</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/beebee-ai</loc>
+    <loc>https://aigyan.online/tools/beautyplus</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -757,49 +577,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/beforesunset</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/beloga</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/besty-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/bible-chat</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bigmodel</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/bing-chat</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bioraptor</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bioptimus</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -829,30 +613,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/block-survey</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bloom</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bluedot</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bluewhite</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/boba</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -877,18 +637,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/bottell</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/brainypdf</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/brand24</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -907,14 +655,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/braudit</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/bricklayer-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/breeze-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -932,12 +674,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/browse-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/browsegpt</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -961,18 +697,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/cm3leon-by-meta</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/cxcortex</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/caktus</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -991,32 +715,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/callstackai-pr-reviewer</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/calmo</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/canva</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/canva-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/canva-magic-studio</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1028,7 +734,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/capacity</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1041,6 +747,12 @@
   <url>
     <loc>https://aigyan.online/tools/captions</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/caricature-maker</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1069,14 +781,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/chandu</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/characterai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1093,20 +799,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/chatglm</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/chatgpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/chatgpt-writer</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1135,12 +829,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/chatwithpdf</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/chatbot-ui</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -1148,18 +836,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/chatfuel</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/cheatgpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/chemix</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1177,14 +853,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/civitai</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://aigyan.online/tools/citeme</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/clara</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/civitai</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/claid-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1196,18 +878,12 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/claude-3</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/claude-code</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/clawdbotmoltbot-clawdbot</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1243,25 +919,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/clearword</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/clickup-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/climate-policy-radar</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/clipdrop</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1303,12 +961,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/columbo</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/coschedule</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -1340,7 +992,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/codepalai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1376,24 +1028,12 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/codiumai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/cody</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/cognition-labs</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/cogram</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1417,18 +1057,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/consensus</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/contenda</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/content-at-scale</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -1447,19 +1075,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/contify-news-api</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/conversai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/copilot-for-microsoft-365</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1489,14 +1105,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/corelogic</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/corelight</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/coreweave</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1514,18 +1124,12 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/craiyon</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/creatopy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/crello</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1537,19 +1141,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/cronbot-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/crowdfire</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/culturepulse-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1573,56 +1165,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/dall-e</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/dall-e-3</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/dalle-2</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/dressxme</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/dailybot-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/danelfin</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/daruy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/dashworks</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/datologyai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/datarobot</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1633,8 +1183,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/deep-dream-generator</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/deep-nostalgia</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/deepai</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/deepl-language-translator</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1652,12 +1220,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/deepmotion</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/deepseek-platform</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1681,31 +1243,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/deepnote</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/definely</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/deli</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/descript</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/descript-overdub</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1717,32 +1255,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/dewey</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/dexa-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/diagram</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/dishgen</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/distributional</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/dishroll</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1753,14 +1273,20 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/documind</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/doacam</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/docus</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/domain-generator</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1772,12 +1298,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/dr-muscle</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/drafthorse-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1796,7 +1316,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/dreamstudio</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1821,6 +1341,12 @@
   <url>
     <loc>https://aigyan.online/tools/dupdub</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/durable</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1873,25 +1399,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/elevenlabs</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/elicit</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/emailtriager</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/embra</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -1933,24 +1447,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/exam-samurai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/excelmatic</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/existential</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/expandi</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -1963,37 +1459,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/faqx</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/farsite</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/facecheck-id</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/fairgen</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/figure-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/finchat</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2005,25 +1471,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/find-your-next-book</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/finding-words</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/fineshare</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/fireflies</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2042,7 +1490,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/flexapp</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2077,55 +1525,31 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/fluent</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/focusbuddy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/foodai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/forefront-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/forefront</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/forefront</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/fotor-ai-photo-editor</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/framer-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/free-ai-resume-generator</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/freshchat-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/friend</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2143,38 +1567,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/glm-5</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gpt-for-sheets-and-docs</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gpt-4o-mini</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gptconsole</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gptgo</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gpthelpai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/geoscore</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2192,13 +1586,19 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/gamma</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/gemini</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/generated-photos</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2209,31 +1609,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/gensbot</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gensparkai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/getpaperfast-ai-paper-summary</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/ghostwriter</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gift-ideas-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gift-matchr</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2275,12 +1657,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/gnbly</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/gnomi-app</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -2305,26 +1681,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/godmode</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/google-cloud-vision-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/google-sheets-formula-generator</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/gopher</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/grammarly</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2336,13 +1700,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/grok</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/gummysearch</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2354,7 +1712,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/happy-scribe</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2371,25 +1729,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/headlinesaipro</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/haystack</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/headshot-pro</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/healthsage-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/hebbia</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2401,25 +1747,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/heepsy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/heex-technologies</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/hexabot</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/hey-internet</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2432,12 +1760,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/hints</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/hippocratic-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2461,8 +1783,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/how-to-learn-artificial-intelligence-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/hotpotai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2474,7 +1796,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/human-generator</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2485,19 +1807,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/hunyuan</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/huntr-ai-resume-builder</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/hyperwrite</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/hyperbrowser</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2527,37 +1843,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/imagine-by-magic-studio</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/immersive-translate</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/immunai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/impulse-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/insummary</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/invideo</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2581,25 +1867,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/insight-journal</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/instafillai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/instantly</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/insula</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/intercom-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2617,19 +1891,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/interviews-chat</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/interviews-by-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/intuition-robotics</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/jace</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2653,25 +1921,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/jeremy-howards-fastai-and-data-institute-certificates</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/jua-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/julius-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/juno-research</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2684,18 +1934,12 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/krea</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/kapwing</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/kazimirai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2709,12 +1953,6 @@
   <url>
     <loc>https://aigyan.online/tools/keylaai</loc>
     <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/keywordsearch</loc>
-    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2749,49 +1987,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/kilo-code</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/kimi</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/kimi-api-platform</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/kimi-claw</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/kimi-membership</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/kippy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/kira-systems</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/knowbaseai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/komo-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2827,20 +2029,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/lm-studio</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/laion</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/lancedb</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/lambda-cloud</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2869,12 +2059,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/langotalk</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/lately</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -2887,32 +2071,32 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/latitudeio</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/lavender</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/le-chat</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/learn-agentic-patterns</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/leadzen-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/learn-prompting</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/lemmy</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/learnclash</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/learnly-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2924,7 +2108,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/leonardo-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -2947,18 +2131,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/leya-law</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/lighthearted-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/lightpdf-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -2971,19 +2143,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/listomatic</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/littlecookio</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/llama-2</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -2995,14 +2155,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/logicballs</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://aigyan.online/tools/localepack</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/looksmax-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/logicballs</loc>
+    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3014,18 +2174,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/loopin-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/looq-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/loti</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3044,12 +2192,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/lovo</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/luma-labs</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3079,18 +2221,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/mlcode</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mypeasai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/machined</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -3110,7 +2240,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/magic-eraser</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3139,19 +2269,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/magicmate</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/mailmaestro</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/make-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3169,19 +2287,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/manifold</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/manus</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/manychat</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3193,32 +2299,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/marcus-aurelius-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/marketalertsai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/martin</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mathos-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/maxaime</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/marketmuse</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3241,32 +2323,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/meetedgar</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/melies</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/mem</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/memoryplugin</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mental-models-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3277,25 +2335,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/merlin</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/meta-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/cm3leon-by-meta</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/metabob</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/metaforms</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3307,14 +2353,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/metricool</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/metorial</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/microsoft-azure-neural-tts</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://aigyan.online/tools/metricool</loc>
+    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3331,67 +2377,25 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/microsoft-knowledge-exploration</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/midjourney</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/mindmap-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/mindpal</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/mindgrasp-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mindverse</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mindy</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/mintlify</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/minusx</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/minuteslink</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mobilegpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mobilemonkey</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/mocha</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3403,19 +2407,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/moodfood</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/mondaycom</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/moonbeam</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/motion</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3427,25 +2425,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/multiverse-computing</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/murf</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/music-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/murph-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/mutableai</loc>
+    <loc>https://aigyan.online/tools/music-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3463,31 +2455,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/myreport</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/myriad</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/myst-news</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/nabla-bio</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/nack</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3529,6 +2497,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/neuralink</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/neuronwriter</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -3536,12 +2510,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/never-jobless-linkedin-message-generator</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/nex</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3565,19 +2533,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/notebooklm</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/notion-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/nova-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3601,31 +2557,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/osoai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/obituary-writer</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/ocient</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/ocoya</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/ohaiai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3643,26 +2581,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/openai-api</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/openai-codex</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/openai-downtime-monitor</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/openart</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3685,55 +2605,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/orygo-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/osum</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/otio-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/otter</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/outread</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/pdf-flex</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/pdf-pals</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/pdfai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/pdfgpt</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3757,37 +2629,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/paperbrain</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/paperpal</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/papers-pro</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/paperspace</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/parthean</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/pathfinder</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/patienceai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3817,43 +2665,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/perfectessaywriter</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/perigon</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/perplexity</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/persuva</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/phantombuster</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/phind</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/phlanx</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3878,7 +2702,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/photoroom</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3889,19 +2713,13 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/phrasly-ai</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/phygital</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/pi</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/picogrid</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -3961,14 +2779,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/pixvify-ai</loc>
+    <loc>https://aigyan.online/tools/planoly</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/planoly</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/plantphotoai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -3979,31 +2797,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/playht</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/playform</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/playground-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/plusdocs</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/podifyio</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/poised</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/portia-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4016,12 +2822,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/postwise</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/powder</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4051,8 +2851,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/presto</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/price-per-token</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4075,56 +2875,26 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/profluent-bio</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/promocom</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/promptbase</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/promptinterfaceai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/promptpal</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/promptly</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/proscia</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/prototext</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/publer</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/publicprompts</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4136,12 +2906,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/qoves</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/qonqur</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4178,24 +2942,12 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/quizgecko</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/qurate</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/qureight</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/qwen-chat</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4219,13 +2971,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/rask-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/rasa</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/rebeccai</loc>
+    <loc>https://aigyan.online/tools/rask-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4233,18 +2985,6 @@
   <url>
     <loc>https://aigyan.online/tools/recall</loc>
     <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/recapext</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/recast-studio</loc>
-    <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4267,8 +3007,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/relaythat</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/regexai</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/regieai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4279,20 +3025,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/remini</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/remusic</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/replika</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/replit</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4304,30 +3038,24 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/republiclabsai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/resemble-ai</loc>
-    <lastmod>2026-04-23</lastmod>
+    <loc>https://aigyan.online/tools/repurposeio</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/reshape-biotech</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/rescuetime</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/resignai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/resoomer</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4345,19 +3073,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/responsiv</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/resume-worded</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/resumedive</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4371,6 +3087,12 @@
   <url>
     <loc>https://aigyan.online/tools/revealbot</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/rezi-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4405,25 +3127,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/rizemail</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/roamaround</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/riversidefm</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/room-reinvented</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/rose-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4435,20 +3145,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/run</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/rundiffusion</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/runcell</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4466,12 +3170,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/ruru</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/rysa-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4537,24 +3235,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/scale-spellbook</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/scenario</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/scholarcy</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/schoolai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -4585,13 +3265,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/seance-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/scribe-ai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/sebastian-thruns-introduction-to-machine-learning</loc>
+    <loc>https://aigyan.online/tools/seance-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4609,12 +3289,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/selfgazer</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/semrush-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -4627,32 +3301,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/sermongpt</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/serplux</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/seventh-sense</loc>
     <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/shako</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/sharegpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/shield-ai</loc>
-    <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4664,24 +3320,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/shortmake</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/shortvideogen</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/shotstack-workflows</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/shownotes</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4700,13 +3338,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/sider</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/signapse</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4729,18 +3361,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/sisif</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/sitegpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/sitespeakai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -4748,12 +3368,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/sitekick-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/sixty</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4772,12 +3386,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/skoot</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/slated</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4814,7 +3422,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/snovio</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4831,8 +3439,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/socialpilot</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/socialbu</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4844,13 +3452,19 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/socratic</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/sona</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/songs-like-x</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4885,19 +3499,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/spatial-touch</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/speechify</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/speechwrite</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -4939,32 +3541,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/stable-beluga</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/stable-beluga-2</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/stable-diffusion</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/stable-diffusion-models</loc>
-    <lastmod>2026-04-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/stable-horde</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -4981,31 +3565,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/stellar</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/stellaris-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/stenography</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/steve-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/stockphotoainet</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5017,26 +3577,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/stratupai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/streaming-options</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/studyx</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/studyable</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/storyroute</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5053,25 +3595,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/suit-me-up</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/summarytubecom</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/suno</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/superagent</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/supermemory</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5084,7 +3614,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/sybill</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5096,12 +3626,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/synthesia</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/tldr-this</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5186,18 +3710,12 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/teal</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/teamsmart-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/telborg</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5209,14 +3727,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/tencent-hy-hunyuan-docs</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/tenorshare-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/tensorflow</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5239,20 +3751,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/text2sql</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/thinkforce</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/this-image-does-not-exist</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/this-person-does-not-exist</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5287,12 +3793,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/timetics</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/tinywow</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -5305,8 +3805,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/together-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/todoist</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5341,12 +3841,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/travel-plan-ai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/travelnaut</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -5359,19 +3853,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/trendspider</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/trint</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/trollyai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5390,19 +3872,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/turboscribe</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/turnitin</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/tutorai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5421,6 +3891,12 @@
   <url>
     <loc>https://aigyan.online/tools/twin</loc>
     <lastmod>2026-04-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/typeface</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5455,14 +3931,20 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/unsolomindcom</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/unifire-ai</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/unlearnai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/unitree-robotics-go1</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5492,13 +3974,7 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/uppbeat</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/usertesting-ai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5527,8 +4003,14 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/vastai</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/vectorartai</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5539,19 +4021,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/venturekit</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/vetted</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/viableview</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5576,12 +4046,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/vista-social</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/vistacreate</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5617,20 +4081,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/wtf-does-this-company-do</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/waitroom</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/waldium</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://aigyan.online/tools/wanderboat</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5653,12 +4111,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/web-search-tool</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/wellsaid</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -5666,18 +4118,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/wellpin</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/whatdo</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/whisper-api</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5707,6 +4147,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://aigyan.online/tools/witai-developer-nlp-tool</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/wolfram-alpha</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://aigyan.online/tools/wombo-dream</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://aigyan.online/tools/wonder-studio</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -5720,12 +4178,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/wordly</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/wordware</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5761,12 +4213,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/yobi</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/yomu</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
@@ -5779,8 +4225,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/you-got-cooking</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/youcom</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5803,19 +4249,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/zipzap</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/zipwp</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/zivy</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5827,31 +4261,19 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/zoom-ai-companion</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/zoom-iq</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/aipdf</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/cohere</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/aimatchpro</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/deepseek-chat</loc>
+    <loc>https://aigyan.online/tools/cohere</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -5863,20 +4285,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/editgpt</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/ezjobs</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/fynk</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/fathomvideo</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5887,26 +4297,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/goheather</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/hoopsai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/iaskai</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/icoloring</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5929,26 +4321,14 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/kimi-k2-0905-preview</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/kimi-k25</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://aigyan.online/tools/klingai</loc>
     <lastmod>2026-04-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://aigyan.online/tools/moonshot-v1</loc>
-    <lastmod>2026-04-29</lastmod>
+    <loc>https://aigyan.online/tools/levityai</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -5966,24 +4346,6 @@
   </url>
   <url>
     <loc>https://aigyan.online/tools/newwebsite</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/qwen-max</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/r1-by-rabbit</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://aigyan.online/tools/timeos</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
