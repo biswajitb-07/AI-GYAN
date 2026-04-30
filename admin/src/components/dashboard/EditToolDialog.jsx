@@ -6,6 +6,7 @@ const EditToolDialog = ({ open, tool, categories, onClose, onUpdated }) => {
     <Dialog
       open={open}
       onClose={onClose}
+      closeIconOnly
       title="Edit tool"
       description="Update text fields, pricing, category, or replace the image. Existing image stays if you only edit text."
     >

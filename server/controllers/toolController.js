@@ -224,7 +224,25 @@ export const updateTool = asyncHandler(async (req, res) => {
     ]);
   }
 
-  const tool = await Tool.findByIdAndUpdate(req.params.id, payload, { new: true, runValidators: true });
+  const verificationStatuses = new Set(["unchecked", "verified", "review", "broken"]);
+  const manualStatus = String(req.body.verificationStatus || "").trim();
+  const shouldApplyManualStatus = verificationStatuses.has(manualStatus);
+  const manualIssue = clampString(req.body.lastCheckIssue || "", 200);
+
+  const updatePayload = {
+    ...payload,
+  };
+
+  if (shouldApplyManualStatus) {
+    updatePayload.verificationStatus = manualStatus;
+    updatePayload.lastCheckedAt = new Date();
+    updatePayload.lastCheckIssue = manualIssue;
+    if (manualStatus === "verified" && !manualIssue) {
+      updatePayload.lastCheckIssue = "";
+    }
+  }
+
+  const tool = await Tool.findByIdAndUpdate(req.params.id, updatePayload, { new: true, runValidators: true });
   res.json({ data: tool });
 });
 

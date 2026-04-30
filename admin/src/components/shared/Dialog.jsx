@@ -1,4 +1,6 @@
-const Dialog = ({ open, title, description, children, onClose }) => {
+import { X } from "lucide-react";
+
+const Dialog = ({ open, title, description, children, onClose, closeIconOnly = false }) => {
   if (!open) {
     return null;
   }
@@ -14,9 +16,13 @@ const Dialog = ({ open, title, description, children, onClose }) => {
           <button
             type="button"
             onClick={onClose}
-            className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white transition hover:bg-white/10"
+            aria-label="Close dialog"
+            title="Close"
+            className={`rounded-full border border-white/10 bg-white/5 text-white transition hover:bg-white/10 ${
+              closeIconOnly ? "inline-flex h-10 w-10 items-center justify-center" : "px-4 py-2 text-sm"
+            }`}
           >
-            Close
+            {closeIconOnly ? <X size={16} /> : "Close"}
           </button>
         </div>
         <div className="max-h-[80vh] overflow-y-auto p-6">{children}</div>

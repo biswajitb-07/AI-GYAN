@@ -13,7 +13,7 @@ const Topbar = ({ onMenuToggle }) => {
   const toast = useToast();
 
   return (
-    <header className="sticky top-0 z-40 flex flex-col gap-4 border-b border-white/10 bg-slate-950/80 px-6 py-5 backdrop-blur xl:flex-row xl:items-center xl:justify-between">
+    <header className="sticky top-0 z-40 flex flex-col gap-4 border-b border-white/10 bg-slate-950/80 px-4 py-4 backdrop-blur sm:px-6 sm:py-5 xl:flex-row xl:items-center xl:justify-between">
       <div className="flex items-start gap-3">
         <button
           type="button"
@@ -24,12 +24,12 @@ const Topbar = ({ onMenuToggle }) => {
           <Menu size={18} />
         </button>
         <div>
-          <p className="text-sm uppercase tracking-[0.28em] text-cyan-200">Ai Gyan Control Center</p>
-          <h1 className="text-2xl font-semibold text-white">Manage tools, categories, and discovery analytics</h1>
+          <p className="text-xs uppercase tracking-[0.2em] text-cyan-200 sm:text-sm sm:tracking-[0.28em]">Ai Gyan Control Center</p>
+          <h1 className="text-xl font-semibold leading-tight text-white sm:text-2xl">Manage tools, categories, and discovery analytics</h1>
         </div>
       </div>
-      <div className="flex flex-wrap items-center gap-3">
-        <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200">{admin?.email}</div>
+      <div className="hidden xl:flex xl:flex-wrap xl:items-center xl:gap-3">
+        <div className="truncate rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-200">{admin?.email}</div>
         <button
           type="button"
           onClick={async () => {
@@ -46,7 +46,7 @@ const Topbar = ({ onMenuToggle }) => {
             }
           }}
           disabled={newsSyncing}
-          className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-70"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-100 transition hover:bg-cyan-400/20 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
         >
           {newsSyncing ? <LoaderCircle size={16} className="animate-spin" /> : <RefreshCw size={16} />}
           {newsSyncing ? "Syncing news..." : "Sync AI News"}

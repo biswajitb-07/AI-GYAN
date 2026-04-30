@@ -1,16 +1,14 @@
 import { Category } from "../models/Category.js";
-import { PageView } from "../models/PageView.js";
 import { SearchQuery } from "../models/SearchQuery.js";
 import { Tool } from "../models/Tool.js";
 import { asyncHandler } from "../utils/asyncHandler.js";
 
 export const getDashboardStats = asyncHandler(async (req, res) => {
-  const [totalTools, totalCategories, featuredTools, totalVisitors, pricingBreakdown, categoryBreakdown, recentTools, topSearches, noResultSearches] =
+  const [totalTools, totalCategories, featuredTools, pricingBreakdown, categoryBreakdown, recentTools, topSearches, noResultSearches] =
     await Promise.all([
       Tool.countDocuments(),
       Category.countDocuments(),
       Tool.countDocuments({ featured: true }),
-      PageView.distinct("sessionId").then((sessions) => sessions.filter(Boolean).length),
       Tool.aggregate([{ $group: { _id: "$pricing", count: { $sum: 1 } } }]),
       Tool.aggregate([
         { $group: { _id: "$category", count: { $sum: 1 } } },
@@ -28,7 +26,6 @@ export const getDashboardStats = asyncHandler(async (req, res) => {
         totalTools,
         totalCategories,
         featuredTools,
-        totalVisitors,
       },
       pricingBreakdown,
       categoryBreakdown,

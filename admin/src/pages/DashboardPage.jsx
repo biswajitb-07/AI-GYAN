@@ -17,11 +17,10 @@ const DashboardPage = () => {
 
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         <StatCard label="Total tools" value={overview.totalTools} tone="sky" />
         <StatCard label="Categories" value={overview.totalCategories} tone="emerald" />
         <StatCard label="Featured tools" value={overview.featuredTools} tone="violet" />
-        <StatCard label="Total visitors" value={overview.totalVisitors.toLocaleString()} tone="amber" />
       </div>
       <div className="grid gap-6 xl:grid-cols-2">
         <PricingPieChart data={pricingBreakdown} />

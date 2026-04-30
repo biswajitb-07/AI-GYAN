@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { Check } from "lucide-react";
 import { useCreateToolMutation, useUpdateToolMutation } from "../../store/adminApi";
 import Spinner from "../shared/Spinner";
 import { useToast } from "../shared/ToastProvider";
@@ -12,6 +13,8 @@ const initialState = {
   websiteUrl: "",
   tags: "",
   featured: false,
+  verificationStatus: "unchecked",
+  lastCheckIssue: "",
 };
 
 const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = null, submitLabel }) => {
@@ -40,6 +43,8 @@ const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = n
       websiteUrl: initialData.websiteUrl || "",
       tags: Array.isArray(initialData.tags) ? initialData.tags.join(", ") : initialData.tags || "",
       featured: Boolean(initialData.featured),
+      verificationStatus: initialData.verificationStatus || "unchecked",
+      lastCheckIssue: initialData.lastCheckIssue || "",
     });
     setFile(null);
   }, [initialData]);
@@ -96,15 +101,16 @@ const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = n
         <button
           type="submit"
           disabled={submitting}
-          className="inline-flex items-center gap-2 rounded-full bg-cyan-400 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-60"
+          aria-label={mode === "edit" ? "Save changes" : "Save tool"}
+          title={mode === "edit" ? "Save changes" : "Save tool"}
+          className={`inline-flex items-center gap-2 rounded-full bg-cyan-400 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:opacity-60 ${
+            mode === "edit" ? "h-11 w-11 justify-center p-0" : "px-5 py-2.5"
+          }`}
         >
           {submitting ? (
-            <>
-              <Spinner size="sm" />
-              Saving...
-            </>
+            <Spinner size="sm" />
           ) : (
-            submitLabel || (mode === "edit" ? "Update Tool" : "Save Tool")
+            mode === "edit" ? <Check size={18} /> : submitLabel || "Save Tool"
           )}
         </button>
       </div>
@@ -125,7 +131,25 @@ const ToolForm = ({ categories = [], onCreated, mode = "create", initialData = n
             </option>
           ))}
         </select>
+        {mode === "edit" ? (
+          <select name="verificationStatus" value={form.verificationStatus} onChange={handleChange} className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none">
+            {["unchecked", "verified", "review", "broken"].map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        ) : null}
         <input name="websiteUrl" value={form.websiteUrl} onChange={handleChange} placeholder="https://example.com" className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none" required />
+        {mode === "edit" ? (
+          <input
+            name="lastCheckIssue"
+            value={form.lastCheckIssue}
+            onChange={handleChange}
+            placeholder="Manual health note (optional)"
+            className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none"
+          />
+        ) : null}
         <input name="tags" value={form.tags} onChange={handleChange} placeholder="ai, automation, creator" className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none md:col-span-2" />
         <textarea name="description" value={form.description} onChange={handleChange} placeholder="Short description" rows="3" className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none md:col-span-2" required />
         <textarea name="longDescription" value={form.longDescription} onChange={handleChange} placeholder="Detailed description" rows="4" className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-white outline-none md:col-span-2" />
