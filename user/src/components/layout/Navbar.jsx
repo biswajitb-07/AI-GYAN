@@ -151,9 +151,7 @@ const Navbar = () => {
   useEffect(() => {
     const handlePointerDown = (event) => {
       if (!shellRef.current?.contains(event.target)) {
-        closeMobileMenu();
         setSearchOpen(false);
-        closeMobileSearch();
       }
     };
 
@@ -276,8 +274,8 @@ const Navbar = () => {
           <div className="flex items-center gap-2 xl:hidden">
             <button
               type="button"
-              onPointerDown={(event) => {
-                event.preventDefault();
+              onClick={(event) => {
+                event.stopPropagation();
                 openMobileSearch();
               }}
               className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10"
@@ -287,8 +285,8 @@ const Navbar = () => {
             </button>
             <button
               type="button"
-              onPointerDown={(event) => {
-                event.preventDefault();
+              onClick={(event) => {
+                event.stopPropagation();
                 if (mobileMenuOpen) {
                   closeMobileMenu();
                   return;
@@ -371,6 +369,7 @@ const Navbar = () => {
             />
 
             <aside
+              onClick={(event) => event.stopPropagation()}
               className={`fixed inset-y-0 right-0 z-[80] flex h-dvh w-[92vw] max-w-[25rem] transform-gpu flex-col border-l border-white/10 bg-slate-950 p-4 shadow-[-8px_0_24px_rgba(2,6,23,0.25)] transition-transform duration-[520ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform [contain:layout_paint_style] xl:hidden motion-reduce:transition-none ${
                 mobileSearchOpen ? "translate-x-0" : "translate-x-full"
               }`}
@@ -433,6 +432,7 @@ const Navbar = () => {
             />
 
             <div
+              onClick={(event) => event.stopPropagation()}
               className={`fixed inset-y-0 left-0 z-[80] flex h-dvh w-[88vw] max-w-[22rem] transform-gpu flex-col border-r border-white/10 bg-slate-950 p-4 shadow-[8px_0_24px_rgba(2,6,23,0.25)] transition-transform duration-[520ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform [contain:layout_paint_style] xl:hidden motion-reduce:transition-none ${
                 mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
               }`}
