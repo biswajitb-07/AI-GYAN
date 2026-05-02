@@ -7,12 +7,7 @@ import SeoMeta from "../components/shared/SeoMeta";
 import { Link } from "react-router-dom";
 
 const BlogPage = () => {
-  const { data: articles = [], isLoading, isFetching } = useGetLatestNewsQuery(undefined, {
-    pollingInterval: 60000,
-    refetchOnFocus: true,
-    refetchOnReconnect: true,
-    refetchOnMountOrArgChange: true,
-  });
+  const { data: articles = [], isLoading, isFetching } = useGetLatestNewsQuery();
   const loading = isLoading || isFetching;
 
   return (

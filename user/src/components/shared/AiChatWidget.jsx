@@ -126,9 +126,9 @@ const AiChatWidget = () => {
                           {tool.image?.url ? <img src={tool.image.url} alt={tool.name} className="h-full w-full object-contain" /> : null}
                         </div>
                         <div className="min-w-0 flex-1">
-                          <div className="flex items-center gap-2">
+                          <div className="flex min-w-0 items-center gap-2">
                             <p className="truncate text-sm font-semibold text-white">{tool.name}</p>
-                            <span className="rounded-full border border-sky-400/20 bg-sky-400/10 px-2 py-0.5 text-[10px] text-sky-100">
+                            <span className="shrink-0 whitespace-nowrap rounded-full border border-sky-400/20 bg-sky-400/10 px-2.5 py-1 text-[10px] font-medium leading-none text-sky-100">
                               {tool.pricing}
                             </span>
                           </div>

@@ -10,9 +10,11 @@ const links = [
   { to: "/pricing", label: "Pricing" },
 ];
 
-const SearchSuggestionPanel = ({ query, loading, tools, categories, onToolSelect, onCategorySelect, onViewAll }) => {
+const MOBILE_DRAWER_DURATION = 520;
+
+const SearchSuggestionPanel = ({ query, loading, tools, categories, onToolSelect, onCategorySelect, onViewAll, inline = false }) => {
   if (!query.trim()) {
-    return (
+    return inline ? null : (
       <div className="absolute left-0 right-0 top-[calc(100%+0.55rem)] z-[90] rounded-2xl border border-white/10 bg-slate-950/95 p-4 text-sm text-slate-400 shadow-[0_24px_70px_rgba(2,6,23,0.45)] backdrop-blur-xl">
         Type a tool, category, or use case to search.
       </div>
@@ -20,7 +22,7 @@ const SearchSuggestionPanel = ({ query, loading, tools, categories, onToolSelect
   }
 
   return (
-    <div className="absolute left-0 right-0 top-[calc(100%+0.55rem)] z-[90] overflow-hidden rounded-2xl border border-white/10 bg-slate-950/95 text-white shadow-[0_24px_70px_rgba(2,6,23,0.45)] backdrop-blur-xl">
+    <div className={`${inline ? "mt-4" : "absolute left-0 right-0 top-[calc(100%+0.55rem)] z-[90]"} overflow-hidden rounded-2xl border border-white/10 bg-slate-950/95 text-white shadow-[0_18px_44px_rgba(2,6,23,0.32)]`}>
       <button type="button" onClick={onViewAll} className="flex w-full items-center justify-between gap-3 border-b border-white/10 px-4 py-3 text-left transition hover:bg-white/5">
         <span className="text-sm">
           Search all results for <span className="font-semibold text-sky-200">"{query}"</span>
@@ -96,18 +98,62 @@ const Navbar = () => {
   const navigate = useNavigate();
   const shellRef = useRef(null);
   const searchInputRef = useRef(null);
+  const searchCloseTimerRef = useRef(null);
+  const menuCloseTimerRef = useRef(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileMenuMounted, setMobileMenuMounted] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const [mobileSearchMounted, setMobileSearchMounted] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState({ tools: [], categories: [], loading: false });
   const [triggerCategories] = useLazyGetCategoriesQuery();
   const [triggerTools] = useLazyGetToolsQuery();
 
+  const closeMobileSearch = () => {
+    setMobileSearchOpen(false);
+    window.clearTimeout(searchCloseTimerRef.current);
+    searchCloseTimerRef.current = window.setTimeout(() => {
+      setMobileSearchMounted(false);
+    }, MOBILE_DRAWER_DURATION);
+  };
+
+  const openMobileSearch = () => {
+    setMobileMenuOpen(false);
+    setMobileMenuMounted(false);
+    setSearchOpen(false);
+    setSearchQuery("");
+    window.clearTimeout(searchCloseTimerRef.current);
+    setMobileSearchMounted(true);
+    window.requestAnimationFrame(() => {
+      setMobileSearchOpen(true);
+    });
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    window.clearTimeout(menuCloseTimerRef.current);
+    menuCloseTimerRef.current = window.setTimeout(() => {
+      setMobileMenuMounted(false);
+    }, MOBILE_DRAWER_DURATION);
+  };
+
+  const openMobileMenu = () => {
+    setMobileSearchOpen(false);
+    setMobileSearchMounted(false);
+    window.clearTimeout(menuCloseTimerRef.current);
+    setMobileMenuMounted(true);
+    window.requestAnimationFrame(() => {
+      setMobileMenuOpen(true);
+    });
+  };
+
   useEffect(() => {
     const handlePointerDown = (event) => {
       if (!shellRef.current?.contains(event.target)) {
-        setMobileMenuOpen(false);
+        closeMobileMenu();
         setSearchOpen(false);
+        closeMobileSearch();
       }
     };
 
@@ -120,19 +166,33 @@ const Navbar = () => {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setMobileMenuMounted(false);
     setSearchOpen(false);
+    setMobileSearchOpen(false);
+    setMobileSearchMounted(false);
   }, [location.pathname, location.search]);
 
   useEffect(() => {
+    return () => {
+      window.clearTimeout(searchCloseTimerRef.current);
+      window.clearTimeout(menuCloseTimerRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
     if (searchOpen) {
-      searchInputRef.current?.focus();
+      const frameId = window.requestAnimationFrame(() => {
+        searchInputRef.current?.focus();
+      });
+
+      return () => window.cancelAnimationFrame(frameId);
     }
   }, [searchOpen]);
 
   useEffect(() => {
     const query = searchQuery.trim();
 
-    if (!searchOpen || query.length < 2) {
+    if ((!searchOpen && !mobileSearchOpen) || query.length < 2) {
       setSuggestions({ tools: [], categories: [], loading: false });
       return undefined;
     }
@@ -143,8 +203,8 @@ const Navbar = () => {
     const timeout = window.setTimeout(async () => {
       try {
         const [categoriesResponse, toolsResponse] = await Promise.all([
-          triggerCategories({ search: query, limit: 6 }).unwrap(),
-          triggerTools({ search: query, limit: 8 }).unwrap(),
+          triggerCategories({ search: query, limit: 6 }, true).unwrap(),
+          triggerTools({ search: query, limit: 8 }, true).unwrap(),
         ]);
 
         if (!isCancelled) {
@@ -165,13 +225,13 @@ const Navbar = () => {
       isCancelled = true;
       window.clearTimeout(timeout);
     };
-  }, [searchOpen, searchQuery, triggerCategories, triggerTools]);
+  }, [mobileSearchOpen, searchOpen, searchQuery, triggerCategories, triggerTools]);
 
   const submitSearch = (event) => {
     event?.preventDefault();
     const query = searchQuery.trim();
 
-    if (!searchOpen && event?.type !== "submit") {
+    if (!searchOpen && !mobileSearchOpen && event?.type !== "submit") {
       setSearchOpen(true);
       return;
     }
@@ -184,22 +244,25 @@ const Navbar = () => {
     navigate(`/search?query=${encodeURIComponent(query)}`);
     setSearchQuery("");
     setSearchOpen(false);
+    setMobileSearchOpen(false);
   };
 
   const openTool = (tool) => {
     navigate(`/tools/${tool.slug}`);
     setSearchQuery("");
     setSearchOpen(false);
+    closeMobileSearch();
   };
 
   const openCategory = (category) => {
     navigate(`/categories/${category.slug}`);
     setSearchQuery("");
     setSearchOpen(false);
+    closeMobileSearch();
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/75 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/95 xl:bg-slate-950/75 xl:backdrop-blur-xl">
       <div ref={shellRef} className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6 lg:px-8 xl:flex-row xl:items-center xl:justify-between">
         <div className="flex items-center justify-between gap-4">
           <Link to="/" className="flex min-w-0 items-center gap-3">
@@ -213,9 +276,9 @@ const Navbar = () => {
           <div className="flex items-center gap-2 xl:hidden">
             <button
               type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setSearchOpen(true);
+              onPointerDown={(event) => {
+                event.preventDefault();
+                openMobileSearch();
               }}
               className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10"
               aria-label="Open search"
@@ -224,8 +287,14 @@ const Navbar = () => {
             </button>
             <button
               type="button"
-              onClick={() => {
-                setMobileMenuOpen((current) => !current);
+              onPointerDown={(event) => {
+                event.preventDefault();
+                if (mobileMenuOpen) {
+                  closeMobileMenu();
+                  return;
+                }
+
+                openMobileMenu();
               }}
               className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10"
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -292,18 +361,20 @@ const Navbar = () => {
           </form>
         </div>
 
-        <div
-          className={`fixed inset-0 z-[70] bg-slate-950/70 backdrop-blur-sm transition duration-300 xl:hidden ${
-            searchOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
-          }`}
-          onClick={() => setSearchOpen(false)}
-        />
+        {mobileSearchMounted ? (
+          <>
+            <div
+              className={`fixed inset-0 z-[70] bg-slate-950/55 transition-opacity duration-[420ms] ease-out xl:hidden ${
+                mobileSearchOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+              }`}
+              onClick={closeMobileSearch}
+            />
 
-        <aside
-          className={`fixed inset-y-0 right-0 z-[80] flex h-dvh w-[92vw] max-w-[25rem] flex-col border-l border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.98),rgba(15,23,42,0.96))] p-4 shadow-[0_24px_70px_rgba(15,23,42,0.45)] backdrop-blur-xl transition duration-300 xl:hidden ${
-            searchOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
+            <aside
+              className={`fixed inset-y-0 right-0 z-[80] flex h-dvh w-[92vw] max-w-[25rem] transform-gpu flex-col border-l border-white/10 bg-slate-950 p-4 shadow-[-8px_0_24px_rgba(2,6,23,0.25)] transition-transform duration-[520ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform [contain:layout_paint_style] xl:hidden motion-reduce:transition-none ${
+                mobileSearchOpen ? "translate-x-0" : "translate-x-full"
+              }`}
+            >
           <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-sky-200">Search</p>
@@ -311,7 +382,7 @@ const Navbar = () => {
             </div>
             <button
               type="button"
-              onClick={() => setSearchOpen(false)}
+              onClick={closeMobileSearch}
               className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10"
               aria-label="Close search"
             >
@@ -326,7 +397,7 @@ const Navbar = () => {
                 ref={searchInputRef}
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
-                onFocus={() => setSearchOpen(true)}
+                onFocus={() => setMobileSearchOpen(true)}
                 placeholder="Search tools, categories..."
                 className="min-w-0 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-slate-500"
               />
@@ -334,29 +405,38 @@ const Navbar = () => {
                 <ArrowRight size={17} />
               </button>
             </div>
-            <SearchSuggestionPanel
-              query={searchQuery}
-              loading={suggestions.loading}
-              tools={suggestions.tools}
-              categories={suggestions.categories}
-              onToolSelect={openTool}
-              onCategorySelect={openCategory}
-              onViewAll={submitSearch}
-            />
+            {mobileSearchOpen ? (
+              <SearchSuggestionPanel
+                query={searchQuery}
+                loading={suggestions.loading}
+                tools={suggestions.tools}
+                categories={suggestions.categories}
+                onToolSelect={openTool}
+                onCategorySelect={openCategory}
+                onViewAll={submitSearch}
+              />
+            ) : null}
           </form>
 
           <div className="mt-auto rounded-2xl border border-white/10 bg-white/[0.04] p-4 text-sm leading-6 text-slate-400">
             Search by tool name, category, or task. Results open directly like an ecommerce product search.
           </div>
-        </aside>
+            </aside>
+          </>
+        ) : null}
 
-        <div className={`fixed inset-0 z-[70] bg-slate-950/70 backdrop-blur-sm transition duration-300 xl:hidden ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`} />
+        {mobileMenuMounted ? (
+          <>
+            <div
+              className={`fixed inset-0 z-[70] bg-slate-950/55 transition-opacity duration-[420ms] ease-out xl:hidden ${mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"}`}
+              onClick={closeMobileMenu}
+            />
 
-        <div
-          className={`fixed inset-y-0 left-0 z-[80] flex h-dvh w-[88vw] max-w-[22rem] flex-col border-r border-white/10 bg-[linear-gradient(180deg,rgba(2,6,23,0.98),rgba(15,23,42,0.96))] p-4 shadow-[0_24px_70px_rgba(15,23,42,0.45)] backdrop-blur-xl transition duration-300 xl:hidden ${
-            mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
-        >
+            <div
+              className={`fixed inset-y-0 left-0 z-[80] flex h-dvh w-[88vw] max-w-[22rem] transform-gpu flex-col border-r border-white/10 bg-slate-950 p-4 shadow-[8px_0_24px_rgba(2,6,23,0.25)] transition-transform duration-[520ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform [contain:layout_paint_style] xl:hidden motion-reduce:transition-none ${
+                mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+              }`}
+            >
           <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-sky-200">Navigation</p>
@@ -364,7 +444,7 @@ const Navbar = () => {
             </div>
             <button
               type="button"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeMobileMenu}
               className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-slate-200 transition hover:bg-white/10"
               aria-label="Close menu"
             >
@@ -389,7 +469,9 @@ const Navbar = () => {
               ))}
             </nav>
           </div>
-        </div>
+            </div>
+          </>
+        ) : null}
       </div>
     </header>
   );

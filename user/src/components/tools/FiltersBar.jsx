@@ -87,8 +87,8 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
     const timeout = window.setTimeout(async () => {
       try {
         const [categoriesResponse, toolsResponse] = await Promise.all([
-          triggerCategories({ search, limit: 8 }).unwrap(),
-          triggerTools({ search, limit: 8 }).unwrap(),
+          triggerCategories({ search, limit: 8 }, true).unwrap(),
+          triggerTools({ search, limit: 8 }, true).unwrap(),
         ]);
 
         if (!isCancelled) {

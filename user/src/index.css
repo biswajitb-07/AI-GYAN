@@ -10,6 +10,17 @@
   --font-sans: "Sora", "Segoe UI", sans-serif;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #020817;
+}
+
+html {
+  overscroll-behavior-y: none;
+}
+
 body {
   min-height: 100vh;
   background:
@@ -17,6 +28,7 @@ body {
     radial-gradient(circle at top right, rgba(35, 197, 94, 0.12), transparent 24%),
     linear-gradient(180deg, #020817 0%, #050b18 45%, #08111f 100%);
   color: #e2e8f0;
+  overflow-x: hidden;
 }
 
 #nprogress .bar {

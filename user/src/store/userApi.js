@@ -5,6 +5,9 @@ export const userApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_BASE_URL,
   }),
+  keepUnusedDataFor: 300,
+  refetchOnFocus: false,
+  refetchOnReconnect: false,
   tagTypes: ["Tools", "Categories", "Dashboard", "Tool", "News"],
   endpoints: (builder) => ({
     getFeaturedTools: builder.query({
