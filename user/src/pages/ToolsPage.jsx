@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import AdsterraDirectLinkCard from "../components/ads/AdsterraDirectLinkCard";
 import AdsterraScriptUnit from "../components/ads/AdsterraScriptUnit";
@@ -158,6 +159,17 @@ const ToolsPage = () => {
                   {chip.label}
                 </button>
               ))}
+            </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <Link to="/blog" className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">
+                Read latest AI news
+              </Link>
+              <Link to="/contact" className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">
+                Suggest a missing tool
+              </Link>
+              <Link to="/about" className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">
+                About the directory
+              </Link>
             </div>
           </div>
         </div>

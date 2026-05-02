@@ -4,6 +4,7 @@ import NewsCard from "../components/news/NewsCard";
 import NewsCardSkeleton from "../components/news/NewsCardSkeleton";
 import { useGetLatestNewsQuery } from "../store/userApi";
 import SeoMeta from "../components/shared/SeoMeta";
+import { Link } from "react-router-dom";
 
 const BlogPage = () => {
   const { data: articles = [], isLoading, isFetching } = useGetLatestNewsQuery(undefined, {
@@ -29,6 +30,23 @@ const BlogPage = () => {
             title="Today's latest AI news in a clean format"
             description="Each refresh cycle keeps only the latest five AI stories. With one admin click, the previous batch is replaced with a newly curated set."
           />
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-400">Editorial lens</p>
+              <p className="mt-2 text-sm leading-6 text-slate-200">A small, refreshed batch keeps the feed focused and easier to scan.</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-400">Best next step</p>
+              <p className="mt-2 text-sm leading-6 text-slate-200">Pair news reading with the live tools directory to move from trend to execution.</p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <p className="text-xs uppercase tracking-[0.22em] text-slate-400">Explore more</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                <Link to="/tools" className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">AI tools</Link>
+                <Link to="/contact" className="rounded-full border border-white/10 bg-slate-950/70 px-3 py-1.5 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">Contact</Link>
+              </div>
+            </div>
+          </div>
         </div>
 
         {loading ? (

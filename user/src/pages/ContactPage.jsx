@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import SeoMeta from "../components/shared/SeoMeta";
 import { useSubmitFeedbackMutation } from "../store/userApi";
 
@@ -51,6 +52,22 @@ const ContactPage = () => {
             We generally respond to important requests as quickly as possible. For compliance, privacy, or correction-related messages, please
             include the exact page URL and enough detail for us to verify the issue.
           </p>
+        </div>
+
+        <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_0.9fr]">
+          <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Before you contact us</p>
+            <h2 className="mt-2 text-xl font-semibold text-white">Useful pages that answer common questions</h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link to="/tools" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">Browse AI tools</Link>
+              <Link to="/blog" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">Latest AI news</Link>
+              <Link to="/privacy-policy" className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold text-white transition hover:border-sky-400/30 hover:bg-white/10">Privacy policy</Link>
+            </div>
+          </div>
+          <div className="rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">Best message format</p>
+            <p className="mt-3 text-sm leading-7 text-slate-300">For faster help, mention the exact page, the issue, what you expected to happen, and any tool or category involved.</p>
+          </div>
         </div>
 
         <div className="mt-8 rounded-[1.5rem] border border-white/10 bg-slate-950/60 p-5 sm:p-6">
