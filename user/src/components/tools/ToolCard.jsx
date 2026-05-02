@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArrowUpRight, BadgeCheck, Clock3 } from "lucide-react";
 
 const pricingStyles = {
   Free: "bg-emerald-400/15 text-emerald-200 border-emerald-400/20",
@@ -32,56 +33,66 @@ const formatLastChecked = (value) => {
 };
 
 const ToolCard = ({ tool }) => {
+  const status = tool.verificationStatus || "unchecked";
+  const tags = Array.isArray(tool.tags) ? tool.tags.slice(0, 2) : [];
+
   return (
-    <article className="group flex h-full flex-col rounded-xl border border-white/10 bg-white/[0.045] p-4 shadow-xl shadow-slate-950/20 transition duration-300 hover:border-sky-400/30 hover:bg-white/[0.07] sm:rounded-2xl sm:hover:-translate-y-1">
-      <div className="flex items-start gap-4">
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-slate-950/70 p-4">
+    <article className="group relative flex h-full overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(145deg,rgba(15,23,42,0.92),rgba(8,13,28,0.96))] p-4 shadow-[0_18px_55px_rgba(2,6,23,0.28)] transition duration-300 hover:-translate-y-1 hover:border-sky-400/35 hover:shadow-[0_22px_70px_rgba(14,165,233,0.14)]">
+      <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/35 to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
+      <div className="flex w-full items-start gap-4">
+        <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] p-3 shadow-inner shadow-black/20 sm:h-28 sm:w-28">
+          <span className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(56,189,248,0.12),transparent_48%)]" />
           <img
-            src={tool.image.url}
+            src={tool.image?.url}
             alt={tool.name}
-            className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+            className="relative h-full w-full object-contain transition duration-500 group-hover:scale-105"
             loading="lazy"
           />
         </div>
-        <div className="min-w-0 flex-1">
-          <div className="flex items-start justify-between gap-3">
-            <div className="min-w-0">
-              <div className="flex items-center gap-2">
-                <h3 className="truncate text-xl font-semibold text-white">{tool.name}</h3>
-                {tool.featured ? (
-                  <span className="rounded-full bg-violet-500/90 px-2.5 py-1 text-[10px] font-semibold text-white">
-                    Sponsor
-                  </span>
-                ) : null}
-              </div>
-              <p className="mt-1 line-clamp-3 text-sm leading-6 text-slate-300">{tool.description}</p>
+
+        <div className="flex min-w-0 flex-1 flex-col self-stretch">
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="min-w-0 truncate text-xl font-semibold tracking-tight text-white">{tool.name}</h3>
+              {tool.featured ? (
+                <span className="rounded-full border border-violet-300/25 bg-violet-400/15 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-violet-100">
+                  Sponsor
+                </span>
+              ) : null}
             </div>
+            <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-300">{tool.description}</p>
           </div>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] font-medium text-slate-200">
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-[11px] font-semibold text-slate-100">
               {tool.category}
             </span>
-            <span className={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${pricingStyles[tool.pricing]}`}>
+            <span className={`rounded-full border px-3 py-1.5 text-[11px] font-semibold ${pricingStyles[tool.pricing] || pricingStyles.Free}`}>
               {tool.pricing}
             </span>
-            <span className={`rounded-full border px-2.5 py-1 text-[11px] font-medium ${verificationStyles[tool.verificationStatus || "unchecked"]}`}>
-              {verificationLabels[tool.verificationStatus || "unchecked"]}
+            <span className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold ${verificationStyles[status]}`}>
+              <BadgeCheck size={13} />
+              {verificationLabels[status]}
             </span>
           </div>
-          <p className="mt-2 text-[11px] text-slate-400">{formatLastChecked(tool.lastCheckedAt)}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {tool.tags.slice(0, 2).map((tag) => (
-              <span key={tag} className="text-xs text-slate-400">
-                #{tag}
-              </span>
+
+          <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs text-slate-400">
+            <span className="inline-flex items-center gap-1.5">
+              <Clock3 size={13} />
+              {formatLastChecked(tool.lastCheckedAt)}
+            </span>
+            {tags.map((tag) => (
+              <span key={tag}>#{tag}</span>
             ))}
           </div>
-          <div className="mt-4">
+
+          <div className="mt-auto pt-5">
             <Link
               to={`/tools/${tool.slug}`}
-              className="inline-flex items-center rounded-full bg-sky-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-300"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-sky-400 px-4 py-2.5 text-sm font-bold text-slate-950 shadow-lg shadow-sky-950/20 transition hover:bg-sky-300"
             >
               View Tool
+              <ArrowUpRight size={16} />
             </Link>
           </div>
         </div>

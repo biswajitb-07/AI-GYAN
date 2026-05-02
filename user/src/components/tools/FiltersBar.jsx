@@ -271,13 +271,13 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
   const showNoResults = hasQuery && !suggestionState.loading && !matchingCategories.length && !matchingTools.length;
 
   return (
-    <div className="relative overflow-visible rounded-[1.55rem] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.025))] p-2 shadow-[0_18px_48px_rgba(2,6,23,0.3)] backdrop-blur-xl sm:rounded-[1.9rem] sm:p-3">
-      <div className="absolute inset-x-10 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/20 to-transparent" />
+    <div className="relative overflow-visible rounded-2xl border border-white/10 bg-[linear-gradient(145deg,rgba(15,23,42,0.78),rgba(2,6,23,0.92))] p-3 shadow-[0_24px_80px_rgba(2,6,23,0.28)] backdrop-blur-xl sm:p-4">
+      <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-sky-200/30 to-transparent" />
 
       <div ref={shellRef} className="relative">
-        <div className="rounded-[1.3rem] border border-white/8 bg-white/[0.03] p-2 shadow-lg shadow-black/10 backdrop-blur sm:rounded-[1.55rem]">
+        <div className="rounded-2xl border border-white/10 bg-white/[0.045] p-2 shadow-lg shadow-black/10 backdrop-blur">
           <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-            <label className="flex min-w-0 flex-1 items-center gap-3 rounded-[1.1rem] border border-white/8 bg-slate-950/70 px-3.5 py-3 text-white sm:rounded-[1.25rem] sm:px-4">
+            <label className="flex min-w-0 flex-1 items-center gap-3 rounded-xl border border-white/10 bg-slate-950/75 px-3.5 py-3 text-white sm:px-4">
               <Search size={18} className="shrink-0 text-sky-200" />
               <input
                 ref={searchInputRef}
@@ -345,7 +345,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
             <button
               type="button"
               onClick={() => submitSearch()}
-              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-[1.05rem] bg-sky-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-sky-300 sm:min-w-[136px] sm:w-auto sm:rounded-[1.15rem]"
+              className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-xl bg-sky-400 px-5 py-3 text-sm font-bold text-slate-950 transition hover:bg-sky-300 sm:min-w-[136px] sm:w-auto"
             >
               Search
               <ArrowRight size={16} />
@@ -575,8 +575,8 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
         ) : null}
       </div>
 
-      <div className="mt-3 flex flex-col gap-2.5 lg:mt-3 lg:flex-row lg:flex-wrap lg:items-center">
-        <label className="flex min-w-0 items-center gap-3 rounded-full border border-white/10 bg-slate-950/55 px-4 py-2.5 text-sm text-slate-200 transition hover:bg-white/[0.06] lg:min-w-[320px]">
+      <div className="mt-3 grid gap-2.5 md:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)_auto] md:items-center">
+        <label className="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/[0.06]">
           <SlidersHorizontal size={16} className="text-sky-300" />
           <select
             value={selectedCategory}
@@ -592,7 +592,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
           </select>
         </label>
 
-        <label className="flex min-w-0 items-center gap-3 rounded-full border border-white/10 bg-slate-950/55 px-4 py-2.5 text-sm text-slate-200 transition hover:bg-white/[0.06] lg:min-w-[280px]">
+        <label className="flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-slate-950/55 px-4 py-3 text-sm text-slate-200 transition hover:bg-white/[0.06]">
           <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
           <select
             value={pricing}
@@ -614,7 +614,7 @@ const FiltersBar = ({ search, onSearchChange, onSearchSubmit, selectedCategory, 
             setIsOpen(false);
             setActiveIndex(-1);
           }}
-          className="inline-flex items-center justify-center rounded-full px-1 py-2 text-sm font-semibold text-slate-300 transition hover:text-white lg:px-3"
+          className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/10 hover:text-white"
         >
           Reset Filters
         </button>
