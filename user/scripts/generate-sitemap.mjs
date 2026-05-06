@@ -59,12 +59,35 @@ const fetchJson = async (url) => {
 };
 
 const getApiBaseUrl = async () => {
-  if (process.env.VITE_API_BASE_URL) {
-    return process.env.VITE_API_BASE_URL.replace(/\/+$/, "");
+  const localEnv = await readLocalEnv();
+  const candidates = [
+    process.env.VITE_API_BASE_URL,
+    localEnv.VITE_API_BASE_URL,
+    process.env.API_BASE_URL,
+    `${baseSiteUrl}/api`,
+    "http://localhost:5000/api",
+  ]
+    .filter(Boolean)
+    .map((value) => String(value).replace(/\/+$/, ""));
+
+  for (const candidate of [...new Set(candidates)]) {
+    try {
+      const response = await fetch(`${candidate}/health`, {
+        headers: {
+          accept: "application/json",
+          "user-agent": "AI-Gyan-Sitemap/1.0",
+        },
+      });
+
+      if (response.ok) {
+        return candidate;
+      }
+    } catch {
+      // Try the next candidate.
+    }
   }
 
-  const localEnv = await readLocalEnv();
-  return String(localEnv.VITE_API_BASE_URL || "http://localhost:5000/api").replace(/\/+$/, "");
+  return null;
 };
 
 const getPaginatedCollection = async (apiBaseUrl, endpoint) => {
@@ -82,10 +105,21 @@ const getPaginatedCollection = async (apiBaseUrl, endpoint) => {
 
 const buildSitemap = async () => {
   const apiBaseUrl = await getApiBaseUrl();
-  const [tools, categories] = await Promise.all([
-    getPaginatedCollection(apiBaseUrl, "/tools?sort=az"),
-    fetchJson(`${apiBaseUrl}/categories?limit=200`).then((response) => response?.data || []),
-  ]);
+  let tools = [];
+  let categories = [];
+
+  if (apiBaseUrl) {
+    try {
+      [tools, categories] = await Promise.all([
+        getPaginatedCollection(apiBaseUrl, "/tools?sort=az"),
+        fetchJson(`${apiBaseUrl}/categories?limit=200`).then((response) => response?.data || []),
+      ]);
+    } catch (error) {
+      console.warn(`Could not fetch dynamic sitemap data from ${apiBaseUrl}. Falling back to static pages only.`, error.message);
+    }
+  } else {
+    console.warn("Could not reach any API endpoint. Falling back to static pages only.");
+  }
 
   const staticPages = [
     { loc: `${baseSiteUrl}/`, changefreq: "daily", priority: "1.0" },

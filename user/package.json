@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite --port 5173",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "build": "npm run generate:sitemap && vite build",
+    "generate:prerender": "node scripts/generate-prerender.mjs",
+    "build": "npm run generate:sitemap && vite build && npm run generate:prerender",
     "preview": "vite preview --port 4173"
   },
   "dependencies": {
